@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
 
           {/* Hero Image - optimiert für Mobile */}
           <div className="relative w-full">
-            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] rounded overflow-hidden border border-gray-200">
+            <div className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[500px] xl:h-[600px] rounded overflow-hidden border border-gray-200">
               <Image
                 src="https://picsum.photos/seed/circus-hero/1200/800"
                 alt="Circus Akademie München - Artistinnen und Artisten bei einer Aufführung"
