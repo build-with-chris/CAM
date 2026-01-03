@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     images: ["/placeholders/og.svg"],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/CAMLogonegativ.svg",
+    shortcut: "/CAMLogonegativ.svg",
+    apple: "/CAMLogonegativ.svg",
   },
 };
 

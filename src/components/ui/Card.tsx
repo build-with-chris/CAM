@@ -11,11 +11,11 @@ export const Card: React.FC<CardProps> = ({
   className = '',
   hover = false
 }) => {
-  const hoverStyles = hover ? 'hover:border-gray-300' : '';
+  const hoverStyles = hover ? 'hover:shadow-lg hover:-translate-y-1 transition-all duration-200' : '';
 
   return (
     <div
-      className={`bg-white border border-gray-200 rounded-lg p-8 transition-colors duration-200 ${hoverStyles} ${className}`}
+      className={`bg-white border border-gray-200 rounded-lg p-8 ${hoverStyles} ${className}`}
     >
       {children}
     </div>

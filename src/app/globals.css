@@ -20,6 +20,12 @@
     @apply outline-none ring-2 ring-primary-500 ring-offset-2;
   }
 
+  /* Skip-to-content Link */
+  .skip-link {
+    @apply absolute -top-full left-0 z-[100] bg-primary-700 text-white px-6 py-3 font-medium;
+    @apply focus:top-0 transition-all;
+  }
+
   /* Smooth scrolling for anchor links */
   @media (prefers-reduced-motion: no-preference) {
     html {

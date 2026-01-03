@@ -2,10 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { site } from '@/content/site';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,14 +20,27 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigation = [
-    { name: 'Über uns', href: '#ueber-uns' },
-    { name: 'Programme', href: '#programme' },
-    { name: 'Ort', href: '#ort' },
-    { name: 'Mitmachen', href: '#mitmachen' },
-    { name: 'Aktuelles', href: '#aktuelles' },
-    { name: 'Kontakt', href: '#kontakt' },
-  ];
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  const navigation = site.navigation;
 
   return (
     <header
@@ -35,22 +52,39 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg">
-            <div className="text-2xl md:text-3xl font-bold text-primary-800">
+            <div className="relative h-10 w-10 md:h-12 md:w-12 flex-shrink-0">
+              <Image
+                src="/Logo CAM ausgeschnitten.png"
+                alt="Circus Akademie München Logo"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 40px, 48px"
+              />
+            </div>
+            <div className="text-xl md:text-2xl font-bold text-primary-800 hidden sm:block">
               Circus Akademie München
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-primary-700 font-medium transition-colors duration-200 rounded-lg hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navigation.map((item) => {
+              const isActive = pathname === item.href || (item.href === '/' && pathname === '/');
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`px-4 py-2 font-medium transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                    isActive
+                      ? 'text-primary-900 bg-primary-50'
+                      : 'text-gray-700 hover:text-primary-700 hover:bg-primary-50'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -80,17 +114,29 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 space-y-1">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              >
-                {item.name}
-              </a>
-            ))}
+          <div 
+            className="lg:hidden mt-4 pb-4 space-y-1"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Hauptnavigation"
+          >
+            {navigation.map((item) => {
+              const isActive = pathname === item.href || (item.href === '/' && pathname === '/');
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                    isActive
+                      ? 'text-primary-900 bg-primary-50'
+                      : 'text-gray-700 hover:text-primary-700 hover:bg-primary-50'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         )}
       </nav>

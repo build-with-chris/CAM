@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  <path d="M100 100 L700 100 L700 500 L100 500 Z" stroke="#dee2e6" stroke-width="2" fill="none"/>
+  <circle cx="400" cy="300" r="8" fill="#495057"/>
+  <path d="M400 300 L450 250 M400 300 L350 250" stroke="#495057" stroke-width="2"/>
+  <text x="400" y="330" text-anchor="middle" fill="#6c757d" font-family="system-ui" font-size="12">Karte</text>
+</svg>
+

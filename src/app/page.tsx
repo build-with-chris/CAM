@@ -1,24 +1,21 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
-import { About } from '@/components/sections/About';
-import { Programs } from '@/components/sections/Programs';
-import { Location } from '@/components/sections/Location';
-import { JoinUs } from '@/components/sections/JoinUs';
-import { News } from '@/components/sections/News';
-import { Contact } from '@/components/sections/Contact';
+import { Intro } from '@/components/sections/Intro';
+import { SupportBanner } from '@/components/sections/SupportBanner';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Zum Hauptinhalt springen
+      </a>
       <Header />
-      <Hero />
-      <About />
-      <Programs />
-      <Location />
-      <JoinUs />
-      <News />
-      <Contact />
+      <div id="main-content">
+        <Hero />
+        <Intro />
+        <SupportBanner />
+      </div>
       <Footer />
     </main>
   );

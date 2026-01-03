@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { site } from '@/content/site';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,9 +10,20 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Circus Akademie München e.V.</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="relative h-12 w-12 flex-shrink-0">
+                <Image
+                  src="/CAM Logo negativ.png"
+                  alt="Circus Akademie München Logo"
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+              <h3 className="text-xl font-bold">{site.verein.name}</h3>
+            </div>
             <p className="text-primary-100 leading-relaxed">
-              Ein Ort für Zirkuskunst, Kreativität und Gemeinschaft im Herzen Münchens.
+              {site.verein.kurzbeschreibung}
             </p>
           </div>
 
@@ -18,31 +31,16 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#ueber-uns" className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline">
-                  Über uns
-                </a>
-              </li>
-              <li>
-                <a href="#programme" className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline">
-                  Programme
-                </a>
-              </li>
-              <li>
-                <a href="#ort" className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline">
-                  Ort
-                </a>
-              </li>
-              <li>
-                <a href="#mitmachen" className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline">
-                  Mitmachen
-                </a>
-              </li>
-              <li>
-                <a href="#kontakt" className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline">
-                  Kontakt
-                </a>
-              </li>
+              {site.navigation.map((item) => (
+                <li key={item.label}>
+                  <Link 
+                    href={item.href} 
+                    className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -61,8 +59,16 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-primary-700 text-center text-primary-200 text-sm">
-          <p>&copy; {new Date().getFullYear()} Circus Akademie München e.V. Alle Rechte vorbehalten.</p>
+        <div className="mt-12 pt-8 border-t border-primary-700 flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-200 text-sm">
+          <p>&copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.</p>
+          <div className="flex gap-6">
+            <Link href="/impressum" className="hover:text-white transition-colors focus:outline-none focus:underline">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="hover:text-white transition-colors focus:outline-none focus:underline">
+              Datenschutz
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
