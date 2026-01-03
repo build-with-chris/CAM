@@ -9,7 +9,7 @@ interface Angebot {
   title: string;
   teaser: string;
   details: string;
-  bullets: string[];
+  bullets: readonly string[];
   image: string;
   volltext?: string;
   cta?: string;
