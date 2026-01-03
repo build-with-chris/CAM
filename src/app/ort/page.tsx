@@ -65,6 +65,30 @@ export default function OrtPage() {
               />
             </div>
           </div>
+
+          {/* Förderer */}
+          <div className="mt-16 pt-12 border-t border-gray-200">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-normal text-primary-900 mb-3">
+                Unsere Förderer
+              </h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Diese Institutionen fördern den Pepe Dome bereits mit Platz, Material und spezifischen Töpfen. 
+                Wir danken für die wertvolle Unterstützung!
+              </p>
+            </div>
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="relative w-full h-48 md:h-64 lg:h-80">
+                <Image
+                  src="/Förderung Logo.jpg"
+                  alt="Fördernde Institutionen des Pepe Dome"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 896px"
+                />
+              </div>
+            </div>
+          </div>
         </Section>
       </div>
       <Footer />

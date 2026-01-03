@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { Section, SectionHeader } from '../ui/Section';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { newsItems as allNewsItems } from '@/content/site';
+import { site } from '@/content/site';
 import { formatDate } from '@/lib/formatDate';
 
 export const News: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
 
-  const sortedNews = [...allNewsItems].sort((a, b) => {
+  const sortedNews = [...site.aktuelles].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
@@ -29,9 +29,6 @@ export const News: React.FC = () => {
           <Card key={index}>
             <CardHeader>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-wider text-gray-500">
-                  {item.category}
-                </span>
                 <time className="text-xs text-gray-400" dateTime={item.date}>
                   {formatDate(item.date)}
                 </time>
@@ -39,7 +36,7 @@ export const News: React.FC = () => {
               <CardTitle className="text-lg">{item.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 leading-relaxed">{item.excerpt}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
             </CardContent>
           </Card>
         ))}
