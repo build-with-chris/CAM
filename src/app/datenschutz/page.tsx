@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { site } from '@/content/site';
+
+export const metadata: Metadata = {
+  title: 'Datenschutz | Circus Akademie München e.V.',
+  description: 'Datenschutzerklärung des Circus Akademie München e.V.',
+};
 
 export default function DatenschutzPage() {
   return (

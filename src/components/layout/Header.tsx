@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { site } from '@/content/site';
+import { Button } from '../ui/Button';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,6 +86,11 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
+            <Link href="/unterstuetzen/spenden" className="ml-4">
+              <Button variant="primary" size="md">
+                Spenden
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -137,6 +143,15 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
+            <Link 
+              href="/unterstuetzen/spenden" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block mt-4"
+            >
+              <Button variant="primary" size="md" className="w-full">
+                Spenden
+              </Button>
+            </Link>
           </div>
         )}
       </nav>

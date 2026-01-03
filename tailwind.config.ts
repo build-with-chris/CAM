@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Legacy colors (behalten für Kompatibilität)
         primary: {
           50: '#fafafa',
           100: '#f5f5f5',
@@ -33,9 +34,22 @@ const config: Config = {
           800: '#991b1b',
           900: '#7f1d1d',
         },
+        // Neue Theme-Farben (Option C)
+        base: {
+          bg: '#0F172A',
+          surface: '#111827',
+          text: '#F8FAFC',
+          muted: '#94A3B8',
+        },
+        brand: {
+          primary: '#F59E0B',
+          accent: '#F43F5E',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        display: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui'],
+        sans: ['var(--font-manrope)', 'ui-sans-serif', 'system-ui'],
+        mono: ['var(--font-ibm-plex-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

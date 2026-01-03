@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { site } from '@/content/site';
+
+export const metadata: Metadata = {
+  title: 'Impressum | Circus Akademie München e.V.',
+  description: 'Impressum und rechtliche Informationen des Circus Akademie München e.V.',
+};
 
 export default function ImpressumPage() {
   return (

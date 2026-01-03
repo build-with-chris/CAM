@@ -27,17 +27,156 @@ export const site = {
     },
   },
   hero: {
-    headline: "Zeitgenössischer Zirkus braucht Raum.",
-    subline: "Wir schaffen in München Struktur für Training, Austausch und Bühne – damit Ideen nicht in der Luft hängen, sondern fliegen lernen.",
+    headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
+    subline: "Die Zirkus Akademie München ist ein gemeinnütziger Verein für zeitgenössischen Zirkus – mit festem Zuhause im Geodome München.",
+    bedarf: "Damit Kunst möglich bleibt, brauchen wir 2026 rund 100.000–110.000 € über Spenden und Sponsoring.",
     cta1: {
-      text: "Mitmachen",
-      href: "/mitmachen",
+      text: "Jetzt spenden",
+      href: "/unterstuetzen/spenden",
     },
     cta2: {
-      text: "Kontakt",
-      href: "/kontakt",
+      text: "Sponsoring anfragen",
+      href: "/unterstuetzen/sponsoring",
     },
     hinweis: "Ort 2025: Pepe Dome (Geodom am Ostpark)",
+  },
+  home: {
+    zielgruppen: [
+      {
+        title: "Privat spenden",
+        text: "Mach Kunst möglich – auch kleine Beiträge halten den Dome am Leuchten.",
+        link: "/unterstuetzen/spenden",
+      },
+      {
+        title: "Unternehmen",
+        text: "Sichtbar fördern: Kultur, die in München Wirkung zeigt – mit fairen Sponsoring-Paketen.",
+        link: "/unterstuetzen/sponsoring",
+      },
+      {
+        title: "Kommune / Förderung",
+        text: "Zeitgenössischer Zirkus als Kultur- und Begegnungsraum – wir zeigen Nutzen, Plan und Zahlen.",
+        link: "/foerderung",
+      },
+    ],
+    warumWir: [
+      "Gemeinnützig: Förderung von zeitgenössischem Zirkus",
+      "Fester Veranstaltungsort: Geodome in München",
+      "Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen",
+      "Transparent: klarer Finanzplan für 2026",
+    ],
+    storytelling: {
+      ueberschrift: "Unter der Kuppel passiert was.",
+      text: "Im Geodome wird aus 'Ich trau mich nicht' ein 'Schau mal!'. Zeitgenössischer Zirkus verbindet Körper, Musik, Theater und Mut – und bringt Menschen zusammen, die sich sonst nie begegnet wären. Wir schaffen Raum für Training, Experimente und Aufführungen. Damit dieser Ort bleibt, brauchen wir Unterstützung.",
+    },
+    finanzziel: {
+      karten: [
+        {
+          title: "Laufender Betrieb",
+          betrag: "25.900 €",
+          beschreibung: "Versicherung + Heizung",
+        },
+        {
+          title: "Investitionen",
+          betrag: "66.000 €",
+          beschreibung: "Licht, Ton, Bauantrag, Lichtweg",
+        },
+        {
+          title: "1–2 Minijobs",
+          betrag: "8.580–17.160 €",
+          beschreibung: "",
+        },
+      ],
+      gesamt: "100.000–110.000 €",
+    },
+    abschlussCta: {
+      ueberschrift: "Mach den Dome möglich.",
+      cta1: {
+        text: "Jetzt spenden",
+        href: "/unterstuetzen/spenden",
+      },
+      cta2: {
+        text: "Partner werden",
+        href: "/unterstuetzen/sponsoring",
+      },
+    },
+  },
+  spenden: {
+    hero: {
+      headline: "Spenden, die Zirkus möglich machen.",
+      lead: "Wir sind gemeinnützig und bauen im Geodome München einen festen Ort für zeitgenössischen Zirkus auf. Deine Spende hilft, Betrieb, Technik und Infrastruktur 2026 zu sichern.",
+      cta: {
+        text: "Jetzt spenden",
+        href: "#spenden-optionen",
+      },
+    },
+    unterstuetzung: {
+      titel: "Wofür wir 2026 Unterstützung brauchen",
+      items: [
+        "Laufender Betrieb: 25.900 € (Versicherung + Heizung)",
+        "Investitionen: 66.000 € (Licht, Ton, Bauantrag, Lichtweg)",
+        "1–2 Minijobs: 8.580–17.160 €",
+        "Zielsumme 2026: 100.000–110.000 €",
+      ],
+    },
+    donationTiers: [
+      {
+        betrag: "25 €",
+        wirkung: "Material für Training & Workshops (z.B. Bälle, Tape, Kleinteile)",
+      },
+      {
+        betrag: "50 €",
+        wirkung: "Ein Anteil an Proben- und Workshop-Betrieb im Geodome",
+      },
+      {
+        betrag: "150 €",
+        wirkung: "Ein konkreter Beitrag zu Technik & Sicherheit (Licht/Ton, Infrastruktur)",
+      },
+      {
+        betrag: "500 €",
+        wirkung: "Ein spürbarer Baustein für unsere 2026-Investitionen (Licht/Ton/Ausstattung)",
+      },
+      {
+        betrag: "1.000 €",
+        wirkung: "Du stabilisierst den laufenden Betrieb (Versicherung/Heizung) mit einem echten Schritt",
+      },
+      {
+        betrag: "2.500 €",
+        wirkung: "Du hilfst, Arbeitsstunden (Minijob) für Organisation & Durchführung abzusichern",
+      },
+    ],
+    hinweis: "Jeder Betrag hilft – wir setzen Spenden dort ein, wo sie aktuell am dringendsten gebraucht werden.",
+    trust: {
+      text: "Als gemeinnütziger Verein verwenden wir Spenden satzungsgemäß für die Förderung von zeitgenössischem Zirkus. Auf Wunsch stellen wir eine Spendenbescheinigung aus.",
+    },
+    faq: [
+      {
+        question: "Wofür wird meine Spende verwendet?",
+        answer: "Für Betrieb (Versicherung/Heizung), Investitionen (Licht, Ton, Bauantrag, Lichtweg) und personelle Unterstützung, damit Programm und Organisation zuverlässig laufen.",
+      },
+      {
+        question: "Kann ich regelmäßig spenden?",
+        answer: "Ja – regelmäßige Spenden helfen uns besonders bei der Planung. (Platzhalter: Kontakt oder späteres Formular/Widget)",
+      },
+      {
+        question: "Ist meine Spende steuerlich absetzbar?",
+        answer: "In der Regel ja, da wir gemeinnützig sind. Details klären wir gern individuell.",
+      },
+      {
+        question: "Ich möchte zweckgebunden spenden – geht das?",
+        answer: "Schreib uns kurz, wofür du spenden möchtest (z.B. Licht/Ton). Wenn es zu unserer Satzung passt, berücksichtigen wir das.",
+      },
+    ],
+    abschluss: {
+      ueberschrift: "Gemeinsam halten wir den Dome am Leuchten.",
+      cta1: {
+        text: "Jetzt spenden",
+        href: "#spenden-optionen",
+      },
+      cta2: {
+        text: "Fragen? Kontakt",
+        href: "/kontakt",
+      },
+    },
   },
   zweck: {
     kicker: "Wofür wir stehen",
@@ -272,11 +411,145 @@ export const site = {
   },
   navigation: [
     { label: "Start", href: "/" },
-    { label: "Zweck & Werte", href: "/zweck" },
-    { label: "Angebote", href: "/angebote" },
-    { label: "Ort", href: "/ort" },
-    { label: "Aktuelles", href: "/aktuelles" },
-    { label: "Mitmachen", href: "/mitmachen" },
+    { label: "Über uns", href: "/ueber-uns" },
+    { label: "Programm", href: "/programm" },
+    { label: "Unterstützen", href: "/unterstuetzen" },
+    { label: "Förderung", href: "/foerderung" },
     { label: "Kontakt", href: "/kontakt" },
   ],
+  footer: {
+    trustLine: "Gemeinnütziger Verein zur Förderung von zeitgenössischem Zirkus im Geodome München.",
+  },
+  sponsoring: {
+    hero: {
+      headline: "Sponsoring, das wirkt – und sichtbar ist.",
+      lead: "Unterstützen Sie einen festen Kulturort für zeitgenössischen Zirkus im Geodome München. Gemeinsam ermöglichen wir Programm, Infrastruktur und faire Organisation.",
+      cta1: {
+        text: "Sponsoring anfragen",
+        href: "#kontakt",
+      },
+      cta2: {
+        text: "Projekt & Zahlen",
+        href: "/foerderung",
+      },
+    },
+    warum: [
+      "Lokale Sichtbarkeit in München – am festen Veranstaltungsort Geodome",
+      "Kulturförderung mit gesellschaftlichem Mehrwert: Menschen verbinden, neue Formate ermöglichen",
+      "Glaubwürdig & transparent: Finanzplan 2026 (100.000–110.000 € Bedarf)",
+    ],
+    pakete: [
+      {
+        name: "Bronze",
+        betrag: "ab 2.500 €/Jahr",
+        inhalt: [
+          "Logo auf Website (Unterstützer-Bereich)",
+          "Erwähnung in ausgewählten Social Posts",
+          "2 Freikarten pro Veranstaltung (nach Verfügbarkeit)",
+        ],
+      },
+      {
+        name: "Silber",
+        betrag: "ab 7.500 €/Jahr",
+        inhalt: [
+          "Alles aus Bronze",
+          "Logo vor Ort im Geodome (je nach Format)",
+          "Erwähnung bei Veranstaltungen (Moderation/Programmheft, wenn vorhanden)",
+          "6 Freikarten pro Veranstaltung (nach Verfügbarkeit)",
+        ],
+      },
+      {
+        name: "Gold",
+        betrag: "ab 15.000 €/Jahr",
+        inhalt: [
+          "Alles aus Silber",
+          "Co-Branding eines Formats (z.B. Workshop-Tag / Show-Abend)",
+          "Exklusiver Team-Workshop (Zirkus/Bewegung als Teamevent)",
+          "10 Freikarten pro Veranstaltung (nach Verfügbarkeit)",
+        ],
+      },
+    ],
+    paketeHinweis: "Sie möchten gezielt Licht/Ton, Bauantrag oder Betrieb fördern? Wir schnüren gern ein passendes Paket.",
+    unterstuetzer: {
+      ueberschrift: "Unterstützer & Partner",
+      text: "Hier zeigen wir Unternehmen und Institutionen, die den Geodome möglich machen. (Platzhalter – wird ergänzt.)",
+    },
+    kontakt: {
+      text: "Kurze Nachricht reicht – wir melden uns mit einem konkreten Vorschlag.",
+      success: "Danke! Wir melden uns kurzfristig.",
+    },
+  },
+  foerderung: {
+    hero: {
+      headline: "Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München.",
+      lead: "Wir sind ein gemeinnütziger Verein mit festem Veranstaltungsort (Geodome). Unser Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen.",
+      cta: {
+        text: "Gespräch vereinbaren",
+        href: "#kontakt",
+      },
+    },
+    mehrwert: [
+      "Kulturelle Teilhabe: niedrigschwelliger Zugang zu zeitgenössischer Kunst",
+      "Nachwuchs & Talentförderung: Trainings-, Proben- und Auftrittsmöglichkeiten",
+      "Stadtgesellschaft & Begegnung: Formate, die Menschen zusammenbringen",
+      "Kulturelle Innovation: neue Kunstformate jenseits klassischer Bühnen",
+      "Standortfaktor München: ein sichtbarer, fester Kulturort im Geodome",
+    ],
+    finanzplan: {
+      ueberschrift: "Finanzbedarf 2026: 100.000–110.000 €",
+      items: [
+        {
+          kategorie: "Laufender Betrieb",
+          betrag: "25.900 €",
+          beschreibung: "Versicherung + Heizung",
+        },
+        {
+          kategorie: "Einmalige Investitionen",
+          betrag: "66.000 €",
+          beschreibung: "Licht, Ton, Bauantrag, Lichtweg",
+        },
+        {
+          kategorie: "1–2 Minijobs",
+          betrag: "8.580–17.160 €",
+          beschreibung: "",
+        },
+      ],
+      zusatztext: "Wir möchten diese Summe möglichst über Spenden, Sponsoring und Förderung decken, um den Betrieb und das Programm verlässlich zu sichern.",
+    },
+    einsatz: [
+      {
+        kategorie: "Betrieb",
+        beschreibung: "Sichere Grundversorgung des Ortes (Versicherung/Heizung)",
+      },
+      {
+        kategorie: "Investitionen",
+        beschreibung: "Technische und bauliche Voraussetzungen für öffentliche Kulturveranstaltungen",
+      },
+      {
+        kategorie: "Minijobs",
+        beschreibung: "Koordination, Sicherheit, Kommunikation – damit Programm planbar wird",
+      },
+    ],
+    unterlagen: [
+      {
+        titel: "Kostenüberschlag 2026 (PDF)",
+        link: "#",
+      },
+      {
+        titel: "Vereinssatzung (PDF)",
+        link: "/CAM_satzung.pdf",
+      },
+      {
+        titel: "Nachweis Gemeinnützigkeit / Freistellungsbescheid (PDF)",
+        link: "#",
+      },
+      {
+        titel: "Projekt-Onepager (PDF)",
+        link: "#",
+      },
+    ],
+    kontakt: {
+      text: "Wir freuen uns über ein kurzes Gespräch zur kulturellen Einordnung, Zielsetzung und Förderlogik.",
+    },
+  },
 } as const;

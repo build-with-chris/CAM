@@ -5,25 +5,81 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #0F172A;
+    color: #F8FAFC;
+    @apply antialiased;
   }
 
   body {
-    @apply text-gray-900;
+    background-color: #0F172A;
+    color: #F8FAFC;
+    @apply font-sans text-base leading-relaxed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+  /* Headlines mit font-display */
+  h1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply font-display text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply font-display text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight;
+  }
+
+  h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  /* Links */
+  a {
+    color: #F59E0B;
+    @apply transition-colors;
+  }
+
+  a:hover {
+    @apply underline underline-offset-2;
+  }
+
+  /* Tabellen und Zahlen mit font-mono */
+  code,
+  pre,
+  .mono {
+    @apply font-mono;
+  }
+
+  table {
+    @apply font-mono;
+  }
+
+  /* Tabellarische Ziffern für Zahlen/Tabellen */
+  .tabular-nums,
+  table,
+  code,
+  pre {
+    font-variant-numeric: tabular-nums;
   }
 
   /* Improve focus visibility for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    @apply outline-none ring-2;
+    --tw-ring-color: #F59E0B;
+    --tw-ring-offset-color: #0F172A;
+    --tw-ring-offset-width: 2px;
   }
 
   /* Skip-to-content Link */
   .skip-link {
-    @apply absolute -top-full left-0 z-[100] bg-primary-700 text-white px-6 py-3 font-medium;
+    @apply absolute -top-full left-0 z-[100] px-6 py-3 font-medium;
     @apply focus:top-0 transition-all;
+    background-color: #F59E0B;
+    color: #0F172A;
   }
 
   /* Smooth scrolling for anchor links */
@@ -45,9 +101,52 @@
   }
 }
 
+@layer components {
+  /* Surface Card Basis */
+  .surface-card {
+    background-color: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply rounded-2xl shadow-lg;
+  }
+
+  /* Button Basis-Klassen */
+  .btn-primary {
+    background-color: #F59E0B;
+    color: #0F172A;
+    @apply font-medium px-6 py-3 rounded-lg;
+    @apply hover:opacity-90 transition-all duration-200;
+  }
+
+  .btn-primary:focus-visible {
+    @apply outline-none ring-2;
+    --tw-ring-color: #F59E0B;
+    --tw-ring-offset-color: #0F172A;
+    --tw-ring-offset-width: 2px;
+  }
+
+  .btn-accent {
+    background-color: #F43F5E;
+    color: #F8FAFC;
+    @apply font-medium px-6 py-3 rounded-lg;
+    @apply hover:opacity-90 transition-all duration-200;
+  }
+
+  .btn-accent:focus-visible {
+    @apply outline-none ring-2;
+    --tw-ring-color: #F43F5E;
+    --tw-ring-offset-color: #0F172A;
+    --tw-ring-offset-width: 2px;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Tabular numbers utility */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 
   @keyframes modal-enter {

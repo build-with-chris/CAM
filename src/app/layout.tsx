@@ -1,5 +1,25 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Circus Akademie München e.V. – Zeitgenössischer Zirkus braucht Raum",
@@ -43,8 +63,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className="scroll-smooth">
-      <body className="antialiased bg-white text-gray-900">
+    <html 
+      lang="de" 
+      className={`scroll-smooth ${spaceGrotesk.variable} ${manrope.variable} ${ibmPlexMono.variable}`}
+    >
+      <body>
         {children}
       </body>
     </html>

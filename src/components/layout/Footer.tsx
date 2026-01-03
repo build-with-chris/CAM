@@ -59,15 +59,25 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-primary-700 flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-200 text-sm">
-          <p>&copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.</p>
-          <div className="flex gap-6">
-            <Link href="/impressum" className="hover:text-white transition-colors focus:outline-none focus:underline">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="hover:text-white transition-colors focus:outline-none focus:underline">
-              Datenschutz
-            </Link>
+        <div className="mt-12 pt-8 border-t border-primary-700">
+          <div className="mb-6 text-center">
+            <p className="text-primary-100 text-sm max-w-2xl mx-auto">
+              {site.footer.trustLine}
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-200 text-sm">
+            <p>&copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.</p>
+            <div className="flex gap-6">
+              <Link href="/kontakt" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                Kontakt
+              </Link>
+              <Link href="/impressum" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                Impressum
+              </Link>
+              <Link href="/datenschutz" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                Datenschutz
+              </Link>
+            </div>
           </div>
         </div>
       </div>
