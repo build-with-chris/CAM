@@ -8,6 +8,7 @@ import { site } from '@/content/site';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AngebotModal } from '@/components/ui/AngebotModal';
+import { DisziplinenGalerie } from '@/components/sections/DisziplinenGalerie';
 
 export const metadata: Metadata = {
   title: 'Programm | Circus Akademie München e.V.',
@@ -73,6 +74,8 @@ export default function ProgrammPage() {
             ))}
           </div>
         </Section>
+
+        <DisziplinenGalerie />
       </div>
       <Footer />
     </main>

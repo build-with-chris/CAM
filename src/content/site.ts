@@ -3,6 +3,16 @@ export const site = {
     name: "Circus Akademie München e.V.",
     kurzbeschreibung: "Zeitgenössischer Zirkus als Kunstform – Training, Bühne, Wissenstransfer und Community in München.",
     mission: "Wir stärken den zeitgenössischen Zirkus in München: durch Räume, Formate und Zusammenarbeit, die künstlerische Entwicklung und kulturelle Teilhabe möglich machen.",
+    wofuerWirStehen: {
+      headline: "Wofür wir stehen",
+      text1: "Der Circus Akademie München e.V. setzt sich für die Förderung von Kunst und Kultur ein – mit Fokus auf zeitgenössischen Zirkus. Wir verstehen Zirkus als Brücke zwischen darstellender und bildender Kunst: Körper, Musik, Raum, Bild und Story treffen aufeinander.",
+      text2: "Unser Ziel ist eine verlässliche Struktur, in der Training, Wissenstransfer und öffentliche Formate dauerhaft möglich werden. Wir arbeiten gemeinschaftlich, sorgfältig und offen für Kooperationen – damit künstlerische Entwicklung und kulturelle Teilhabe in München wachsen können.",
+      workplace: {
+        headline: "Unser Ort",
+        text1: "Im Geodome München schaffen wir Raum für zeitgenössischen Zirkus. Hier finden Training, Proben, Workshops und Aufführungen statt – ein fester Ort für eine lebendige Kunstform.",
+        text2: "Wir arbeiten daran, dass dieser Ort dauerhaft bestehen bleibt und zu einem sichtbaren Teil der Münchner Kulturlandschaft wird.",
+      },
+    },
     intro: {
       title: "Circus Akademie München e.V.",
       text: "Circus Akademie München e.V. ist ein gemeinnütziger Verein mit Sitz in München. Zweck des Vereins ist die Förderung von Kunst und Kultur, insbesondere des zeitgenössischen Circus.",
@@ -552,4 +562,91 @@ export const site = {
       text: "Wir freuen uns über ein kurzes Gespräch zur kulturellen Einordnung, Zielsetzung und Förderlogik.",
     },
   },
+  disziplinen: [
+    {
+      name: "Ein Mann, Ein Koffer, Ein Wandazirkus",
+      image: "/Cam Bilder /EinMannEinKofferEinWanndazirkus.webp",
+      kategorie: "Performance",
+    },
+    {
+      name: "Tellerdrehen",
+      image: "/Cam Bilder /Tellerdrehen.webp",
+      kategorie: "Manipulation",
+    },
+    {
+      name: "Clownerie",
+      image: "/Cam Bilder /Clownerie.webp",
+      kategorie: "Performance",
+    },
+    {
+      name: "Breakdance",
+      image: "/Cam Bilder /Breakdance.webp",
+      kategorie: "Tanz",
+    },
+    {
+      name: "Contemporary Dance",
+      image: "/Cam Bilder /Contemporary dance.webp",
+      kategorie: "Tanz",
+    },
+    {
+      name: "Chinese Pole",
+      image: "/Cam Bilder /Chienese Pole.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Pantomime",
+      image: "/Cam Bilder /Pantomime.webp",
+      kategorie: "Performance",
+    },
+    {
+      name: "Feuerwehr Akrobatik",
+      image: "/Cam Bilder /Feuerwehr Akrobatik.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Canes",
+      image: "/Cam Bilder /Canes.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Contortion",
+      image: "/Cam Bilder /Contortion.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Drag",
+      image: "/Cam Bilder /Drag.webp",
+      kategorie: "Performance",
+    },
+    {
+      name: "Aerial Silk",
+      image: "/Cam Bilder /Areal silk.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Cyr Wheel",
+      image: "/Cam Bilder /Cyr wheel.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Partnerakrobatik",
+      image: "/Cam Bilder /Partneraktobatik.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Handstand",
+      image: "/Cam Bilder /Handstand.webp",
+      kategorie: "Artistik",
+    },
+    {
+      name: "Magic",
+      image: "/Cam Bilder /Magic.webp",
+      kategorie: "Performance",
+    },
+    {
+      name: "Luftartistik",
+      image: "/Cam Bilder /Artistik Luft MCDonalds.webp",
+      kategorie: "Artistik",
+    },
+  ],
 } as const;

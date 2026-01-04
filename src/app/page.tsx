@@ -5,6 +5,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Zielgruppen } from '@/components/sections/Zielgruppen';
 import { WarumWir } from '@/components/sections/WarumWir';
 import { Storytelling } from '@/components/sections/Storytelling';
+import { DisziplinenGalerie } from '@/components/sections/DisziplinenGalerie';
 import { Finanzziel } from '@/components/sections/Finanzziel';
 import { AbschlussCta } from '@/components/sections/AbschlussCta';
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Zielgruppen />
         <WarumWir />
         <Storytelling />
+        <DisziplinenGalerie />
         <Finanzziel />
         <AbschlussCta />
       </div>
