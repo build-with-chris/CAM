@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Hero } from '@/components/sections/Hero';
-import { Zielgruppen } from '@/components/sections/Zielgruppen';
-import { WarumWir } from '@/components/sections/WarumWir';
+import { Feature224 } from '@/components/feature224';
+import { Feature16 } from '@/components/feature16';
 import { Storytelling } from '@/components/sections/Storytelling';
-import { DisziplinenGalerie } from '@/components/sections/DisziplinenGalerie';
 import { Finanzziel } from '@/components/sections/Finanzziel';
 import { AbschlussCta } from '@/components/sections/AbschlussCta';
 
@@ -22,11 +20,9 @@ export default function Home() {
       </a>
       <Header />
       <div id="main-content">
-        <Hero />
-        <Zielgruppen />
-        <WarumWir />
+        <Feature224 />
+        <Feature16 />
         <Storytelling />
-        <DisziplinenGalerie />
         <Finanzziel />
         <AbschlussCta />
       </div>

@@ -422,7 +422,6 @@ export const site = {
   navigation: [
     { label: "Start", href: "/" },
     { label: "Über uns", href: "/ueber-uns" },
-    { label: "Programm", href: "/programm" },
     { label: "Unterstützen", href: "/unterstuetzen" },
     { label: "Förderung", href: "/foerderung" },
     { label: "Kontakt", href: "/kontakt" },

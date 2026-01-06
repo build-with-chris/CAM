@@ -6,11 +6,11 @@ import { site } from '@/content/site';
 export const Finanzziel: React.FC = () => {
   return (
     <Section id="finanzziel" background="gray">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-normal text-primary-900 mb-12 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-primary-900 mb-8 sm:mb-12 text-center">
           Finanzziel 2026
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {site.home.finanzziel.karten.map((karte, index) => (
             <Card key={index} className="text-center">
               <h3 className="text-lg font-medium text-primary-900 mb-2">

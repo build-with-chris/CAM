@@ -4,7 +4,8 @@ import { Footer } from '@/components/layout/Footer';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Accordion } from '@/components/ui/Accordion';
+import { Pricing3 } from '@/components/pricing3';
+import { Faq6 } from '@/components/faq6';
 import { site } from '@/content/site';
 import Link from 'next/link';
 
@@ -38,74 +39,15 @@ export default function SpendenPage() {
           </div>
         </section>
 
-        {/* Wofür wir Unterstützung brauchen */}
-        <Section id="unterstuetzung" background="gray">
-          <SectionHeader
-            title={site.spenden.unterstuetzung.titel}
-          />
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-lg p-6 space-y-3">
-              {site.spenden.unterstuetzung.items.map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="text-primary-600 mr-3 mt-1">•</span>
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
         {/* Was deine Spende bewirkt */}
-        <Section id="spenden-optionen" background="white">
-          <SectionHeader
-            title="Was deine Spende bewirkt"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {site.spenden.donationTiers.map((tier, index) => (
-              <Card key={index} hover className="flex flex-col">
-                <div className="flex-1">
-                  <p className="text-3xl font-bold text-primary-900 mb-3">
-                    {tier.betrag}
-                  </p>
-                  <p className="text-gray-600 leading-relaxed">
-                    {tier.wirkung}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-          <p className="text-center text-gray-600 italic max-w-2xl mx-auto">
-            {site.spenden.hinweis}
-          </p>
-        </Section>
-
-        {/* Gemeinnützigkeit & Spendenquittung */}
-        <Section id="trust" background="gray">
-          <div className="max-w-3xl mx-auto">
-            <Card>
-              <div className="text-center">
-                <h3 className="text-2xl font-normal text-primary-900 mb-4">
-                  Gemeinnützigkeit & Spendenquittung
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {site.spenden.trust.text}
-                </p>
-              </div>
-            </Card>
-          </div>
-        </Section>
+        <section id="spenden-optionen" className="bg-white">
+          <Pricing3 />
+        </section>
 
         {/* FAQ */}
-        <Section id="faq" background="white">
-          <SectionHeader
-            title="Häufige Fragen"
-          />
-          <div className="max-w-3xl mx-auto">
-            <Card>
-              <Accordion items={site.spenden.faq} />
-            </Card>
-          </div>
-        </Section>
+        <section id="faq" className="bg-white">
+          <Faq6 />
+        </section>
 
         {/* Abschluss-CTA */}
         <section id="abschluss" className="py-20 md:py-32 lg:py-40 bg-primary-900">

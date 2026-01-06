@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Pricing3Sponsoring } from '@/components/pricing3Sponsoring';
 import { site } from '@/content/site';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -137,34 +138,9 @@ export default function SponsoringPage() {
         </Section>
 
         {/* Sponsoring-Pakete */}
-        <Section id="pakete" background="white">
-          <SectionHeader
-            title="Sponsoring-Pakete"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {site.sponsoring.pakete.map((paket, index) => (
-              <Card key={index} className="border-2 flex flex-col">
-                <div className="flex-1 space-y-4">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-2xl font-semibold text-primary-900">{paket.name}</h3>
-                    <span className="text-primary-600 font-medium">{paket.betrag}</span>
-                  </div>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    {paket.inhalt.map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-primary-600 mr-2 mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Card>
-            ))}
-          </div>
-          <p className="text-center text-gray-600 italic max-w-2xl mx-auto">
-            {site.sponsoring.paketeHinweis}
-          </p>
-        </Section>
+        <section id="pakete" className="bg-white">
+          <Pricing3Sponsoring />
+        </section>
 
         {/* Bestehende Unterstützung */}
         <Section id="unterstuetzer" background="gray">

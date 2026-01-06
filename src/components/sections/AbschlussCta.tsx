@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 export const AbschlussCta: React.FC = () => {
   return (
-    <section id="abschluss-cta" className="py-20 md:py-32 lg:py-40 bg-primary-900">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
+    <section id="abschluss-cta" className="py-12 sm:py-20 md:py-32 lg:py-40 bg-primary-900">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-6xl">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-6 sm:mb-8">
             {site.home.abschlussCta.ueberschrift}
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
