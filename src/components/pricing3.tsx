@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Separator } from "@/components/ui/separator";
 
 interface Pricing3Props {

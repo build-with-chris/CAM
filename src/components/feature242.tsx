@@ -7,7 +7,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,

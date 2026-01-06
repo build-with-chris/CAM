@@ -13,7 +13,7 @@ import { startTransition, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
