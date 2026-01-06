@@ -46,7 +46,7 @@ export const News: React.FC = () => {
         <div className="mt-12 text-center">
           <Button
             variant="outline"
-            size="md"
+            size="default"
             onClick={() => setShowAll(!showAll)}
           >
             {showAll ? 'Weniger anzeigen' : 'Alle Termine anzeigen'}
