@@ -427,7 +427,7 @@ export const site = {
     { label: "Kontakt", href: "/kontakt" },
   ],
   footer: {
-    trustLine: "Gemeinnütziger Verein zur Förderung von zeitgenössischem Zirkus im Geodome München.",
+    trustLine: "Gemeinnütziger Verein zur Förderung von zeitgenössischem Zirkus in München und Bayern.",
   },
   sponsoring: {
     hero: {
