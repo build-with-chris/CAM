@@ -23,6 +23,7 @@ const Contact18 = ({ className }: Contact18Props) => {
     email: '',
     message: '',
     privacy: false,
+    website: '', // Honeypot-Feld (sollte leer bleiben)
   });
   const [errors, setErrors] = useState({
     name: '',
@@ -31,6 +32,8 @@ const Contact18 = ({ className }: Contact18Props) => {
     privacy: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     const subjectParam = searchParams?.get('subject');
@@ -81,11 +84,55 @@ const Contact18 = ({ className }: Contact18Props) => {
     return !Object.values(newErrors).some(error => error !== '');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
 
-    if (validateForm()) {
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: subject,
+          message: formData.message,
+          website: formData.website, // Honeypot
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Fehler beim Senden der Nachricht');
+      }
+
       setSubmitted(true);
+      // Formular zurücksetzen
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+        privacy: false,
+        website: '',
+      });
+    } catch (error) {
+      console.error('Fehler beim Senden:', error);
+      setSubmitError(
+        error instanceof Error 
+          ? error.message 
+          : 'Fehler beim Senden der Nachricht. Bitte versuche es später erneut.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -146,10 +193,10 @@ const Contact18 = ({ className }: Contact18Props) => {
               ))}
             </ul>
             <a
-              href="mailto:info@circus-akademie-muenchen.de"
+              href="mailto:info@xn--circusakademiemnchen-3ec.de"
               className="flex items-center gap-4 text-4xl font-medium tracking-tighter"
             >
-              info@circus-akademie-muenchen.de
+              info@xn--circusakademiemnchen-3ec.de
             </a>
           </div>
           <div className="col-span-4 flex w-full flex-col gap-2 lg:pl-10">
@@ -181,6 +228,19 @@ const Contact18 = ({ className }: Contact18Props) => {
                 {errors.email && (
                   <p className="mt-2 text-sm text-red-600">{errors.email}</p>
                 )}
+              </div>
+              {/* Honeypot-Feld - für Menschen unsichtbar, für Bots sichtbar */}
+              <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                <label htmlFor="website">Website (nicht ausfüllen)</label>
+                <Input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
               </div>
               <div>
                 <select
@@ -228,8 +288,16 @@ const Contact18 = ({ className }: Contact18Props) => {
                 <p className="text-sm text-red-600">{errors.privacy}</p>
               )}
 
-              <Button type="submit" className="h-15 w-full rounded-xl uppercase">
-                Nachricht senden
+              {submitError && (
+                <p className="text-sm text-red-600">{submitError}</p>
+              )}
+
+              <Button 
+                type="submit" 
+                className="h-15 w-full rounded-xl uppercase"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
               </Button>
             </form>
           </div>

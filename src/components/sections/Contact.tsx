@@ -238,8 +238,8 @@ export const Contact: React.FC = () => {
                 </svg>
                 <div>
                   <p className="font-semibold text-gray-900">E-Mail</p>
-                  <a href="mailto:info@circus-akademie-muenchen.de" className="text-primary-700 hover:text-primary-800 focus:outline-none focus:underline">
-                    info@circus-akademie-muenchen.de
+                  <a href="mailto:info@xn--circusakademiemnchen-3ec.de" className="text-primary-700 hover:text-primary-800 focus:outline-none focus:underline">
+                    info@xn--circusakademiemnchen-3ec.de
                   </a>
                 </div>
               </div>

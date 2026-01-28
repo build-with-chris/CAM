@@ -51,8 +51,8 @@ export const Footer: React.FC = () => {
               <p>Pepe Dome/Geodom</p>
               <p>Ostpark München</p>
               <p className="mt-4">
-                <a href="mailto:info@circus-akademie-muenchen.de" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                  info@circus-akademie-muenchen.de
+                <a href="mailto:info@xn--circusakademiemnchen-3ec.de" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                  info@xn--circusakademiemnchen-3ec.de
                 </a>
               </p>
             </address>
