@@ -33,6 +33,20 @@ interface feature {
 
 const FEATURES: Array<feature> = [
   {
+    title: "Training",
+    label: "Kontinuität",
+    icon: Dumbbell,
+    description: site.angebote.find(a => a.id === "training")?.teaser || "Regelmäßige Trainings- und Probenmöglichkeiten als Basis für Kontinuität.",
+    background: "/Cam Bilder /Breakdance.webp",
+  },
+  {
+    title: "Produktion",
+    label: "Projekte",
+    icon: Film,
+    description: site.angebote.find(a => a.id === "produktionen")?.teaser || "Ressourcen, Austausch und Sichtbarkeit für performative Projekte.",
+    background: "/Critical Spaces.jpeg.webp",
+  },
+  {
     title: "Open Stage",
     label: "Experimentieren",
     icon: Mic,
@@ -47,25 +61,11 @@ const FEATURES: Array<feature> = [
     background: "/PEPE complete_batcheditor_fotor.webp",
   },
   {
-    title: "Training",
-    label: "Kontinuität",
-    icon: Dumbbell,
-    description: site.angebote.find(a => a.id === "training")?.teaser || "Regelmäßige Trainings- und Probenmöglichkeiten als Basis für Kontinuität.",
-    background: "/Cam Bilder /Breakdance.webp",
-  },
-  {
     title: "Workshops",
     label: "Weiterbildung",
     icon: GraduationCap,
     description: site.angebote.find(a => a.id === "workshops")?.teaser || "Weiterbildung mit Gästen und lokalen Expert*innen – von Technik bis Kreation.",
     background: "/Cam Bilder /Tellerdrehen.webp",
-  },
-  {
-    title: "Produktion",
-    label: "Projekte",
-    icon: Film,
-    description: site.angebote.find(a => a.id === "produktionen")?.teaser || "Ressourcen, Austausch und Sichtbarkeit für performative Projekte.",
-    background: "/Critical Spaces.jpeg.webp",
   },
 ];
 
