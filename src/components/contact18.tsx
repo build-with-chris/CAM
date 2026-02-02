@@ -196,7 +196,7 @@ const Contact18 = ({ className }: Contact18Props) => {
               href="mailto:info@xn--circusakademiemnchen-3ec.de"
               className="flex items-center gap-4 text-4xl font-medium tracking-tighter"
             >
-              info@xn--circusakademiemnchen-3ec.de
+              info@circusakademiemünchen.de
             </a>
           </div>
           <div className="col-span-4 flex w-full flex-col gap-2 lg:pl-10">

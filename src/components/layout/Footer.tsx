@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
               <p>Ostpark München</p>
               <p className="mt-4">
                 <a href="mailto:info@xn--circusakademiemnchen-3ec.de" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                  info@xn--circusakademiemnchen-3ec.de
+                  info@circusakademiemünchen.de
                 </a>
               </p>
             </address>

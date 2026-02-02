@@ -376,7 +376,7 @@ export const site = {
       nachricht: "Nachricht",
       datenschutz: "Ich habe die Datenschutzhinweise gelesen.",
     },
-    success: "Danke! Deine Nachricht ist bei uns gelandet (Demo).",
+    success: "Danke! Deine Nachricht ist bei uns gelandet.",
   },
   impressum: {
     title: "Impressum",
