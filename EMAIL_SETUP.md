@@ -5,6 +5,7 @@
 - ✅ E-Mail-Adresse `info@xn--circusakademiemnchen-3ec.de` in allen Komponenten eingetragen
 - ✅ API-Route `/api/contact` erstellt
 - ✅ Kontaktformular mit API-Route verbunden
+- ✅ Seite „Mitglied werden“ (`/mitglieder-werden`) mit API-Route `/api/membership` (E-Mail an info@circusakademiemünchen.de + Auto-Reply); nutzt dieselbe SMTP-Konfiguration
 
 ## 🔧 Was noch zu tun ist
 
@@ -45,6 +46,7 @@ SMTP_USER=deine-email@example.com
 SMTP_PASS=dein-passwort
 SMTP_FROM=noreply@xn--circusakademiemnchen-3ec.de
 ```
+Mitgliedsanträge gehen an dieselbe Adresse wie Kontakt: info@circusakademiemünchen.de (IDN: info@xn--circusakademiemnchen-3ec.de).
 
 **Für SendGrid:**
 ```env

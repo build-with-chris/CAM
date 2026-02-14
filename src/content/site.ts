@@ -368,6 +368,10 @@ export const site = {
       subject: "Kooperation",
     },
   ],
+  mitglieder: {
+    intro: "Mitgliedschaft erfolgt per schriftlichem Antrag und Annahme durch den Vorstand.",
+    success: "Dein Antrag ist eingegangen. Der Vorstand meldet sich per E-Mail.",
+  },
   kontakt: {
     intro: "Schreib uns – wir melden uns zeitnah zurück.",
     fields: {
@@ -423,6 +427,7 @@ export const site = {
     { label: "Start", href: "/" },
     { label: "Über uns", href: "/ueber-uns" },
     { label: "Unterstützen", href: "/unterstuetzen" },
+    { label: "Mitglied werden", href: "/mitglieder-werden" },
     { label: "Förderung", href: "/foerderung" },
     { label: "Kontakt", href: "/kontakt" },
   ],
