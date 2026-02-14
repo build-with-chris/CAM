@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Plus } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronRight, Plus } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -13,8 +13,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
   Dialog,
@@ -23,6 +21,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
+const PrivatspenderIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cn("size-6", className)}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+  </svg>
+);
+
+const UnternehmenIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cn("size-6", className)}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+  </svg>
+);
+
+const PolitikIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cn("size-6", className)}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
+  </svg>
+);
+
+const CARD_ICONS = [PrivatspenderIcon, UnternehmenIcon, PolitikIcon] as const;
 
 const Feature242 = () => {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -34,7 +52,6 @@ const Feature242 = () => {
     {
       title: "Privatspender:innen",
       description: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern.",
-      imgSrc: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-exchange-between-the-user-and-the-global-network.svg",
       href: "/unterstuetzen/spenden",
       details: {
         text: site.mitmachen[1]?.details?.spenden?.text || "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Als gemeinnütziger Verein können wir Spendenquittungen ausstellen.",
@@ -49,7 +66,6 @@ const Feature242 = () => {
     {
       title: "Unternehmen",
       description: "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen.",
-      imgSrc: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-letters-and-arrows-flying-out-of-a-black-hole.svg",
       href: "/unterstuetzen/sponsoring",
       details: {
         text: site.mitmachen[1]?.details?.sponsoring?.text || "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen oder Ihre Organisation.",
@@ -64,7 +80,6 @@ const Feature242 = () => {
     {
       title: "Politik & Kommune",
       description: "Förderung von Kultur und kultureller Teilhabe. Wir arbeiten an nachhaltigen Strukturen für zeitgenössischen Zirkus in München.",
-      imgSrc: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/illustrations/tokyo-loading-the-next-page.svg",
       href: "/foerderung",
       details: {
         text: "Förderung von Kultur und kultureller Teilhabe. Wir arbeiten an nachhaltigen Strukturen für zeitgenössischen Zirkus in München.",
@@ -125,19 +140,29 @@ const Feature242 = () => {
                     key={index}
                     className="px-2 md:basis-1/2 lg:basis-1/3"
                   >
-                    <div className="group relative flex h-full max-h-96 w-full flex-col items-end justify-between rounded-3xl bg-muted p-5 text-ellipsis focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-foreground">
-                      <img
-                        className="max-h-72 w-full opacity-100 transition-all ease-in-out group-hover:scale-90 group-hover:opacity-60"
-                        src={item.imgSrc}
-                        alt={item.title}
-                      />
-                      <div className="flex w-full items-center justify-between gap-4">
-                        <h5 className="text-2xl leading-7 font-medium tracking-tighter transition-all ease-in-out group-hover:translate-x-4">
+                    <Link
+                      href={item.href}
+                      className="group relative flex h-full max-h-96 w-full flex-col items-end justify-between rounded-3xl bg-muted p-5 text-ellipsis focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-foreground block"
+                    >
+                      <div className="flex max-h-72 w-full flex-1 items-center justify-center text-foreground opacity-100 transition-all ease-in-out group-hover:scale-90 group-hover:opacity-60" aria-hidden="true">
+                        {(() => {
+                          const Icon = CARD_ICONS[index];
+                          return <Icon className="size-24 md:size-28 lg:size-32" />;
+                        })()}
+                      </div>
+                      <div className="relative flex w-full items-center justify-center gap-4 py-1">
+                        <h5 className="text-2xl leading-7 font-medium tracking-tighter transition-all ease-in-out group-hover:translate-x-4 text-center">
                           {item.title}
                         </h5>
+                        {/* Plus-Button nur ab md (auf Mobile ausgeblendet, Klick auf Karte leitet weiter) */}
                         <button
-                          onClick={() => setOpenDialog(index)}
-                          className="relative z-10 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-foreground rounded-full"
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setOpenDialog(index);
+                          }}
+                          className="absolute right-0 top-1/2 z-10 -translate-y-1/2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-foreground rounded-full hidden md:flex items-center justify-center"
                           aria-label={`Mehr Informationen über ${item.title} anzeigen`}
                           aria-expanded={openDialog === index}
                         >
@@ -151,12 +176,13 @@ const Feature242 = () => {
                           </div>
                         </button>
                       </div>
-                    </div>
+                    </Link>
                   </CarouselItem>
                 ))}
               </CarouselContent>
 
-              <div className="mt-8 flex w-full items-center justify-between px-4">
+              {/* Nur auf Mobile: Zähler und Pfeile (Desktop: ausgeblendet); Pfeile nutzen api direkt für zuverlässigen Touch */}
+              <div className="mt-8 flex w-full items-center justify-between px-4 lg:hidden">
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-medium">
                     {current.toString().padStart(2, "0")}
@@ -167,9 +193,23 @@ const Feature242 = () => {
                   </span>
                 </div>
 
-                <div className="relative mr-10 flex gap-2">
-                  <CarouselPrevious className="h-10 w-10" />
-                  <CarouselNext variant="default" className="h-10 w-10" />
+                <div className="flex gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollPrev()}
+                    className="inline-flex h-12 w-12 min-w-12 touch-manipulation items-center justify-center rounded-full border-2 border-foreground bg-background hover:bg-muted focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+                    aria-label="Vorherige Karte"
+                  >
+                    <ArrowLeft className="size-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => api?.scrollNext()}
+                    className="inline-flex h-12 w-12 min-w-12 touch-manipulation items-center justify-center rounded-full border-2 border-foreground bg-foreground text-background hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+                    aria-label="Nächste Karte"
+                  >
+                    <ArrowRight className="size-6" />
+                  </button>
                 </div>
               </div>
             </Carousel>
