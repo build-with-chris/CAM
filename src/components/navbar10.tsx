@@ -23,8 +23,8 @@ const NAVIGATION = site.navigation.map((item) => ({
 }));
 
 const CTA_BUTTON = {
-  label: "Spenden",
-  url: "/unterstuetzen/spenden",
+  label: "Sponsoring",
+  url: "/unterstuetzen/sponsoring",
 };
 
 interface Navbar10Props {

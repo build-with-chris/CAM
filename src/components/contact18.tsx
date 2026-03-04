@@ -251,7 +251,6 @@ const Contact18 = ({ className }: Contact18Props) => {
                 >
                   <option value="Allgemein">Allgemein</option>
                   <option value="Mitgliedschaft">Mitgliedschaft</option>
-                  <option value="Spende">Spende</option>
                   <option value="Sponsoring">Sponsoring</option>
                   <option value="Unterstützen">Unterstützen</option>
                   <option value="Kooperation">Kooperation</option>

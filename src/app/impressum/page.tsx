@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Section, SectionHeader } from '@/components/ui/Section';
-import { site } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Impressum | Circus Akademie München e.V.',
@@ -18,122 +18,115 @@ export default function ImpressumPage() {
       <Header />
       <div id="main-content">
         <Section id="impressum" background="white">
-          <SectionHeader
-            title={site.impressum.title}
-          />
+          <SectionHeader title="Impressum" />
 
-          <div className="max-w-4xl mx-auto space-y-12">
-            {/* Organisation und Gremien */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-normal text-primary-900">Organisation und Gremien</h3>
-              
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Organe</h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {site.impressum.organisation.organe}
-                </p>
-              </div>
+          <div className="max-w-4xl mx-auto space-y-8 text-gray-700 leading-relaxed">
+            <p className="text-muted-foreground">
+              Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)
+            </p>
 
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Vorstand</h4>
-                <ul className="space-y-2 text-gray-600 leading-relaxed">
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.vorstand.struktur}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.vorstand.wahl}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.vorstand.vertretung}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.vorstand.geschaeftsordnung}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Mitgliederversammlung</h4>
-                <ul className="space-y-2 text-gray-600 leading-relaxed">
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.mitgliederversammlung.haeufigkeit}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.mitgliederversammlung.ausserordentlich}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.mitgliederversammlung.beschlussfaehigkeit}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.mitgliederversammlung.mehrheiten}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Kassenprüfung</h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {site.impressum.organisation.kassenpruefung}
-                </p>
-              </div>
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Betreiber</h2>
+              <p>Circus Akademie München e.V.</p>
             </div>
 
-            {/* Transparenz und Finanzen */}
-            <div className="pt-8 border-t border-gray-200 space-y-6">
-              <h3 className="text-2xl font-normal text-primary-900">Transparenz und Finanzen</h3>
-              
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Vereinsämter & Vergütung</h4>
-                <ul className="space-y-2 text-gray-600 leading-relaxed">
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.transparenz.aemter}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.transparenz.auftraege}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.transparenz.aufwendungsersatz}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-600 mr-3 mt-1">•</span>
-                    <span>{site.impressum.organisation.transparenz.finanzordnung}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-primary-900 mb-3">Vermögensbindung</h4>
-                <p className="text-gray-600 leading-relaxed">
-                  {site.impressum.organisation.vermoegensbindung}
-                </p>
-              </div>
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Anschrift</h2>
+              <p>
+                Ranhazweg 18<br />
+                85521 Ottobrunn<br />
+                Deutschland
+              </p>
             </div>
 
-            {/* Download Satzung */}
-            <div className="pt-8 border-t border-gray-200">
-              <h4 className="text-lg font-medium text-primary-900 mb-4">Download</h4>
-              <a
-                href={site.satzung.download}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-primary-900 text-white rounded-lg hover:bg-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                {site.satzung.text}
-              </a>
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Kontakt</h2>
+              <p>
+                Telefon: +49 179 699 0707<br />
+                E-Mail: <a href="mailto:info@pepearts.de" className="text-primary-600 hover:underline">info@pepearts.de</a>
+              </p>
+              <p className="mt-2">
+                Kontaktformular: Nachrichten über das Kontaktformular werden an die genannte E-Mail-Adresse weitergeleitet.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Vereinsregister</h2>
+              <p>
+                Eingetragen im Vereinsregister.<br />
+                Registergericht: Amtsgericht München<br />
+                Registernummer: VR 208483
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Vertretungsberechtigung</h2>
+              <p>
+                Der Verein wird durch den Vorstand vertreten; jedes Vorstandsmitglied ist einzelvertretungsberechtigt.<br />
+                Vorstand (laut Register): Doro Auer, Mathias Eder, Marius Eichhöfer, Michael Heiduk, Johannes Thumser, Karl Trautmann.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Umsatzsteuer-ID</h2>
+              <p>Keine Umsatzsteuer-Identifikationsnummer vorhanden.</p>
+            </div>
+
+            <hr className="border-gray-200 my-8" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">
+                Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
+              </h2>
+              <p>
+                Christoph Hermann<br />
+                Kiebitzweg 12a<br />
+                85464 Finsing<br />
+                Deutschland<br />
+                E-Mail: <a href="mailto:Chris@pepearts.de" className="text-primary-600 hover:underline">Chris@pepearts.de</a>
+              </p>
+            </div>
+
+            <hr className="border-gray-200 my-8" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Verbraucherstreitbeilegung</h2>
+              <p>
+                Der Verein ist nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+              </p>
+            </div>
+
+            <hr className="border-gray-200 my-8" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Haftung für Inhalte</h2>
+              <p>
+                Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Eine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder Informationen besteht jedoch nicht.
+              </p>
+            </div>
+
+            <hr className="border-gray-200 my-8" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Haftung für Links</h2>
+              <p>
+                Diese Website enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr.
+              </p>
+            </div>
+
+            <hr className="border-gray-200 my-8" />
+
+            <div>
+              <h2 className="text-xl font-semibold text-primary-900 mb-2">Urheberrecht</h2>
+              <p>
+                Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung, Verbreitung oder Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung.
+              </p>
+            </div>
+
+            <div className="pt-8">
+              <Link href="/" className="text-primary-600 hover:underline font-medium">
+                ← Zurück zur Startseite
+              </Link>
             </div>
           </div>
         </Section>
@@ -142,4 +135,3 @@ export default function ImpressumPage() {
     </main>
   );
 }
-

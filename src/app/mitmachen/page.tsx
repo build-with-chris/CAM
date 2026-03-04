@@ -99,48 +99,44 @@ export default function MitmachenPage() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* Spenden */}
+                {/* Unterstützung (ohne Spendenaufruf) */}
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-2xl font-normal text-primary-900 mb-3">
-                      {site.mitmachen[1].details.spenden.titel}
+                      Unterstützung
                     </h3>
                     <p className="text-gray-600 leading-relaxed mb-6">
-                      {site.mitmachen[1].details.spenden.text}
+                      Sie möchten uns unterstützen? Werden Sie Mitglied oder nehmen Sie Kontakt auf – wir freuen uns über ideelle und praktische Unterstützung.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-primary-900 mb-4">Ihre Vorteile</h4>
+                    <h4 className="text-lg font-medium text-primary-900 mb-4">Möglichkeiten</h4>
                     <ul className="space-y-2 text-gray-600">
-                      {site.mitmachen[1].details.spenden.vorteile.map((vorteil, index) => (
-                        <li key={index} className="flex items-start">
-                          <svg className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M5 13l4 4L19 7"></path>
-                          </svg>
-                          <span>{vorteil}</span>
-                        </li>
-                      ))}
+                      <li className="flex items-start">
+                        <svg className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                          <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Mitgliedschaft im Verein</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                          <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Ideelle und praktische Unterstützung</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                          <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Sponsoring (Unternehmen)</span>
+                      </li>
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="text-lg font-medium text-primary-900 mb-4">Spendenbeträge</h4>
-                    <div className="space-y-3">
-                      {site.mitmachen[1].details.spenden.betraege.map((item, index) => (
-                        <div key={index} className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg">
-                          <div>
-                            <p className="font-semibold text-primary-900">{item.betrag}</p>
-                            <p className="text-sm text-gray-600">{item.beschreibung}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Link href={`/kontakt?subject=${encodeURIComponent('Spende')}`}>
+                  <Link href="/unterstuetzen">
                     <Button variant="primary" size="lg" className="w-full">
-                      Jetzt spenden
+                      Unterstützen
                     </Button>
                   </Link>
                 </div>

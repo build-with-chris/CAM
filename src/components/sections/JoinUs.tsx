@@ -13,7 +13,7 @@ export const JoinUs: React.FC = () => {
     },
     {
       title: 'Unterstützen',
-      description: 'Du willst fördern, spenden oder Ressourcen teilen? Jede Unterstützung stärkt Kultur vor Ort.',
+      description: 'Du willst fördern oder Ressourcen teilen? Jede Unterstützung stärkt Kultur vor Ort.',
       cta: 'Unterstützung anbieten',
       subject: 'Unterstützen',
     },

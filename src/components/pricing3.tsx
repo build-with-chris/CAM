@@ -42,7 +42,7 @@ const Pricing3 = ({ className }: Pricing3Props) => {
                     {tier.wirkung}
                   </p>
                 </div>
-                <Link href="/kontakt?subject=Spende">
+                <Link href="/kontakt?subject=Unterstützen">
                   <Button variant={index === 1 ? "default" : "outline"} className="w-full">
                     Jetzt spenden
                   </Button>

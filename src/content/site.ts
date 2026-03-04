@@ -39,23 +39,23 @@ export const site = {
   hero: {
     headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
     subline: "Die Zirkus Akademie München ist ein gemeinnütziger Verein für zeitgenössischen Zirkus – mit festem Zuhause im Geodome München.",
-    bedarf: "Damit Kunst möglich bleibt, brauchen wir 2026 rund 100.000–110.000 € über Spenden und Sponsoring.",
+    bedarf: "Damit Kunst möglich bleibt, brauchen wir 2026 rund 100.000–110.000 € über Sponsoring und Förderung.",
     cta1: {
-      text: "Jetzt spenden",
-      href: "/unterstuetzen/spenden",
-    },
-    cta2: {
       text: "Sponsoring anfragen",
       href: "/unterstuetzen/sponsoring",
+    },
+    cta2: {
+      text: "Unterstützen",
+      href: "/unterstuetzen",
     },
     hinweis: "Ort 2025: Pepe Dome (Geodom am Ostpark)",
   },
   home: {
     zielgruppen: [
       {
-        title: "Privat spenden",
-        text: "Mach Kunst möglich – auch kleine Beiträge halten den Dome am Leuchten.",
-        link: "/unterstuetzen/spenden",
+        title: "Unterstützen",
+        text: "Mach Kunst möglich – werde Mitglied oder unterstütze uns als Privatperson.",
+        link: "/unterstuetzen",
       },
       {
         title: "Unternehmen",
@@ -101,12 +101,12 @@ export const site = {
     abschlussCta: {
       ueberschrift: "Mach den Dome möglich.",
       cta1: {
-        text: "Jetzt spenden",
-        href: "/unterstuetzen/spenden",
+        text: "Sponsoring anfragen",
+        href: "/unterstuetzen/sponsoring",
       },
       cta2: {
-        text: "Partner werden",
-        href: "/unterstuetzen/sponsoring",
+        text: "Unterstützen",
+        href: "/unterstuetzen",
       },
     },
   },
@@ -293,7 +293,7 @@ export const site = {
     {
       id: "unterstuetzen",
       title: "Unterstützen",
-      text: "Du willst fördern, spenden oder Ressourcen teilen? Jede Unterstützung stärkt Kultur vor Ort.",
+      text: "Du willst fördern oder Ressourcen teilen? Jede Unterstützung stärkt Kultur vor Ort.",
       cta: "Unterstützung anbieten",
       subject: "Unterstützen",
       details: {
@@ -528,7 +528,7 @@ export const site = {
           beschreibung: "",
         },
       ],
-      zusatztext: "Wir möchten diese Summe möglichst über Spenden, Sponsoring und Förderung decken, um den Betrieb und das Programm verlässlich zu sichern.",
+      zusatztext: "Wir möchten diese Summe möglichst über Sponsoring und Förderung decken, um den Betrieb und das Programm verlässlich zu sichern.",
     },
     einsatz: [
       {

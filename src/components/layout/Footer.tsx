@@ -67,12 +67,15 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-200 text-sm">
             <p>&copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.</p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-6">
               <Link href="/kontakt" className="hover:text-white transition-colors focus:outline-none focus:underline">
                 Kontakt
               </Link>
               <Link href="/impressum" className="hover:text-white transition-colors focus:outline-none focus:underline">
                 Impressum
+              </Link>
+              <Link href="/agb" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                AGB
               </Link>
               <Link href="/datenschutz" className="hover:text-white transition-colors focus:outline-none focus:underline">
                 Datenschutz

@@ -50,16 +50,15 @@ const Feature242 = () => {
 
   const items = [
     {
-      title: "Privatspender:innen",
-      description: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern.",
-      href: "/unterstuetzen/spenden",
+      title: "Unterstützer:innen",
+      description: "Unterstütze uns als Privatperson – z.B. durch Mitgliedschaft oder ideelle Unterstützung.",
+      href: "/unterstuetzen",
       details: {
-        text: site.mitmachen[1]?.details?.spenden?.text || "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Als gemeinnütziger Verein können wir Spendenquittungen ausstellen.",
+        text: "Unterstütze uns als Privatperson – z.B. durch Mitgliedschaft oder ideelle Unterstützung. Gemeinsam stärken wir zeitgenössischen Zirkus in München.",
         vorteile: [
-          "Steuerlich absetzbar (gemeinnütziger Verein)",
           "Direkte Förderung der Münchner Kulturlandschaft",
           "Unterstützung lokaler Künstler*innen",
-          "Transparente Mittelverwendung",
+          "Mitgliedschaft oder ideelle Unterstützung",
         ],
       },
     },

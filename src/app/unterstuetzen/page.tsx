@@ -5,7 +5,7 @@ import { Feature242 } from '@/components/feature242';
 
 export const metadata: Metadata = {
   title: 'Unterstützen | Circus Akademie München e.V.',
-  description: 'Unterstützen Sie zeitgenössischen Zirkus in München. Spenden, Sponsoring oder Mitgliedschaft – finden Sie die passende Form der Unterstützung.',
+  description: 'Unterstützen Sie zeitgenössischen Zirkus in München. Sponsoring oder Mitgliedschaft – finden Sie die passende Form der Unterstützung.',
 };
 
 export default function UnterstuetzenPage() {
