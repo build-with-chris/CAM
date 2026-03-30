@@ -1,6 +1,5 @@
-/** Kanonische Satzung (PDF); Mitgliederantrag & /CAM_satzung.pdf-Weiterleitung in next.config.mjs */
-const satzungDownloadUrl =
-  "https://www.xn--circusakademiemnchen-3ec.de/CAM_satzung.pdf";
+/** Satzung als statische Datei unter public/CAM_satzung.pdf (kein Redirect — sonst Schleife auf derselben Domain). */
+const satzungPdfPath = "/CAM_satzung.pdf";
 
 export const site = {
   verein: {
@@ -424,7 +423,7 @@ export const site = {
     },
   },
   satzung: {
-    download: satzungDownloadUrl,
+    download: satzungPdfPath,
     text: "Satzung (PDF)",
   },
   navigation: [
@@ -555,7 +554,7 @@ export const site = {
       },
       {
         titel: "Vereinssatzung (PDF)",
-        link: satzungDownloadUrl,
+        link: satzungPdfPath,
       },
       {
         titel: "Nachweis Gemeinnützigkeit / Freistellungsbescheid (PDF)",

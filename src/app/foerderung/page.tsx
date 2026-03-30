@@ -90,9 +90,10 @@ export default function FoerderungPage() {
           />
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {site.foerderung.unterlagen.map((unterlage, index) => (
-                <Card key={index} hover className="cursor-pointer bg-base-surface border-white/10">
-                  <Link href={unterlage.link} className="flex items-center justify-between">
+              {site.foerderung.unterlagen.map((unterlage, index) => {
+                const linkClass = "flex items-center justify-between";
+                const inner = (
+                  <>
                     <div className="flex items-center space-x-4">
                       <svg className="w-8 h-8 text-brand-primary flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -102,9 +103,28 @@ export default function FoerderungPage() {
                     <svg className="w-5 h-5 text-base-muted" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                       <path d="M9 5l7 7-7 7"></path>
                     </svg>
-                  </Link>
-                </Card>
-              ))}
+                  </>
+                );
+                const isPdf = unterlage.link.endsWith(".pdf");
+                return (
+                  <Card key={index} hover className="cursor-pointer bg-base-surface border-white/10">
+                    {isPdf ? (
+                      <a
+                        href={unterlage.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <Link href={unterlage.link} className={linkClass}>
+                        {inner}
+                      </Link>
+                    )}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </Section>

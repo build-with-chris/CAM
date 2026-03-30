@@ -422,14 +422,14 @@ export function MembershipForm() {
           />
           <label htmlFor="checkboxSatzung" className="text-sm text-slate-700">
             Ich erkenne die{" "}
-            <Link
+            <a
               href={site.satzung.download}
               target="_blank"
               rel="noopener noreferrer"
               className="text-amber-600 underline hover:no-underline"
             >
               Satzung
-            </Link>{" "}
+            </a>{" "}
             an. (optional)
           </label>
         </div>
