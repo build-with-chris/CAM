@@ -56,23 +56,41 @@ export default function FoerderungPage() {
           <SectionHeader
             title={site.foerderung.finanzplan.ueberschrift}
           />
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-base-surface rounded-lg p-6 mb-6 border border-white/10">
-              <div className="space-y-4">
-                {site.foerderung.finanzplan.items.map((item, index) => (
-                  <div key={index} className="flex items-start justify-between pb-4 border-b border-white/10 last:border-0 last:pb-0">
-                    <div className="flex-1">
-                      <p className="font-medium text-base-text">{item.kategorie}</p>
-                      {item.beschreibung && (
-                        <p className="text-sm text-base-muted mt-1">{item.beschreibung}</p>
-                      )}
-                    </div>
-                    {item.betrag ? (
-                      <p className="text-xl font-bold text-brand-primary ml-4 shrink-0">{item.betrag}</p>
-                    ) : null}
+          <div className="max-w-5xl mx-auto">
+            <div className="space-y-6">
+              {site.foerderung.finanzplan.rubriken.map((rubrik: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="bg-base-surface rounded-lg p-6 border border-white/10"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+                    <h3 className="text-xl font-semibold text-base-text">
+                      {rubrik.titel}
+                    </h3>
+                    <p className="text-sm text-base-muted font-medium">
+                      {rubrik.summe}
+                    </p>
                   </div>
-                ))}
-              </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {rubrik.items.map((item: any, itemIdx: number) => (
+                      <Card
+                        key={itemIdx}
+                        className="text-left py-4 gap-4"
+                      >
+                        <h4 className="text-lg font-medium text-base-text">
+                          {item.kategorie}
+                        </h4>
+                        {item.beschreibung ? (
+                          <p className="text-sm text-base-muted leading-relaxed">
+                            {item.beschreibung}
+                          </p>
+                        ) : null}
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
             <p className="text-center text-base-muted italic max-w-2xl mx-auto">
               {site.foerderung.finanzplan.zusatztext}

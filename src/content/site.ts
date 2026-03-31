@@ -42,7 +42,7 @@ export const site = {
   hero: {
     headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
     subline: "Die Zirkus Akademie München ist ein Kulturverein für zeitgenössischen Zirkus – mit festem Zuhause im Geodome München.",
-    bedarf: "Für Umbau und Upgrade am Geodome benötigen wir derzeit rund 35.000 €: u. a. Toilettenanlage, feuerfeste Türen, Technikpodium und Backstage mit Bar.",
+    bedarf: "Für Umbau und Upgrade am Geodome benötigen wir derzeit rund 105.000 € gesamt: Basisinvestitionen (ca. 35.000 €) und zusätzliche Technik & Ausbau (ca. 70.000 €).",
     cta1: {
       text: "Sponsoring anfragen",
       href: "/unterstuetzen/sponsoring",
@@ -83,29 +83,49 @@ export const site = {
     },
     finanzziel: {
       ueberschrift: "Umbau & Upgrade am Geodome",
-      karten: [
+      gesamt: "ca. 105.000 €",
+      gruppen: [
         {
-          title: "Toilettenanlage",
-          betrag: "",
-          beschreibung: "Sanierung und Ausbau der WC-Anlage für Gäste und Betrieb.",
+          titel: "Basisinvestitionen (ca. 35.000 €)",
+          summe: "ca. 35.000 €",
+          karten: [
+            {
+              title: "Toilettenanlage",
+              beschreibung: "Sanierung und Ausbau der WC-Anlage für Gäste und Betrieb.",
+            },
+            {
+              title: "Feuerfeste Türen (Brandschutz)",
+              beschreibung: "Brandschutzmaßnahmen für einen sicheren und regelkonformen Veranstaltungsbetrieb.",
+            },
+            {
+              title: "Technikpodium",
+              beschreibung: "Podium für Licht- und Tontechnik – belastbar, anbindbar, bühnentauglich.",
+            },
+          ],
         },
         {
-          title: "Feuerfeste Türen",
-          betrag: "",
-          beschreibung: "Brandschutztüren und zugehörige Maßnahmen für einen sicheren Veranstaltungsbetrieb.",
-        },
-        {
-          title: "Technikpodium",
-          betrag: "",
-          beschreibung: "Podium für Licht- und Tontechnik – belastbar, anbindbar, bühnentauglich.",
-        },
-        {
-          title: "Backstage / Bar",
-          betrag: "",
-          beschreibung: "Räume für Artist*innen und Team inkl. einfacher Bar-/Servicezone.",
+          titel: "Weitere technische Anlagen & Ausbau (ca. 70.000 €)",
+          summe: "ca. 70.000 €",
+          karten: [
+            {
+              title: "Technische Anlagen",
+              beschreibung: "Ergänzende technische Infrastruktur für Produktion und Veranstaltungsbetrieb.",
+            },
+            {
+              title: "Musik & Licht",
+              beschreibung: "Upgrades für Regie, Ton- und Lichttechnik – für bessere Show-Qualität im Alltag.",
+            },
+            {
+              title: "Verdunkelung",
+              beschreibung: "Lösungen zur Lichtsteuerung und Verdunkelung für flexible Formate.",
+            },
+            {
+              title: "Infrastruktur (inkl. Backstage/Bar)",
+              beschreibung: "Flächen und Ausstattung für Team/Rückzug sowie einfache Bar-/Servicezone.",
+            },
+          ],
         },
       ],
-      gesamt: "35.000 €",
     },
     abschlussCta: {
       ueberschrift: "Mach den Dome möglich.",
@@ -122,7 +142,7 @@ export const site = {
   spenden: {
     hero: {
       headline: "Spenden, die Zirkus möglich machen.",
-      lead: "Wir investieren gerade in Umbau und Upgrade am Geodome München – Toiletten, Brandschutz, Technikpodium und Backstage/Bar. Deine Spende trägt zu diesem Gesamtvorhaben (ca. 35.000 €) bei.",
+      lead: "Wir investieren in Umbau und Upgrade am Geodome München: Basisinvestitionen (ca. 35.000 €) und zusätzliche Technik & Ausbau (ca. 70.000 €). Deine Spende trägt zu diesem Gesamtvorhaben (ca. 105.000 €) bei.",
       cta: {
         text: "Jetzt spenden",
         href: "#spenden-optionen",
@@ -131,11 +151,9 @@ export const site = {
     unterstuetzung: {
       titel: "Wofür wir Unterstützung brauchen",
       items: [
-        "Toilettenanlage: Sanierung und Ausbau",
-        "Feuerfeste Türen: Brandschutz für sicheren Betrieb",
-        "Technikpodium: Licht- und Tonregie",
-        "Backstage / Bar: Räume für Team und Artist*innen",
-        "Gesamtrahmen des Umbauvorhabens: ca. 35.000 €",
+        "Basisinvestitionen (ca. 35.000 €): Toilettenanlage, feuerfeste Türen (Brandschutz), Technikpodium",
+        "Weitere technische Anlagen & Ausbau (ca. 70.000 €): technische Anlagen, Musik & Licht, Verdunkelung, Infrastruktur (inkl. Backstage/Bar)",
+        "Gesamtrahmen des Umbauvorhabens: ca. 105.000 €",
       ],
     },
     donationTiers: [
@@ -171,7 +189,7 @@ export const site = {
     faq: [
       {
         question: "Wofür wird meine Spende verwendet?",
-        answer: "Für das aktuelle Umbau- und Upgrade-Vorhaben am Geodome: Toilettenanlage, feuerfeste Türen, Technikpodium und Backstage/Bar (Gesamtrahmen ca. 35.000 €).",
+        answer: "Für das Umbau- und Upgrade-Vorhaben am Geodome: Basisinvestitionen (ca. 35.000 €) für Toilettenanlage, Brandschutz und Technikpodium sowie zusätzliche Technik & Ausbau (ca. 70.000 €) für technische Anlagen, Musik & Licht, Verdunkelung und Infrastruktur (inkl. Backstage/Bar). Gesamt: ca. 105.000 €.",
       },
       {
         question: "Kann ich regelmäßig spenden?",
@@ -310,7 +328,7 @@ export const site = {
         wertversprechen: "Ihre Unterstützung ermöglicht zeitgenössischen Zirkus in München: Wir schaffen Räume für künstlerische Entwicklung, fördern lokale Talente und bereichern die Münchner Kulturlandschaft nachhaltig.",
         spenden: {
           titel: "Spenden",
-          text: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Aktuell fließt vieles ins Umbauvorhaben am Geodome (ca. 35.000 €). Spendenbescheinigungen können wir erst ausstellen, wenn die Gemeinnützigkeit amtlich bestätigt ist.",
+          text: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Aktuell fließt vieles ins Umbauvorhaben am Geodome (ca. 105.000 € gesamt: ca. 35.000 € Basis und ca. 70.000 € zusätzliche Technik & Ausbau). Spendenbescheinigungen können wir erst ausstellen, wenn die Gemeinnützigkeit amtlich bestätigt ist.",
           vorteile: [
             "Konkrete Unterstützung von Kunst und Kultur vor Ort",
             "Direkte Förderung der Münchner Kulturlandschaft",
@@ -460,7 +478,7 @@ export const site = {
     warum: [
       "Lokale Sichtbarkeit in München – am festen Veranstaltungsort Geodome",
       "Kulturförderung mit gesellschaftlichem Mehrwert: Menschen verbinden, neue Formate ermöglichen",
-      "Glaubwürdig & transparent: Umbau & Upgrade (ca. 35.000 €)",
+      "Glaubwürdig & transparent: Umbau & Upgrade (ca. 105.000 €)",
     ],
     pakete: [
       {
@@ -520,30 +538,52 @@ export const site = {
       "Standortfaktor München: ein sichtbarer, fester Kulturort im Geodome",
     ],
     finanzplan: {
-      ueberschrift: "Umbau & Upgrade: ca. 35.000 €",
-      items: [
+      ueberschrift: "Umbau & Upgrade: ca. 105.000 €",
+      gesamt: "ca. 105.000 €",
+      rubriken: [
         {
-          kategorie: "Toilettenanlage",
-          betrag: "",
-          beschreibung: "Sanierung und Ausbau der WC-Anlage",
+          titel: "Basisinvestitionen (ca. 35.000 €)",
+          summe: "ca. 35.000 €",
+          items: [
+            {
+              kategorie: "Toilettenanlage",
+              beschreibung: "Sanierung und Ausbau der WC-Anlage für Gäste und Betrieb.",
+            },
+            {
+              kategorie: "Feuerfeste Türen (Brandschutz)",
+              beschreibung: "Brandschutzmaßnahmen für einen sicheren und regelkonformen Veranstaltungsbetrieb.",
+            },
+            {
+              kategorie: "Technikpodium",
+              beschreibung: "Podium für Licht- und Tontechnik – belastbar, anbindbar, bühnentauglich.",
+            },
+          ],
         },
         {
-          kategorie: "Feuerfeste Türen",
-          betrag: "",
-          beschreibung: "Brandschutz für regelkonformen Veranstaltungsbetrieb",
-        },
-        {
-          kategorie: "Technikpodium",
-          betrag: "",
-          beschreibung: "Podium für Licht- und Tontechnik",
-        },
-        {
-          kategorie: "Backstage / Bar",
-          betrag: "",
-          beschreibung: "Räume für Team und Artist*innen, einfache Bar-/Servicezone",
+          titel: "Technische Anlagen & Ausbau (ca. 70.000 €)",
+          summe: "ca. 70.000 €",
+          items: [
+            {
+              kategorie: "Technische Anlagen",
+              beschreibung: "Ergänzende technische Infrastruktur für Produktion und Veranstaltungsbetrieb.",
+            },
+            {
+              kategorie: "Musik & Licht",
+              beschreibung: "Upgrades für Regie, Ton- und Lichttechnik – für bessere Show-Qualität im Alltag.",
+            },
+            {
+              kategorie: "Verdunkelung",
+              beschreibung: "Lösungen zur Lichtsteuerung und Verdunkelung für flexible Formate.",
+            },
+            {
+              kategorie: "Infrastruktur (inkl. Backstage/Bar)",
+              beschreibung: "Flächen und Ausstattung für Team/Rückzug sowie einfache Bar-/Servicezone.",
+            },
+          ],
         },
       ],
-      zusatztext: "Wir möchten diese Investition möglichst über Sponsoring, Förderung und Spenden decken. Detailkosten klären wir mit Planung und Handwerk.",
+      zusatztext:
+        "Wir möchten diese Investition möglichst über Sponsoring, Förderung und Spenden decken. Detailkosten klären wir mit Planung und Handwerk.",
     },
     einsatz: [
       {

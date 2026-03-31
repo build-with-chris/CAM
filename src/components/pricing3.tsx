@@ -20,6 +20,10 @@ const Pricing3 = ({ className }: Pricing3Props) => {
     site.spenden.donationTiers[4], // 1.000 €
   ];
 
+  const finanzziel = site.home.finanzziel;
+  const basis = finanzziel.gruppen?.[0]?.summe;
+  const erweiterung = finanzziel.gruppen?.[1]?.summe;
+
   return (
     <section className={cn("py-32", className)}>
       <div className="container">
@@ -55,7 +59,8 @@ const Pricing3 = ({ className }: Pricing3Props) => {
                     <span className="mr-1 font-semibold text-primary">
                       Klares Vorhaben:
                     </span>
-                    Spenden fließen in Umbau & Upgrade am Geodome (ca. 35.000 €)
+                    Spenden fließen in Umbau & Upgrade am Geodome (Basis: {basis},
+                    Ausbau: {erweiterung}, Gesamt: {finanzziel.gesamt}).
                   </p>
                 </li>
                 <Separator className="my-4" />
@@ -65,7 +70,7 @@ const Pricing3 = ({ className }: Pricing3Props) => {
                     <span className="mr-1 font-semibold text-primary">
                       Transparente Verwendung:
                     </span>
-                    Spenden werden satzungsgemäß für zeitgenössischen Zirkus verwendet
+                    Spenden werden im Rahmen des Umbau- und Upgrade-Vorhabens für die genannten Bausteine eingesetzt
                   </p>
                 </li>
               </ul>
