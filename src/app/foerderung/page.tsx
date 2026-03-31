@@ -51,7 +51,7 @@ export default function FoerderungPage() {
           </div>
         </Section>
 
-        {/* Finanzplan 2026 */}
+        {/* Finanzplan Umbau */}
         <Section id="finanzplan" background="white">
           <SectionHeader
             title={site.foerderung.finanzplan.ueberschrift}
@@ -67,7 +67,9 @@ export default function FoerderungPage() {
                         <p className="text-sm text-base-muted mt-1">{item.beschreibung}</p>
                       )}
                     </div>
-                    <p className="text-xl font-bold text-brand-primary ml-4">{item.betrag}</p>
+                    {item.betrag ? (
+                      <p className="text-xl font-bold text-brand-primary ml-4 shrink-0">{item.betrag}</p>
+                    ) : null}
                   </div>
                 ))}
               </div>

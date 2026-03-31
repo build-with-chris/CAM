@@ -18,7 +18,7 @@ export const site = {
     },
     intro: {
       title: "Circus Akademie München e.V.",
-      text: "Circus Akademie München e.V. ist ein gemeinnütziger Verein mit Sitz in München. Zweck des Vereins ist die Förderung von Kunst und Kultur, insbesondere des zeitgenössischen Circus.",
+      text: "Circus Akademie München e.V. ist ein eingetragener Verein mit Sitz in München. Zweck des Vereins ist die Förderung von Kunst und Kultur, insbesondere des zeitgenössischen Zirkus.",
       teaser: [
         "Circus als Brückenschlag zwischen darstellender und bildender Kunst",
         "Raum für neue Formate, neue Räume und Zusammenarbeit mit lokalen & internationalen Künstlern",
@@ -29,10 +29,10 @@ export const site = {
       sitz: "München",
       geschaeftsjahr: "Kalenderjahr",
       selbstverstaendnis: "Der Verein versteht den Circus als besondere Kunstform und fördert Formen des Zirkus auch jenseits des etablierten fahrenden Circus und Varietés – u. a. durch neue Räume und Veranstaltungsformen.",
-      gemeinnuetzigkeit: {
-        zweck: "Der Verein verfolgt ausschließlich und unmittelbar gemeinnützige Zwecke im Sinne der Abgabenordnung. Zweck ist die Förderung der Kunst und Kultur.",
-        selbstlosigkeit: [
-          "Der Verein ist selbstlos tätig und verfolgt nicht in erster Linie eigenwirtschaftliche Zwecke.",
+      vereinszweck: {
+        zweck: "Zweck des Vereins ist die Förderung von Kunst und Kultur, insbesondere des zeitgenössischen Zirkus.",
+        mittelverwendung: [
+          "Der Verein verfolgt in erster Linie seinen satzungsmäßigen Zweck, nicht eigenwirtschaftliche Interessen.",
           "Mittel werden nur für satzungsmäßige Zwecke verwendet.",
           "Keine Zuwendungen ohne Gegenleistung; keine Begünstigung durch zweckfremde Ausgaben oder unverhältnismäßige Vergütungen.",
         ],
@@ -41,8 +41,8 @@ export const site = {
   },
   hero: {
     headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
-    subline: "Die Zirkus Akademie München ist ein gemeinnütziger Verein für zeitgenössischen Zirkus – mit festem Zuhause im Geodome München.",
-    bedarf: "Damit Kunst möglich bleibt, brauchen wir 2026 rund 100.000–110.000 € über Sponsoring und Förderung.",
+    subline: "Die Zirkus Akademie München ist ein Kulturverein für zeitgenössischen Zirkus – mit festem Zuhause im Geodome München.",
+    bedarf: "Für Umbau und Upgrade am Geodome benötigen wir derzeit rund 35.000 €: u. a. Toilettenanlage, feuerfeste Türen, Technikpodium und Backstage mit Bar.",
     cta1: {
       text: "Sponsoring anfragen",
       href: "/unterstuetzen/sponsoring",
@@ -72,34 +72,40 @@ export const site = {
       },
     ],
     warumWir: [
-      "Gemeinnützig: Förderung von zeitgenössischem Zirkus",
+      "Satzungsgemäße Förderung von zeitgenössischem Zirkus",
       "Fester Veranstaltungsort: Geodome in München",
       "Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen",
-      "Transparent: klarer Finanzplan für 2026",
+      "Transparentes Umbauvorhaben mit konkretem Finanzrahmen",
     ],
     storytelling: {
       ueberschrift: "Unter der Kuppel passiert was.",
       text: "Im Geodome wird aus 'Ich trau mich nicht' ein 'Schau mal!'. Zeitgenössischer Zirkus verbindet Körper, Musik, Theater und Mut – und bringt Menschen zusammen, die sich sonst nie begegnet wären. Wir schaffen Raum für Training, Experimente und Aufführungen. Damit dieser Ort bleibt, brauchen wir Unterstützung.",
     },
     finanzziel: {
+      ueberschrift: "Umbau & Upgrade am Geodome",
       karten: [
         {
-          title: "Laufender Betrieb",
-          betrag: "25.900 €",
-          beschreibung: "Versicherung + Heizung",
+          title: "Toilettenanlage",
+          betrag: "",
+          beschreibung: "Sanierung und Ausbau der WC-Anlage für Gäste und Betrieb.",
         },
         {
-          title: "Investitionen",
-          betrag: "66.000 €",
-          beschreibung: "Licht, Ton, Bauantrag, Lichtweg",
+          title: "Feuerfeste Türen",
+          betrag: "",
+          beschreibung: "Brandschutztüren und zugehörige Maßnahmen für einen sicheren Veranstaltungsbetrieb.",
         },
         {
-          title: "1–2 Minijobs",
-          betrag: "8.580–17.160 €",
-          beschreibung: "",
+          title: "Technikpodium",
+          betrag: "",
+          beschreibung: "Podium für Licht- und Tontechnik – belastbar, anbindbar, bühnentauglich.",
+        },
+        {
+          title: "Backstage / Bar",
+          betrag: "",
+          beschreibung: "Räume für Artist*innen und Team inkl. einfacher Bar-/Servicezone.",
         },
       ],
-      gesamt: "100.000–110.000 €",
+      gesamt: "35.000 €",
     },
     abschlussCta: {
       ueberschrift: "Mach den Dome möglich.",
@@ -116,19 +122,20 @@ export const site = {
   spenden: {
     hero: {
       headline: "Spenden, die Zirkus möglich machen.",
-      lead: "Wir sind gemeinnützig und bauen im Geodome München einen festen Ort für zeitgenössischen Zirkus auf. Deine Spende hilft, Betrieb, Technik und Infrastruktur 2026 zu sichern.",
+      lead: "Wir investieren gerade in Umbau und Upgrade am Geodome München – Toiletten, Brandschutz, Technikpodium und Backstage/Bar. Deine Spende trägt zu diesem Gesamtvorhaben (ca. 35.000 €) bei.",
       cta: {
         text: "Jetzt spenden",
         href: "#spenden-optionen",
       },
     },
     unterstuetzung: {
-      titel: "Wofür wir 2026 Unterstützung brauchen",
+      titel: "Wofür wir Unterstützung brauchen",
       items: [
-        "Laufender Betrieb: 25.900 € (Versicherung + Heizung)",
-        "Investitionen: 66.000 € (Licht, Ton, Bauantrag, Lichtweg)",
-        "1–2 Minijobs: 8.580–17.160 €",
-        "Zielsumme 2026: 100.000–110.000 €",
+        "Toilettenanlage: Sanierung und Ausbau",
+        "Feuerfeste Türen: Brandschutz für sicheren Betrieb",
+        "Technikpodium: Licht- und Tonregie",
+        "Backstage / Bar: Räume für Team und Artist*innen",
+        "Gesamtrahmen des Umbauvorhabens: ca. 35.000 €",
       ],
     },
     donationTiers: [
@@ -142,29 +149,29 @@ export const site = {
       },
       {
         betrag: "150 €",
-        wirkung: "Ein konkreter Beitrag zu Technik & Sicherheit (Licht/Ton, Infrastruktur)",
+        wirkung: "Beitrag zu Brandschutz und sicherer Ausstattung (z. B. Tür- und Schließbereich)",
       },
       {
         betrag: "500 €",
-        wirkung: "Ein spürbarer Baustein für unsere 2026-Investitionen (Licht/Ton/Ausstattung)",
+        wirkung: "Merkbare Unterstützung für Technikpodium oder Backstage-Ausbau",
       },
       {
         betrag: "1.000 €",
-        wirkung: "Du stabilisierst den laufenden Betrieb (Versicherung/Heizung) mit einem echten Schritt",
+        wirkung: "Spürbarer Anteil am Umbau – z. B. Flächen oder Technikanschlüsse",
       },
       {
         betrag: "2.500 €",
-        wirkung: "Du hilfst, Arbeitsstunden (Minijob) für Organisation & Durchführung abzusichern",
+        wirkung: "Starker Schub für einen größeren Bauabschnitt (Sanitär, Türen oder Barbereich)",
       },
     ],
     hinweis: "Jeder Betrag hilft – wir setzen Spenden dort ein, wo sie aktuell am dringendsten gebraucht werden.",
     trust: {
-      text: "Als gemeinnütziger Verein verwenden wir Spenden satzungsgemäß für die Förderung von zeitgenössischem Zirkus. Auf Wunsch stellen wir eine Spendenbescheinigung aus.",
+      text: "Wir verwenden Spenden satzungsgemäß für die Förderung von zeitgenössischem Zirkus und – im Rahmen dieses Aufrufs – für das beschriebene Umbauvorhaben. Ein Nachweis zur steuerlichen Anerkennung von Spenden ist voraussichtlich erst möglich, wenn das Finanzamt die Gemeinnützigkeit bestätigt hat; bis dahin stellen wir keine entsprechenden Bescheinigungen aus.",
     },
     faq: [
       {
         question: "Wofür wird meine Spende verwendet?",
-        answer: "Für Betrieb (Versicherung/Heizung), Investitionen (Licht, Ton, Bauantrag, Lichtweg) und personelle Unterstützung, damit Programm und Organisation zuverlässig laufen.",
+        answer: "Für das aktuelle Umbau- und Upgrade-Vorhaben am Geodome: Toilettenanlage, feuerfeste Türen, Technikpodium und Backstage/Bar (Gesamtrahmen ca. 35.000 €).",
       },
       {
         question: "Kann ich regelmäßig spenden?",
@@ -172,11 +179,11 @@ export const site = {
       },
       {
         question: "Ist meine Spende steuerlich absetzbar?",
-        answer: "In der Regel ja, da wir gemeinnützig sind. Details klären wir gern individuell.",
+        answer: "Eine Spendenbescheinigung für die Steuer ist erst sinnvoll, wenn uns die Gemeinnützigkeit vom Finanzamt bestätigt wurde – das erwarten wir in den kommenden Wochen. Bis dahin kannst du spenden, aber ohne steuerlichen Nachweis von unserer Seite. Bei Rückfragen melde dich gern.",
       },
       {
         question: "Ich möchte zweckgebunden spenden – geht das?",
-        answer: "Schreib uns kurz, wofür du spenden möchtest (z.B. Licht/Ton). Wenn es zu unserer Satzung passt, berücksichtigen wir das.",
+        answer: "Schreib uns kurz, wofür du spenden möchtest (z. B. Sanitär, Brandschutz, Technik, Backstage). Wenn es zu unserer Satzung passt, berücksichtigen wir das.",
       },
     ],
     abschluss: {
@@ -303,9 +310,9 @@ export const site = {
         wertversprechen: "Ihre Unterstützung ermöglicht zeitgenössischen Zirkus in München: Wir schaffen Räume für künstlerische Entwicklung, fördern lokale Talente und bereichern die Münchner Kulturlandschaft nachhaltig.",
         spenden: {
           titel: "Spenden",
-          text: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Als gemeinnütziger Verein können wir Spendenquittungen ausstellen.",
+          text: "Jede Spende hilft uns, Trainingsräume zu sichern, Workshops zu organisieren und künstlerische Projekte zu fördern. Aktuell fließt vieles ins Umbauvorhaben am Geodome (ca. 35.000 €). Spendenbescheinigungen können wir erst ausstellen, wenn die Gemeinnützigkeit amtlich bestätigt ist.",
           vorteile: [
-            "Steuerlich absetzbar (gemeinnütziger Verein)",
+            "Konkrete Unterstützung von Kunst und Kultur vor Ort",
             "Direkte Förderung der Münchner Kulturlandschaft",
             "Unterstützung lokaler Künstler*innen",
             "Transparente Mittelverwendung",
@@ -409,7 +416,7 @@ export const site = {
         aufwendungsersatz: "Aufwendungsersatz nach § 670 BGB möglich (mit Belegen, Frist 3 Monate)",
         finanzordnung: "Details regelt eine Finanzordnung (durch Mitgliederversammlung).",
       },
-      vermoegensbindung: "Bei Auflösung/Aufhebung oder Wegfall des Zwecks fällt das Vermögen an die Landeshauptstadt München zur gemeinnützigen Verwendung gemäß §2.",
+      vermoegensbindung: "Bei Auflösung/Aufhebung oder Wegfall des Zwecks fällt das Vermögen an die Landeshauptstadt München gemäß Satzung (§2).",
     },
   },
   datenschutz: {
@@ -435,7 +442,7 @@ export const site = {
     { label: "Kontakt", href: "/kontakt" },
   ],
   footer: {
-    trustLine: "Gemeinnütziger Verein zur Förderung von zeitgenössischem Zirkus in München und Bayern.",
+    trustLine: "Circus Akademie München e.V. – Förderung von zeitgenössischem Zirkus in München und Bayern.",
   },
   sponsoring: {
     hero: {
@@ -453,7 +460,7 @@ export const site = {
     warum: [
       "Lokale Sichtbarkeit in München – am festen Veranstaltungsort Geodome",
       "Kulturförderung mit gesellschaftlichem Mehrwert: Menschen verbinden, neue Formate ermöglichen",
-      "Glaubwürdig & transparent: Finanzplan 2026 (100.000–110.000 € Bedarf)",
+      "Glaubwürdig & transparent: Umbau & Upgrade (ca. 35.000 €)",
     ],
     pakete: [
       {
@@ -486,7 +493,7 @@ export const site = {
         ],
       },
     ],
-    paketeHinweis: "Sie möchten gezielt Licht/Ton, Bauantrag oder Betrieb fördern? Wir schnüren gern ein passendes Paket.",
+    paketeHinweis: "Sie möchten gezielt Toiletten, Brandschutz, Technikpodium oder Backstage fördern? Wir schnüren gern ein passendes Paket.",
     unterstuetzer: {
       ueberschrift: "Unterstützer & Partner",
       text: "Hier zeigen wir Unternehmen und Institutionen, die den Geodome möglich machen. (Platzhalter – wird ergänzt.)",
@@ -499,7 +506,7 @@ export const site = {
   foerderung: {
     hero: {
       headline: "Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München.",
-      lead: "Wir sind ein gemeinnütziger Verein mit festem Veranstaltungsort (Geodome). Unser Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen.",
+      lead: "Wir sind ein Kulturverein mit festem Veranstaltungsort im Geodome. Unser Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen – derzeit mit Fokus auf Umbau und Upgrade vor Ort.",
       cta: {
         text: "Gespräch vereinbaren",
         href: "#kontakt",
@@ -513,52 +520,57 @@ export const site = {
       "Standortfaktor München: ein sichtbarer, fester Kulturort im Geodome",
     ],
     finanzplan: {
-      ueberschrift: "Finanzbedarf 2026: 100.000–110.000 €",
+      ueberschrift: "Umbau & Upgrade: ca. 35.000 €",
       items: [
         {
-          kategorie: "Laufender Betrieb",
-          betrag: "25.900 €",
-          beschreibung: "Versicherung + Heizung",
+          kategorie: "Toilettenanlage",
+          betrag: "",
+          beschreibung: "Sanierung und Ausbau der WC-Anlage",
         },
         {
-          kategorie: "Einmalige Investitionen",
-          betrag: "66.000 €",
-          beschreibung: "Licht, Ton, Bauantrag, Lichtweg",
+          kategorie: "Feuerfeste Türen",
+          betrag: "",
+          beschreibung: "Brandschutz für regelkonformen Veranstaltungsbetrieb",
         },
         {
-          kategorie: "1–2 Minijobs",
-          betrag: "8.580–17.160 €",
-          beschreibung: "",
+          kategorie: "Technikpodium",
+          betrag: "",
+          beschreibung: "Podium für Licht- und Tontechnik",
+        },
+        {
+          kategorie: "Backstage / Bar",
+          betrag: "",
+          beschreibung: "Räume für Team und Artist*innen, einfache Bar-/Servicezone",
         },
       ],
-      zusatztext: "Wir möchten diese Summe möglichst über Sponsoring und Förderung decken, um den Betrieb und das Programm verlässlich zu sichern.",
+      zusatztext: "Wir möchten diese Investition möglichst über Sponsoring, Förderung und Spenden decken. Detailkosten klären wir mit Planung und Handwerk.",
     },
     einsatz: [
       {
-        kategorie: "Betrieb",
-        beschreibung: "Sichere Grundversorgung des Ortes (Versicherung/Heizung)",
+        kategorie: "Toilettenanlage",
+        beschreibung: "Gäste- und Personal-WC: funktional, hygienisch, wartbar.",
       },
       {
-        kategorie: "Investitionen",
-        beschreibung: "Technische und bauliche Voraussetzungen für öffentliche Kulturveranstaltungen",
+        kategorie: "Feuerfeste Türen",
+        beschreibung: "Abschottung und sichere Fluchtwege im Veranstaltungsbetrieb.",
       },
       {
-        kategorie: "Minijobs",
-        beschreibung: "Koordination, Sicherheit, Kommunikation – damit Programm planbar wird",
+        kategorie: "Technikpodium",
+        beschreibung: "Technikbühne für Regie, Kabelwege und Aufbau – ohne Improvisation auf der Spielstätte.",
+      },
+      {
+        kategorie: "Backstage / Bar",
+        beschreibung: "Rückzug für Artist*innen und Team; einfache Bar für Veranstaltungen und Publikum.",
       },
     ],
     unterlagen: [
       {
-        titel: "Kostenüberschlag 2026 (PDF)",
+        titel: "Kostenüberschlag Umbau (PDF)",
         link: "#",
       },
       {
         titel: "Vereinssatzung (PDF)",
         link: satzungPdfPath,
-      },
-      {
-        titel: "Nachweis Gemeinnützigkeit / Freistellungsbescheid (PDF)",
-        link: "#",
       },
       {
         titel: "Projekt-Onepager (PDF)",

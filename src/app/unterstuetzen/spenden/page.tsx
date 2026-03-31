@@ -1,8 +1,7 @@
 import { redirect } from 'next/navigation';
 
 /**
- * Spenden-Seite: Weiterleitung zu Unterstützen.
- * Kein Spendenaufruf, solange keine Gemeinnützigkeit vorliegt.
+ * Spenden-URL: Weiterleitung zu Unterstützen (ein Einstieg für Spender*innen).
  */
 export default function SpendenPage() {
   redirect('/unterstuetzen');

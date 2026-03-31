@@ -43,7 +43,7 @@ const Contact18 = ({ className }: Contact18Props) => {
   }, [searchParams]);
 
   const supportFeatures = [
-    { text: "Gemeinnütziger Verein" },
+    { text: "Engagierter Kulturverein" },
     { text: "Zeitnahe Antwort" },
     { text: "Transparente Kommunikation" },
     { text: "Persönlicher Kontakt" },

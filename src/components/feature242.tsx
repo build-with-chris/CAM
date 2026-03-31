@@ -85,7 +85,7 @@ const Feature242 = () => {
         vorteile: [
           "Kulturelle Teilhabe fördern",
           "Nachhaltige Strukturen",
-          "Gemeinnützige Zwecke",
+          "Kulturelle und soziale Wirkung",
           "Beitrag zur Münchner Kulturlandschaft",
         ],
       },

@@ -53,9 +53,9 @@ const Pricing3 = ({ className }: Pricing3Props) => {
                   <Check className="w-4" />
                   <p className="text-sm text-muted-foreground">
                     <span className="mr-1 font-semibold text-primary">
-                      Steuerlich absetzbar:
+                      Klares Vorhaben:
                     </span>
-                    Als gemeinnütziger Verein können wir Spendenquittungen ausstellen
+                    Spenden fließen in Umbau & Upgrade am Geodome (ca. 35.000 €)
                   </p>
                 </li>
                 <Separator className="my-4" />

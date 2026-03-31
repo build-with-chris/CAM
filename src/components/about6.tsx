@@ -121,20 +121,20 @@ const About6 = ({ className }: About6Props) => {
             </div>
           </div>
 
-          {/* Zweck und Gemeinnützigkeit */}
+          {/* Vereinszweck */}
           <div className="space-y-6 pt-8 border-t">
-            <h3 className="text-2xl font-normal">Zweck und Gemeinnützigkeit</h3>
+            <h3 className="text-2xl font-normal">Vereinszweck</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-lg font-medium mb-3">Gemeinnützige Zwecke</h4>
+                <h4 className="text-lg font-medium mb-3">Satzungszweck</h4>
                 <p className="text-muted-foreground leading-relaxed">
-                  {site.verein.details.gemeinnuetzigkeit.zweck}
+                  {site.verein.details.vereinszweck.zweck}
                 </p>
               </div>
               <div>
-                <h4 className="text-lg font-medium mb-3">Selbstlosigkeit und Mittelverwendung</h4>
+                <h4 className="text-lg font-medium mb-3">Mittelverwendung</h4>
                 <ul className="space-y-2 text-muted-foreground leading-relaxed">
-                  {site.verein.details.gemeinnuetzigkeit.selbstlosigkeit.map((punkt, index) => (
+                  {site.verein.details.vereinszweck.mittelverwendung.map((punkt, index) => (
                     <li key={index} className="flex items-start">
                       <span className="mr-3 mt-1">•</span>
                       <span>{punkt}</span>

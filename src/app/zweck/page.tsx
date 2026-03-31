@@ -45,20 +45,20 @@ export default function ZweckPage() {
               </div>
             </div>
 
-            {/* Zweck und Gemeinnützigkeit */}
+            {/* Vereinszweck */}
             <div className="space-y-6 pt-8 border-t border-gray-200">
-              <h3 className="text-2xl font-normal text-primary-900">Zweck und Gemeinnützigkeit</h3>
+              <h3 className="text-2xl font-normal text-primary-900">Vereinszweck</h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-lg font-medium text-primary-900 mb-3">Gemeinnützige Zwecke</h4>
+                  <h4 className="text-lg font-medium text-primary-900 mb-3">Satzungszweck</h4>
                   <p className="text-gray-600 leading-relaxed">
-                    {site.verein.details.gemeinnuetzigkeit.zweck}
+                    {site.verein.details.vereinszweck.zweck}
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium text-primary-900 mb-3">Selbstlosigkeit und Mittelverwendung</h4>
+                  <h4 className="text-lg font-medium text-primary-900 mb-3">Mittelverwendung</h4>
                   <ul className="space-y-2 text-gray-600 leading-relaxed">
-                    {site.verein.details.gemeinnuetzigkeit.selbstlosigkeit.map((punkt, index) => (
+                    {site.verein.details.vereinszweck.mittelverwendung.map((punkt, index) => (
                       <li key={index} className="flex items-start">
                         <span className="text-primary-600 mr-3 mt-1">•</span>
                         <span>{punkt}</span>

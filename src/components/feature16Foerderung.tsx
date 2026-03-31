@@ -1,4 +1,4 @@
-import { Settings, Wrench, Users } from "lucide-react";
+import { Bath, Shield, MonitorPlay, Coffee } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
@@ -8,7 +8,7 @@ interface Feature16FoerderungProps {
 
 const Feature16Foerderung = ({ className }: Feature16FoerderungProps) => {
   const einsatz = site.foerderung.einsatz;
-  const icons = [Settings, Wrench, Users]; // Betrieb, Investitionen, Minijobs
+  const icons = [Bath, Shield, MonitorPlay, Coffee];
 
   return (
     <section className={cn("py-12 md:py-16", className)}>
@@ -16,7 +16,7 @@ const Feature16Foerderung = ({ className }: Feature16FoerderungProps) => {
         <h2 className="mb-8 text-2xl sm:text-3xl font-medium lg:text-4xl lg:mb-12 text-base-text">
           Wofür Förderung konkret eingesetzt wird
         </h2>
-        <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {einsatz.map((item, index) => {
             const Icon = icons[index];
             return (

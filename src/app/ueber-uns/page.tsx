@@ -5,7 +5,8 @@ import { About6 } from '@/components/about6';
 
 export const metadata: Metadata = {
   title: 'Über uns | Circus Akademie München e.V.',
-  description: 'Circus Akademie München e.V. – Gemeinnütziger Verein zur Förderung von zeitgenössischem Zirkus. Erfahren Sie mehr über unseren Zweck, unsere Werte und unsere Struktur.',
+  description:
+    'Circus Akademie München e.V. – Kulturverein zur Förderung von zeitgenössischem Zirkus. Erfahren Sie mehr über unseren Zweck, unsere Werte und unsere Struktur.',
 };
 
 export default function UeberUnsPage() {
