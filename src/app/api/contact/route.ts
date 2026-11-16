@@ -1,13 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import {
+  EMAIL_REGEX,
+  VEREIN_EMAIL,
+  absender,
+  createTransport,
+  einzeilig,
+  escapeHtml,
+  escapeHtmlMehrzeilig,
+  feld,
+} from '@/lib/mail';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, subject, message, website } = body;
+    const name = einzeilig(body?.name, 200);
+    const email = einzeilig(body?.email, 320);
+    const subject = einzeilig(body?.subject, 150) || 'Allgemein';
+    const message = feld(body?.message, 5000);
+    const website = feld(body?.website, 200);
 
     // Honeypot-Validierung: Wenn das versteckte Feld ausgefüllt ist, ist es Spam
-    if (website && website.trim() !== '') {
+    if (website !== '') {
       // Spam erkannt - aber wir geben keine Fehlermeldung, um Bots nicht zu warnen
       console.log('Spam erkannt (Honeypot):', { email, website });
       return NextResponse.json(
@@ -25,38 +38,26 @@ export async function POST(request: NextRequest) {
     }
 
     // E-Mail-Validierung
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json(
         { error: 'Bitte gib eine gültige E-Mail-Adresse ein.' },
         { status: 400 }
       );
     }
 
-    // Nodemailer-Transporter konfigurieren
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_PORT === '465', // true für Port 465, false für andere Ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
     // E-Mail versenden
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"Kontaktformular" <${process.env.SMTP_USER}>`,
-      to: 'info@xn--circusakademiemnchen-3ec.de',
+    await createTransport().sendMail({
+      from: absender('Kontaktformular'),
+      to: VEREIN_EMAIL,
       replyTo: email,
-      subject: `Kontaktformular: ${subject || 'Allgemein'}`,
+      subject: `Kontaktformular: ${subject}`,
       html: `
         <h2>Neue Nachricht vom Kontaktformular</h2>
-        <p><strong>Von:</strong> ${name}</p>
-        <p><strong>E-Mail:</strong> ${email}</p>
-        <p><strong>Betreff:</strong> ${subject || 'Allgemein'}</p>
+        <p><strong>Von:</strong> ${escapeHtml(name)}</p>
+        <p><strong>E-Mail:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Betreff:</strong> ${escapeHtml(subject)}</p>
         <p><strong>Nachricht:</strong></p>
-        <p>${message.replace(/\n/g, '<br>').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+        <p>${escapeHtmlMehrzeilig(message)}</p>
         <hr>
         <p style="color: #666; font-size: 12px;">Diese E-Mail wurde über das Kontaktformular auf der Website gesendet.</p>
       `,
@@ -65,7 +66,7 @@ Neue Nachricht vom Kontaktformular
 
 Von: ${name}
 E-Mail: ${email}
-Betreff: ${subject || 'Allgemein'}
+Betreff: ${subject}
 
 Nachricht:
 ${message}

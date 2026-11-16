@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import {
+  EMAIL_REGEX,
+  VEREIN_EMAIL,
+  VEREIN_EMAIL_ANZEIGE,
+  absender,
+  createTransport,
+} from '@/lib/mail';
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NACHRICHT_MAX_LENGTH = 1000;
 
 function sanitize(str: string): string {
@@ -91,18 +96,10 @@ export async function POST(request: NextRequest) {
     }
 
     // E-Mail an Vorstand (info@circusakademiemünchen.de, IDN für SMTP)
-    const vorstandEmail = 'info@xn--circusakademiemnchen-3ec.de';
-    const vorstandEmailDisplay = 'info@circusakademiemünchen.de';
+    const vorstandEmail = VEREIN_EMAIL;
+    const vorstandEmailDisplay = VEREIN_EMAIL_ANZEIGE;
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_PORT === '465',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    const transporter = createTransport();
 
     const v = sanitize(String(vorname));
     const n = sanitize(String(nachname));
@@ -157,7 +154,7 @@ Bitte Aufnahme/Status kurz bestätigen.
     `.trim();
 
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"Mitgliedsantrag" <${process.env.SMTP_USER}>`,
+      from: absender('Mitgliedsantrag'),
       to: vorstandEmail,
       replyTo: String(email).trim(),
       subject: subj,
@@ -187,7 +184,7 @@ Vorstand Circus Akademie München e.V.
     `.trim();
 
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || `"Circus Akademie München e.V." <${process.env.SMTP_USER}>`,
+      from: absender('Circus Akademie München e.V.'),
       to: String(email).trim(),
       subject: 'Eingangsbestätigung Mitgliedsantrag',
       html: autoReplyHtml,

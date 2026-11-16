@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/siteUrl";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.xn--circusakademiemnchen-3ec.de"),
+  metadataBase: new URL(SITE_URL),
   title: "Circus Akademie München e.V. – Zeitgenössischer Zirkus braucht Raum",
   description: "Wir schaffen in München Struktur für Training, Austausch und Bühne. Zeitgenössischer Zirkus als Kunstform – im Pepe Dome am Ostpark.",
   keywords: ["Zeitgenössischer Zirkus", "Circus Akademie München", "Zirkuskunst", "Akrobatik", "Luftartistik", "Pepe Dome", "Ostpark München", "Training", "Workshops", "Open Stage"],

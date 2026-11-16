@@ -17,6 +17,7 @@ export default function SponsoringPage() {
     email: '',
     budget: '',
     nachricht: '',
+    website: '', // Honeypot-Feld (sollte leer bleiben)
   });
   const [errors, setErrors] = useState({
     name: '',
@@ -25,6 +26,8 @@ export default function SponsoringPage() {
     nachricht: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,23 +64,60 @@ export default function SponsoringPage() {
     return !Object.values(newErrors).some(error => error !== '');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
 
-    if (validateForm()) {
-      console.log('Form Data:', formData);
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Unternehmen und Budget stehen in der Nachricht, damit die Route /api/contact unverändert bleibt.
+      const message = [
+        `Unternehmen: ${formData.unternehmen.trim()}`,
+        `Budget: ${formData.budget || 'keine Angabe'}`,
+        '',
+        formData.nachricht.trim(),
+      ].join('\n');
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: 'Sponsoring',
+          message,
+          website: formData.website, // Honeypot
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Fehler beim Senden der Anfrage.');
+      }
+
       setSubmitted(true);
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({
-          name: '',
-          unternehmen: '',
-          email: '',
-          budget: '',
-          nachricht: '',
-        });
-      }, 5000);
+      setFormData({
+        name: '',
+        unternehmen: '',
+        email: '',
+        budget: '',
+        nachricht: '',
+        website: '',
+      });
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'Fehler beim Senden der Anfrage. Bitte versuche es später erneut.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -160,6 +200,20 @@ export default function SponsoringPage() {
                 </div>
               ) : (
                 <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                  {/* Honeypot-Feld: für Menschen unsichtbar, Bots füllen es aus */}
+                  <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                    <label htmlFor="website">Website (nicht ausfüllen)</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       Name *
@@ -238,10 +292,10 @@ export default function SponsoringPage() {
                       className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-primary-700 transition-colors"
                     >
                       <option value="">Bitte wählen</option>
-                      <option value="< 2.500">{"< 2.500 €"}</option>
-                      <option value="2.500–7.500">2.500–7.500 €</option>
-                      <option value="7.500–15.000">7.500–15.000 €</option>
-                      <option value="> 15.000">{"> 15.000 €"}</option>
+                      <option value="< 2.500 €">{"< 2.500 €"}</option>
+                      <option value="2.500–7.500 €">2.500–7.500 €</option>
+                      <option value="7.500–15.000 €">7.500–15.000 €</option>
+                      <option value="> 15.000 €">{"> 15.000 €"}</option>
                       <option value="individuell">individuell</option>
                     </select>
                   </div>
@@ -268,8 +322,14 @@ export default function SponsoringPage() {
                     )}
                   </div>
 
-                  <Button type="submit" variant="primary" size="lg" className="w-full">
-                    Anfrage senden
+                  {submitError && (
+                    <p className="text-sm text-red-600" role="alert">
+                      {submitError}
+                    </p>
+                  )}
+
+                  <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
                   </Button>
                 </form>
               )}
