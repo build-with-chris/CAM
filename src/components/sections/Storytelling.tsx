@@ -26,7 +26,7 @@ export const Storytelling: React.FC = () => {
           {/* Bild rechts */}
           <div className="relative w-full aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="/TheDome.png"
+              src="/images/the-dome.webp"
               alt="Geodome München - Pepe Dome am Ostpark"
               fill
               className="object-cover"

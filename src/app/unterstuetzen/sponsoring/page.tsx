@@ -142,24 +142,6 @@ export default function SponsoringPage() {
           <Pricing3Sponsoring />
         </section>
 
-        {/* Bestehende Unterstützung */}
-        <Section id="unterstuetzer" background="gray">
-          <SectionHeader
-            title={site.sponsoring.unterstuetzer.ueberschrift}
-            subtitle={site.sponsoring.unterstuetzer.text}
-          />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[...Array(8)].map((_, index) => (
-              <div
-                key={index}
-                className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center"
-              >
-                <span className="text-gray-400 text-xs">Logo {index + 1}</span>
-              </div>
-            ))}
-          </div>
-        </Section>
-
         {/* Kontaktformular */}
         <Section id="kontakt" background="white">
           <SectionHeader

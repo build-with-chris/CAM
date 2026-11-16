@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
-  <rect width="1200" height="600" fill="#f8f9fa"/>
-  <rect x="100" y="150" width="1000" height="300" fill="#e9ecef" rx="4"/>
-  <circle cx="300" cy="300" r="60" fill="#dee2e6"/>
-  <circle cx="600" cy="300" r="60" fill="#dee2e6"/>
-  <circle cx="900" cy="300" r="60" fill="#dee2e6"/>
-  <text x="600" y="320" text-anchor="middle" fill="#6c757d" font-family="system-ui" font-size="14">Hero Image</text>
-</svg>
-

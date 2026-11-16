@@ -22,6 +22,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.xn--circusakademiemnchen-3ec.de"),
   title: "Circus Akademie München e.V. – Zeitgenössischer Zirkus braucht Raum",
   description: "Wir schaffen in München Struktur für Training, Austausch und Bühne. Zeitgenössischer Zirkus als Kunstform – im Pepe Dome am Ostpark.",
   keywords: ["Zeitgenössischer Zirkus", "Circus Akademie München", "Zirkuskunst", "Akrobatik", "Luftartistik", "Pepe Dome", "Ostpark München", "Training", "Workshops", "Open Stage"],
@@ -31,16 +32,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://circus-akademie-muenchen.de",
+    url: "/",
     siteName: "Circus Akademie München e.V.",
     title: "Circus Akademie München e.V. – Zeitgenössischer Zirkus braucht Raum",
     description: "Wir schaffen in München Struktur für Training, Austausch und Bühne. Zeitgenössischer Zirkus als Kunstform – im Pepe Dome am Ostpark.",
     images: [
       {
-        url: "/placeholders/og.svg",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Circus Akademie München e.V.",
+        alt: "Ein Artist schwebt waagerecht in einem Cyr Wheel, um ihn herum zieht Bühnennebel",
       },
     ],
   },
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Circus Akademie München e.V. – Zeitgenössischer Zirkus braucht Raum",
     description: "Wir schaffen in München Struktur für Training, Austausch und Bühne. Zeitgenössischer Zirkus als Kunstform – im Pepe Dome am Ostpark.",
-    images: ["/placeholders/og.svg"],
+    images: ["/og.jpg"],
   },
   icons: {
     icon: "/CAMLogonegativ.svg",

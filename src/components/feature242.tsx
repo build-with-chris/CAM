@@ -67,7 +67,7 @@ const Feature242 = () => {
       description: "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen.",
       href: "/unterstuetzen/sponsoring",
       details: {
-        text: site.mitmachen[1]?.details?.sponsoring?.text || "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen oder Ihre Organisation.",
+        text: "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen oder Ihre Organisation.",
         vorteile: [
           "Sichtbarkeit bei Veranstaltungen und auf unserer Website",
           "Assoziation mit innovativer, kultureller Arbeit",
@@ -244,7 +244,7 @@ const Feature242 = () => {
                 </div>
               )}
               <div className="pt-4">
-                <Link href={items[openDialog]?.href || "#"}>
+                <Link href={items[openDialog].href}>
                   <Button className="w-full">
                     Mehr erfahren
                   </Button>

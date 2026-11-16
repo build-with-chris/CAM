@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="relative h-12 w-12 flex-shrink-0">
                 <Image
-                  src="/CAM Logo negativ.png"
+                  src="/images/logos/cam-logo-negativ.png"
                   alt="Circus Akademie München Logo"
                   fill
                   className="object-contain"

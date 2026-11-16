@@ -41,18 +41,18 @@ const About6 = ({ className }: About6Props) => {
             </div>
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               <img
-                src={images[0] || '/Cam Bilder /EinMannEinKofferEinWanndazirkus.webp'}
+                src={images[0] || '/images/disziplinen/ein-mann-ein-koffer.webp'}
                 alt={selectedDisziplinen[0]?.name || "Zeitgenössischer Zirkus"}
                 className="aspect-[0.7] w-full rounded-lg object-cover md:w-1/2"
               />
               <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
                 <img
-                  src={images[1] || '/Cam Bilder /Clownerie.webp'}
+                  src={images[1] || '/images/disziplinen/clownerie.webp'}
                   alt={selectedDisziplinen[1]?.name || "Zirkuskunst"}
                   className="aspect-[1.1] rounded-lg object-cover"
                 />
                 <img
-                  src={images[2] || '/Cam Bilder /Tellerdrehen.webp'}
+                  src={images[2] || '/images/disziplinen/tellerdrehen.webp'}
                   alt={selectedDisziplinen[2]?.name || "Artistik"}
                   className="aspect-[0.7] rounded-lg object-cover"
                 />
@@ -62,18 +62,18 @@ const About6 = ({ className }: About6Props) => {
           <div className="flex w-full flex-col items-center justify-center gap-12 pt-12 lg:w-1/2 lg:pt-48">
             <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
               <img
-                src={images[3] || '/Cam Bilder /Breakdance.webp'}
+                src={images[3] || '/images/disziplinen/breakdance.webp'}
                 alt={selectedDisziplinen[3]?.name || "Luftartistik"}
                 className="aspect-[0.9] w-full rounded-lg object-cover md:w-1/2"
               />
               <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
                 <img
-                  src={images[4] || '/Cam Bilder /Contemporary dance.webp'}
+                  src={images[4] || '/images/disziplinen/contemporary-dance.webp'}
                   alt={selectedDisziplinen[4]?.name || "Partnerakrobatik"}
                   className="aspect-[0.8] rounded-lg object-cover"
                 />
                 <img
-                  src={images[5] || '/Cam Bilder /Chienese Pole.webp'}
+                  src={images[5] || '/images/disziplinen/chinese-pole.webp'}
                   alt={selectedDisziplinen[5]?.name || "Cyr Wheel"}
                   className="aspect-[0.9] rounded-lg object-cover"
                 />

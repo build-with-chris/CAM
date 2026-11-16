@@ -12,7 +12,7 @@ import { site } from "@/content/site";
 
 const LOGO = {
   url: "/",
-  src: "/Logo CAM ausgeschnitten.png",
+  src: "/images/logos/cam-logo.png",
   alt: "Circus Akademie München Logo",
   title: "Circus Akademie München",
 };

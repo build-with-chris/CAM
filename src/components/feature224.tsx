@@ -31,43 +31,21 @@ interface feature {
   background: string;
 }
 
-const FEATURES: Array<feature> = [
-  {
-    title: "Training",
-    label: "Kontinuität",
-    icon: Dumbbell,
-    description: site.angebote.find(a => a.id === "training")?.teaser || "Regelmäßige Trainings- und Probenmöglichkeiten als Basis für Kontinuität.",
-    background: "/Cam Bilder /Breakdance.webp",
-  },
-  {
-    title: "Produktion",
-    label: "Projekte",
-    icon: Film,
-    description: site.angebote.find(a => a.id === "produktionen")?.teaser || "Ressourcen, Austausch und Sichtbarkeit für performative Projekte.",
-    background: "/Critical Spaces.jpeg.webp",
-  },
-  {
-    title: "Open Stage",
-    label: "Experimentieren",
-    icon: Mic,
-    description: site.angebote.find(a => a.id === "open-stage")?.teaser || "Ein Raum zum Experimentieren: interdisziplinär, niedrigschwellig, publikumsnah.",
-    background: "/Cam Bilder /Artistik Luft MCDonalds.webp",
-  },
-  {
-    title: "Show",
-    label: "Aufführung",
-    icon: Theater,
-    description: "Aufführungen und Präsentationen: Zeitgenössischer Zirkus auf der Bühne, für Publikum sichtbar gemacht.",
-    background: "/PEPE complete_batcheditor_fotor.webp",
-  },
-  {
-    title: "Workshops",
-    label: "Weiterbildung",
-    icon: GraduationCap,
-    description: site.angebote.find(a => a.id === "workshops")?.teaser || "Weiterbildung mit Gästen und lokalen Expert*innen – von Technik bis Kreation.",
-    background: "/Cam Bilder /Tellerdrehen.webp",
-  },
-];
+const ICONS: Record<string, LucideIcon> = {
+  Training: Dumbbell,
+  Produktion: Film,
+  "Open Stage": Mic,
+  Show: Theater,
+  Workshops: GraduationCap,
+};
+
+const FEATURES: Array<feature> = site.home.formate.map((format) => ({
+  title: format.title,
+  label: format.label,
+  icon: ICONS[format.title] ?? Sparkles,
+  description: format.description,
+  background: format.image.src,
+}));
 
 interface Feature224Props {
   className?: string;
