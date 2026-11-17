@@ -2,8 +2,22 @@
 const satzungPdfPath = "/CAM_satzung.pdf";
 
 export const site = {
+  // Adressen ausserhalb dieser Seite. Stand der Angaben: pepe-dome.de.
+  extern: {
+    pepeDome: { label: "pepe-dome.de", href: "https://www.pepe-dome.de" },
+    social: [
+      { label: "Instagram", href: "https://www.instagram.com/pepe.dome/" },
+      { label: "Facebook", href: "https://www.facebook.com/pepedome" },
+      { label: "YouTube", href: "https://www.youtube.com/@pepedome" },
+    ],
+  },
   verein: {
     name: "Circus Akademie München e.V.",
+    rolle: "Der Circus Akademie München e.V. betreibt seit 2026 den Pepe Dome im Münchner Ostpark.",
+    rechtsform: "Eingetragener Verein (e.V.)",
+    register: "Amtsgericht München, VR 208483",
+    ansprechpersonen: ["Christoph Hermann", "Michael Heiduk"],
+    telefon: { anzeige: "+49 179 699 0707", href: "tel:+491796990707" },
     kurzbeschreibung: "Zeitgenössischer Zirkus als Kunstform – Training, Bühne, Wissenstransfer und Community in München.",
     mission: "Wir stärken den zeitgenössischen Zirkus in München: durch Räume, Formate und Zusammenarbeit, die künstlerische Entwicklung und kulturelle Teilhabe möglich machen.",
     wofuerWirStehen: {
@@ -33,14 +47,19 @@ export const site = {
   home: {
     einstieg: {
       headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
+      cta1: { text: "Über uns", href: "/ueber-uns" },
+      cta2: { text: "Mitglied werden", href: "/mitglieder-werden" },
+    },
+    programm: {
+      text: "Programm und Termine stehen auf der Seite des Pepe Dome.",
     },
     formateUeberschrift: "Unsere Formate",
     zielgruppenUeberschrift: "So finanzieren wir uns",
     zielgruppen: [
       {
         title: "Unterstützen",
-        text: "Mach Kunst möglich – werde Mitglied oder unterstütze uns als Privatperson.",
-        link: "/unterstuetzen",
+        text: "Machen Sie Kunst möglich – werden Sie Mitglied oder unterstützen Sie uns als Privatperson.",
+        link: "/mitglieder-werden",
       },
       {
         title: "Unternehmen",
@@ -70,7 +89,7 @@ export const site = {
         title: "Open Stage",
         label: "Experimentieren",
         description: "Ein Raum zum Experimentieren: interdisziplinär, niedrigschwellig, publikumsnah.",
-        image: { src: "/images/disziplinen/luftartistik.webp", width: 2400, height: 1600, alt: "Publikum sitzt an Biertischen in einem Hof und schaut auf ein Luftartistik-Gestell mit hängendem Ring" },
+        image: { src: "/images/chinese-pole-konzertsaal.webp", width: 1024, height: 710, alt: "Ein Artist hängt kopfüber an einer Stange in einem violett beleuchteten Konzertsaal, links stehen ein Flügel und ein Kontrabass" },
       },
       {
         title: "Show",
@@ -81,8 +100,8 @@ export const site = {
       {
         title: "Workshops",
         label: "Weiterbildung",
-        description: "Weiterbildung mit Gästen und lokalen Expert*innen – von Technik bis Kreation.",
-        image: { src: "/images/disziplinen/tellerdrehen.webp", width: 1600, height: 2400, alt: "Ein Clown in rot gemustertem Hemd hockt vor einem Kind und hilft ihm, einen Teller auf einem Stab zu drehen", fokus: "50% 63%" },
+        description: "Weiterbildung mit Gästen und lokalen Expert:innen – von Technik bis Kreation.",
+        image: { src: "/images/disziplinen/partnerakrobatik.webp", width: 1620, height: 1080, alt: "Ein Artist im Spagat am Boden hält mit einem Arm seine Partnerin, die sich waagerecht über ihm streckt" },
       },
     ],
     storytelling: {
@@ -136,7 +155,7 @@ export const site = {
       ],
     },
     abschlussCta: {
-      ueberschrift: "Mach den Dome möglich.",
+      ueberschrift: "Machen Sie den Dome möglich.",
       cta1: {
         text: "Sponsoring anfragen",
         href: "/unterstuetzen/sponsoring",
@@ -154,10 +173,10 @@ export const site = {
     wege: [
       {
         title: "Unterstützer:innen",
-        text: "Unterstütze uns als Privatperson – z.B. durch Mitgliedschaft oder ideelle Unterstützung. Gemeinsam stärken wir zeitgenössischen Zirkus in München.",
+        text: "Unterstützen Sie uns als Privatperson – z.B. durch Mitgliedschaft oder ideelle Unterstützung. Gemeinsam stärken wir zeitgenössischen Zirkus in München.",
         vorteile: [
           "Direkte Förderung der Münchner Kulturlandschaft",
-          "Unterstützung lokaler Künstler*innen",
+          "Unterstützung lokaler Künstler:innen",
           "Mitgliedschaft oder ideelle Unterstützung",
         ],
         cta: { text: "Mitglied werden", href: "/mitglieder-werden" },
@@ -168,7 +187,7 @@ export const site = {
         vorteile: [
           "Sichtbarkeit bei Veranstaltungen und auf unserer Website",
           "Assoziation mit innovativer, kultureller Arbeit",
-          "Zielgruppenansprache: Kulturinteressierte, Künstler*innen, Familien",
+          "Zielgruppenansprache: Kulturinteressierte, Künstler:innen, Familien",
           "CSR-Engagement mit nachhaltiger Wirkung",
         ],
         cta: { text: "Mehr erfahren", href: "/unterstuetzen/sponsoring" },
@@ -188,17 +207,17 @@ export const site = {
   },
   mitglieder: {
     intro: "Mitgliedschaft erfolgt per schriftlichem Antrag und Annahme durch den Vorstand.",
-    success: "Dein Antrag ist eingegangen. Der Vorstand meldet sich per E-Mail.",
+    success: "Ihr Antrag ist eingegangen. Der Vorstand meldet sich per E-Mail.",
   },
   kontakt: {
-    intro: "Schreib uns – wir melden uns zeitnah zurück.",
+    intro: "Schreiben Sie uns – wir melden uns zeitnah zurück.",
     fields: {
       name: "Name",
       email: "E-Mail",
       nachricht: "Nachricht",
       datenschutz: "Ich habe die Datenschutzhinweise gelesen.",
     },
-    success: "Danke! Deine Nachricht ist bei uns gelandet.",
+    success: "Danke! Ihre Nachricht ist bei uns angekommen.",
     merkmale: [
       "Engagierter Kulturverein",
       "Zeitnahe Antwort",
@@ -210,15 +229,28 @@ export const site = {
     download: satzungPdfPath,
     text: "Satzung (PDF)",
   },
+  // Kopf: vier Einstiege, "Mitglied werden" ist der Button rechts.
+  // auch: Unterseiten, bei denen der Eintrag ebenfalls als aktiv gilt.
   navigation: [
-    { label: "Start", href: "/" },
-    { label: "Über uns", href: "/ueber-uns" },
-    { label: "Unterstützen", href: "/unterstuetzen" },
-    { label: "Mitglied werden", href: "/mitglieder-werden" },
-    { label: "Förderung", href: "/foerderung" },
-    { label: "Kontakt", href: "/kontakt" },
+    { label: "Start", href: "/", auch: [] },
+    { label: "Über uns", href: "/ueber-uns", auch: [] },
+    { label: "Fördern", href: "/unterstuetzen", auch: ["/foerderung"] },
+    { label: "Kontakt", href: "/kontakt", auch: [] },
   ],
+  navigationButton: { label: "Mitglied werden", href: "/mitglieder-werden" },
   footer: {
+    navigation: [
+      { label: "Start", href: "/" },
+      { label: "Über uns", href: "/ueber-uns" },
+      { label: "Mitglied werden", href: "/mitglieder-werden" },
+      { label: "Fördern", href: "/unterstuetzen" },
+      { label: "Sponsoring", href: "/unterstuetzen/sponsoring" },
+      { label: "Förderung", href: "/foerderung" },
+      { label: "Kontakt", href: "/kontakt" },
+    ],
+    adresse: ["Pepe Dome im Theatron im Ostpark", "81735 München"],
+    // Wortlaut von pepe-dome.de
+    foerderhinweis: "Der Pepe Dome wird vom Kulturreferat der Landeshauptstadt München und von Kreativ München gefördert sowie durch Städtebauförderungsmittel von Bund, Freistaat Bayern und Landeshauptstadt München.",
     trustLine: "Circus Akademie München e.V. – Förderung von zeitgenössischem Zirkus in München und Bayern.",
   },
   sponsoring: {
@@ -245,7 +277,7 @@ export const site = {
         betrag: "ab 2.500 €/Jahr",
         beschreibung: "Ideal für Unternehmen, die zeitgenössischen Zirkus unterstützen möchten.",
         inhalt: [
-          "Logo auf Website (Unterstützer-Bereich)",
+          "Logo im Bereich für Unterstützer:innen vor Ort im Dome",
           "Erwähnung in ausgewählten Social Posts",
           "2 Freikarten pro Veranstaltung (nach Verfügbarkeit)",
         ],
@@ -264,7 +296,7 @@ export const site = {
       {
         name: "Gold",
         betrag: "ab 15.000 €/Jahr",
-        beschreibung: "Best für große Organisationen mit umfassendem Engagement.",
+        beschreibung: "Für große Organisationen mit umfassendem Engagement.",
         inhalt: [
           "Alles aus Silber",
           "Co-Branding eines Formats (z.B. Workshop-Tag / Show-Abend)",
@@ -358,7 +390,7 @@ export const site = {
       },
       {
         kategorie: "Backstage / Bar",
-        beschreibung: "Rückzug für Artist*innen und Team; einfache Bar für Veranstaltungen und Publikum.",
+        beschreibung: "Rückzug für Artist:innen und Team; einfache Bar für Veranstaltungen und Publikum.",
       },
     ],
     unterlagen: [
@@ -371,7 +403,7 @@ export const site = {
       text: "Wir freuen uns über ein kurzes Gespräch zur kulturellen Einordnung, Zielsetzung und Förderlogik.",
     },
   },
-  // credit bleibt leer, bis die Namen der Fotografen vorliegen. Erfunden wird nichts.
+  // credit bleibt leer, bis die Namen der Fotograf:innen vorliegen. Erfunden wird nichts.
   disziplinen: [
     {
       name: "Ein Mann, Ein Koffer, Ein Wandazirkus",
@@ -380,15 +412,6 @@ export const site = {
       width: 2400,
       height: 1600,
       alt: "Ein Straßenkünstler in rot gemustertem Hemd stemmt sich mit verzerrtem Gesicht gegen einen schwarzen Koffer, im Vordergrund die Köpfe des Publikums",
-      credit: undefined as string | undefined,
-    },
-    {
-      name: "Tellerdrehen",
-      kategorie: "Manipulation",
-      image: "/images/disziplinen/tellerdrehen.webp",
-      width: 1600,
-      height: 2400,
-      alt: "Ein Clown in rot gemustertem Hemd hockt vor einem Kind und hilft ihm, einen Teller auf einem Stab zu drehen",
       credit: undefined as string | undefined,
     },
     {
@@ -416,15 +439,6 @@ export const site = {
       width: 1620,
       height: 1080,
       alt: "Eine Tänzerin im weißen Hemd springt vor schwarzem Hintergrund und streckt ein Bein hoch nach vorn",
-      credit: undefined as string | undefined,
-    },
-    {
-      name: "Chinese Pole",
-      kategorie: "Artistik",
-      image: "/images/disziplinen/chinese-pole.webp",
-      width: 1600,
-      height: 2400,
-      alt: "Ein Artist hält sich waagerecht an einer senkrechten Stange, Arme und Beine weit gespreizt",
       credit: undefined as string | undefined,
     },
     {
@@ -515,15 +529,6 @@ export const site = {
       width: 1916,
       height: 1074,
       alt: "Ein lächelnder Mann im hellblauen Hemd hält die geschlossene Faust vor, eine zweite Person streckt die Hand danach aus",
-      credit: undefined as string | undefined,
-    },
-    {
-      name: "Luftartistik",
-      kategorie: "Artistik",
-      image: "/images/disziplinen/luftartistik.webp",
-      width: 2400,
-      height: 1600,
-      alt: "Publikum sitzt an Biertischen in einem Hof und schaut auf ein Luftartistik-Gestell mit hängendem Ring",
       credit: undefined as string | undefined,
     },
   ],

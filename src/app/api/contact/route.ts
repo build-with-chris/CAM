@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     // Validierung
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'Bitte fülle alle Pflichtfelder aus.' },
+        { error: 'Bitte füllen Sie alle Pflichtfelder aus.' },
         { status: 400 }
       );
     }
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     // E-Mail-Validierung
     if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json(
-        { error: 'Bitte gib eine gültige E-Mail-Adresse ein.' },
+        { error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' },
         { status: 400 }
       );
     }
@@ -84,7 +84,7 @@ Diese E-Mail wurde über das Kontaktformular auf der Website gesendet.
   } catch (error) {
     console.error('Fehler beim Senden der E-Mail:', error);
     return NextResponse.json(
-      { error: 'Fehler beim Senden der Nachricht. Bitte versuche es später erneut.' },
+      { error: 'Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.' },
       { status: 500 }
     );
   }

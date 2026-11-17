@@ -14,6 +14,7 @@ export function Storytelling() {
           <h2 className="mb-7 text-3xl font-bold md:text-5xl">
             {site.home.storytelling.ueberschrift}
           </h2>
+          <p className="mb-5 text-xl font-semibold text-ink">{site.verein.rolle}</p>
           <div className="space-y-4 text-lg text-ink-soft">
             {saetze.map((satz) => (
               <p key={satz}>{satz}</p>

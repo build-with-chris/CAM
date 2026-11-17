@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
       email,
       telefon,
       mitgliedsart,
+      jahresbeitrag,
       nachricht,
       checkboxAntrag,
       checkboxDatenschutz,
@@ -68,23 +69,36 @@ export async function POST(request: NextRequest) {
       !mitgliedsart?.trim()
     ) {
       return NextResponse.json(
-        { error: 'Bitte fülle alle Pflichtfelder aus.' },
+        { error: 'Bitte füllen Sie alle Pflichtfelder aus.' },
         { status: 400 }
       );
     }
 
     if (!EMAIL_REGEX.test(String(email).trim())) {
       return NextResponse.json(
-        { error: 'Bitte gib eine gültige E-Mail-Adresse ein.' },
+        { error: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' },
         { status: 400 }
       );
     }
 
     if (!checkboxAntrag || !checkboxDatenschutz) {
       return NextResponse.json(
-        { error: 'Bitte bestätige die erforderlichen Checkboxen.' },
+        { error: 'Bitte bestätigen Sie die erforderlichen Checkboxen.' },
         { status: 400 }
       );
+    }
+
+    // Der Jahresbeitrag ist freiwillig und frei wählbar. Leer heißt: keine Angabe.
+    let beitragText = 'keine Angabe';
+    if (jahresbeitrag !== undefined && jahresbeitrag !== null && String(jahresbeitrag).trim() !== '') {
+      const betrag = Number(String(jahresbeitrag).trim().replace(',', '.'));
+      if (!Number.isFinite(betrag) || betrag < 0 || betrag > 100000) {
+        return NextResponse.json(
+          { error: 'Bitte geben Sie den Jahresbeitrag als Zahl in Euro an.' },
+          { status: 400 }
+        );
+      }
+      beitragText = `${betrag.toLocaleString('de-DE', { minimumFractionDigits: Number.isInteger(betrag) ? 0 : 2, maximumFractionDigits: 2 })} € pro Jahr`;
     }
 
     const nachrichtTrim = nachricht ? String(nachricht).trim() : '';
@@ -119,6 +133,7 @@ export async function POST(request: NextRequest) {
       <p><strong>E-Mail:</strong> ${sanitize(String(email))}</p>
       <p><strong>Telefon:</strong> ${telefon ? sanitize(String(telefon)) : '–'}</p>
       <p><strong>Mitgliedsart:</strong> ${sanitize(String(mitgliedsart))}</p>
+      <p><strong>Jahresbeitrag (frei gewählt):</strong> ${beitragText}</p>
       <p><strong>Nachricht an den Vorstand:</strong></p>
       <p>${nachrichtTrim ? sanitizeLong(nachrichtTrim, NACHRICHT_MAX_LENGTH).replace(/\n/g, '<br>') : '–'}</p>
       <p><strong>Ich beantrage hiermit die Mitgliedschaft:</strong> ja</p>
@@ -140,6 +155,7 @@ Ort: ${sanitize(String(ort))}
 E-Mail: ${sanitize(String(email))}
 Telefon: ${telefon ? sanitize(String(telefon)) : '–'}
 Mitgliedsart: ${sanitize(String(mitgliedsart))}
+Jahresbeitrag (frei gewählt): ${beitragText}
 
 Nachricht an den Vorstand:
 ${nachrichtTrim || '–'}
@@ -164,20 +180,20 @@ Bitte Aufnahme/Status kurz bestätigen.
 
     // Auto-Reply an Antragsteller
     const autoReplyHtml = `
-      <p>Hallo ${v},</p>
-      <p>vielen Dank für deinen Mitgliedsantrag beim Circus Akademie München e.V.</p>
-      <p>Dein Antrag ist bei uns eingegangen. Die Mitgliedschaft wird nach Entscheidung des Vorstands wirksam. Du erhältst dazu eine Rückmeldung.</p>
-      <p>Bei Rückfragen erreichst du uns unter: <a href="mailto:${vorstandEmail}">${vorstandEmailDisplay}</a></p>
+      <p>Guten Tag ${v} ${n},</p>
+      <p>vielen Dank für Ihren Mitgliedsantrag beim Circus Akademie München e.V.</p>
+      <p>Ihr Antrag ist bei uns eingegangen. Die Mitgliedschaft wird nach Entscheidung des Vorstands wirksam. Sie erhalten dazu eine Rückmeldung.</p>
+      <p>Bei Rückfragen erreichen Sie uns unter: <a href="mailto:${vorstandEmail}">${vorstandEmailDisplay}</a></p>
       <p>Viele Grüße,<br>Vorstand Circus Akademie München e.V.</p>
     `;
     const autoReplyText = `
-Hallo ${v},
+Guten Tag ${v} ${n},
 
-vielen Dank für deinen Mitgliedsantrag beim Circus Akademie München e.V.
+vielen Dank für Ihren Mitgliedsantrag beim Circus Akademie München e.V.
 
-Dein Antrag ist bei uns eingegangen. Die Mitgliedschaft wird nach Entscheidung des Vorstands wirksam. Du erhältst dazu eine Rückmeldung.
+Ihr Antrag ist bei uns eingegangen. Die Mitgliedschaft wird nach Entscheidung des Vorstands wirksam. Sie erhalten dazu eine Rückmeldung.
 
-Bei Rückfragen erreichst du uns unter: ${vorstandEmailDisplay}
+Bei Rückfragen erreichen Sie uns unter: ${vorstandEmailDisplay}
 
 Viele Grüße,
 Vorstand Circus Akademie München e.V.
@@ -198,7 +214,7 @@ Vorstand Circus Akademie München e.V.
   } catch (error) {
     console.error('Fehler beim Verarbeiten des Mitgliedsantrags:', error);
     return NextResponse.json(
-      { error: 'Fehler beim Senden des Antrags. Bitte versuche es später erneut.' },
+      { error: 'Fehler beim Senden des Antrags. Bitte versuchen Sie es später erneut.' },
       { status: 500 }
     );
   }

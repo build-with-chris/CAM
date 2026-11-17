@@ -2,8 +2,8 @@
 title: "Beispielbeitrag"
 date: 2026-11-17
 excerpt: "Dieser Entwurf zeigt, wie ein Blogbeitrag aufgebaut ist. Er erscheint nicht auf der Website."
-cover: "/images/disziplinen/luftartistik.webp"
-coverAlt: "Publikum sitzt an Biertischen in einem Hof und schaut auf ein Luftartistik-Gestell mit hängendem Ring"
+cover: "/images/disziplinen/pantomime.webp"
+coverAlt: "Ein Pantomime mit Hut und Frack macht einen großen Schritt und trägt einen alten Koffer über eine dunkle Bühne"
 author: "Circus Akademie München e.V."
 draft: true
 ---

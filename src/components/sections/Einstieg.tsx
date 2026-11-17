@@ -8,7 +8,7 @@ import { site } from '@/content/site';
  * Links ist das Foto ohnehin schwarz, deshalb geht es nahtlos in die Fläche über.
  */
 export function Einstieg() {
-  const { cta1, cta2 } = site.home.abschlussCta;
+  const { cta1, cta2 } = site.home.einstieg;
 
   return (
     <section className="bg-stage text-white">

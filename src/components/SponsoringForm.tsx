@@ -29,21 +29,21 @@ export function SponsoringForm() {
     const newErrors = { ...KEINE_FEHLER };
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Bitte gib deinen Namen ein.';
+      newErrors.name = 'Bitte geben Sie Ihren Namen ein.';
     }
 
     if (!formData.unternehmen.trim()) {
-      newErrors.unternehmen = 'Bitte gib dein Unternehmen ein.';
+      newErrors.unternehmen = 'Bitte geben Sie Ihr Unternehmen ein.';
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Bitte gib deine E-Mail-Adresse ein.';
+      newErrors.email = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+      newErrors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
     }
 
     if (!formData.nachricht.trim()) {
-      newErrors.nachricht = 'Bitte schreib uns eine Nachricht.';
+      newErrors.nachricht = 'Bitte schreiben Sie uns eine Nachricht.';
     }
 
     setErrors(newErrors);
@@ -93,7 +93,7 @@ export function SponsoringForm() {
       setSubmitError(
         error instanceof Error
           ? error.message
-          : 'Fehler beim Senden der Anfrage. Bitte versuche es später erneut.'
+          : 'Fehler beim Senden der Anfrage. Bitte versuchen Sie es später erneut.'
       );
     } finally {
       setIsSubmitting(false);

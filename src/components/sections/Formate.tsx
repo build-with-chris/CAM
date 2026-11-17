@@ -43,6 +43,17 @@ export function Formate() {
             </li>
           ))}
         </ol>
+        <p className="mt-8 text-lg text-ink-soft">
+          {site.home.programm.text}{' '}
+          <a
+            href={site.extern.pepeDome.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-dome underline underline-offset-4 hover:text-dome-dark"
+          >
+            {site.extern.pepeDome.label}
+          </a>
+        </p>
       </div>
     </section>
   );

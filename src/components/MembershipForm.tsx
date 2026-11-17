@@ -34,6 +34,7 @@ type FormData = {
   email: string;
   telefon: string;
   mitgliedsart: string;
+  jahresbeitrag: string;
   nachricht: string;
   checkboxAntrag: boolean;
   checkboxDatenschutz: boolean;
@@ -50,6 +51,7 @@ const initialFormData: FormData = {
   email: "",
   telefon: "",
   mitgliedsart: "",
+  jahresbeitrag: "",
   nachricht: "",
   checkboxAntrag: false,
   checkboxDatenschutz: false,
@@ -84,6 +86,12 @@ export function MembershipForm() {
       e.email = "Bitte eine gültige E-Mail-Adresse eingeben.";
     }
     if (!formData.mitgliedsart) e.mitgliedsart = "Bitte Mitgliedsart wählen.";
+    if (formData.jahresbeitrag.trim()) {
+      const betrag = Number(formData.jahresbeitrag.trim().replace(",", "."));
+      if (!Number.isFinite(betrag) || betrag < 0) {
+        e.jahresbeitrag = "Bitte den Betrag als Zahl in Euro angeben.";
+      }
+    }
     if (formData.nachricht.length > NACHRICHT_MAX) {
       e.nachricht = `Maximal ${NACHRICHT_MAX} Zeichen.`;
     }
@@ -131,6 +139,7 @@ export function MembershipForm() {
           email: formData.email.trim(),
           telefon: formData.telefon.trim() || undefined,
           mitgliedsart: formData.mitgliedsart,
+          jahresbeitrag: formData.jahresbeitrag.trim() || undefined,
           nachricht: formData.nachricht.trim().slice(0, NACHRICHT_MAX) || undefined,
           checkboxAntrag: formData.checkboxAntrag,
           checkboxDatenschutz: formData.checkboxDatenschutz,
@@ -331,6 +340,28 @@ export function MembershipForm() {
         </div>
         {errors.mitgliedsart && (
           <p className="mt-1 text-sm text-destructive">{errors.mitgliedsart}</p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="jahresbeitrag" className="mb-2 block text-sm font-medium">
+          Jahresbeitrag in Euro (freiwillig)
+        </label>
+        <Input
+          id="jahresbeitrag"
+          name="jahresbeitrag"
+          inputMode="decimal"
+          value={formData.jahresbeitrag}
+          onChange={handleChange}
+          className="sm:max-w-60"
+          aria-invalid={!!errors.jahresbeitrag}
+          aria-describedby="jahresbeitrag-hinweis"
+        />
+        <p id="jahresbeitrag-hinweis" className="mt-1 text-xs text-ink-muted">
+          Den Betrag wählen Sie selbst.
+        </p>
+        {errors.jahresbeitrag && (
+          <p className="mt-1 text-sm text-destructive">{errors.jahresbeitrag}</p>
         )}
       </div>
 

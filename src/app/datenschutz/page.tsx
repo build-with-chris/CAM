@@ -1,14 +1,20 @@
 import type { Metadata } from 'next';
 import { Lesetext } from '@/components/layout/Lesetext';
+import { site } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Datenschutz | Circus Akademie München e.V.',
   description: 'Datenschutzerklärung des Circus Akademie München e.V.',
 };
 
+/*
+ * Diese Erklärung beschreibt nur, was diese Website wirklich tut: Hosting bei Vercel,
+ * drei Formulare, die per E-Mail zugestellt werden, keine Cookies, kein Tracking,
+ * lokal ausgelieferte Schriften. Kommt ein Dienst dazu, gehört er hier hinein.
+ */
 export default function DatenschutzPage() {
   return (
-    <Lesetext titel="Datenschutzerklärung">
+    <Lesetext titel="Datenschutzerklärung" einleitung={<p>Stand: 17.11.2026</p>}>
       <section>
         <h2>1. Verantwortlicher</h2>
         <p>
@@ -17,7 +23,7 @@ export default function DatenschutzPage() {
         <p>
           Circus Akademie München e.V. (CAM e.V.)<br />
           Ranhazweg 18, 85521 Ottobrunn, Deutschland<br />
-          E-Mail: <a href="mailto:info@pepearts.de">info@pepearts.de</a>
+          E-Mail: <a href="mailto:info@xn--circusakademiemnchen-3ec.de">info@circusakademiemünchen.de</a>
         </p>
         <p>
           Einen Datenschutzbeauftragten haben wir nicht bestellt, da keine gesetzliche Pflicht besteht.
@@ -29,12 +35,12 @@ export default function DatenschutzPage() {
       <section>
         <h2>2. Allgemeine Hinweise zur Datenverarbeitung</h2>
         <p>
-          Wir verarbeiten personenbezogene Daten, wenn du unsere Website nutzt, uns kontaktierst, Tickets/Angebote buchst oder unseren Newsletter abonnierst. Personenbezogene Daten sind z.B. Name, E-Mail-Adresse, Telefonnummer, IP-Adresse.
+          Wir verarbeiten personenbezogene Daten, wenn Sie unsere Website nutzen, uns kontaktieren oder einen Mitgliedsantrag stellen. Personenbezogene Daten sind z.B. Name, E-Mail-Adresse, Telefonnummer, IP-Adresse.
         </p>
         <p className="font-semibold text-ink">Rechtsgrundlagen (Auswahl):</p>
         <ul>
-          <li>Art. 6 Abs. 1 lit. b DSGVO (Vertrag / vorvertragliche Maßnahmen)</li>
-          <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, z.B. Newsletter, Cookies/Tracking)</li>
+          <li>Art. 6 Abs. 1 lit. b DSGVO (Vertrag / vorvertragliche Maßnahmen, z.B. Mitgliedsantrag)</li>
+          <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, z.B. Foto- und Videoaufnahmen)</li>
           <li>Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z.B. sichere Bereitstellung der Website)</li>
           <li>Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung, z.B. Aufbewahrungsfristen)</li>
         </ul>
@@ -67,43 +73,30 @@ export default function DatenschutzPage() {
       <hr />
 
       <section>
-        <h2>4. Cookies, Consent-Management</h2>
+        <h2>4. Cookies und Tracking</h2>
         <p>
-          Wir verwenden Cookies und ähnliche Technologien. Einige sind technisch notwendig, andere dienen Statistik/Marketing (z.B. Google Analytics, Meta Pixel).
-        </p>
-        <p>
-          Für nicht notwendige Cookies/Tools holen wir deine Einwilligung über ein Cookie-Banner/Consent-Tool ein (Anbieter wird ergänzt).<br />
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), § 25 Abs. 1 TDDDG (Einwilligung für Speicherung/Auslesen von Informationen). Technisch notwendige Cookies: Art. 6 Abs. 1 lit. f DSGVO und § 25 Abs. 2 TDDDG.
-        </p>
-        <p>
-          Du kannst deine Einwilligung jederzeit über die Einstellungen im Cookie-Banner widerrufen/ändern.
+          Diese Website setzt keine Cookies. Wir nutzen keine Analyse- oder Marketing-Dienste und betten keine Inhalte von Drittanbietern ein (z.B. Videos oder Karten). Ein Cookie-Banner ist deshalb nicht erforderlich.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>5. Google Fonts (Einbindung)</h2>
+        <h2>5. Schriften</h2>
         <p>
-          Auf dieser Website werden Google Fonts von Google-Servern geladen (nicht lokal eingebunden). Dabei kann u.a. deine IP-Adresse an Google übermittelt werden.
-        </p>
-        <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – sofern über das Cookie-Banner gesteuert. Wenn keine Einwilligung eingeholt wird, muss die Einbindung technisch zwingend erforderlich sein – das ist bei Webfonts in der Regel nicht der Fall.
-        </p>
-        <p>
-          Hinweis: Wenn ihr die Fonts künftig lokal hostet, wird dieser Abschnitt entsprechend angepasst.
+          Die Schriften dieser Website (Outfit und Inter) werden zusammen mit der Website ausgeliefert. Beim Aufruf der Website wird keine Verbindung zu Servern von Google aufgebaut.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>6. Kontaktaufnahme (Kontaktformular / E-Mail)</h2>
+        <h2>6. Kontaktaufnahme (Kontaktformular, Sponsoring-Anfrage, E-Mail)</h2>
         <p>
-          Wenn du uns per Formular kontaktierst, verarbeiten wir die von dir eingegebenen Daten: Name, E-Mail-Adresse, Telefonnummer, Nachricht. Die Übermittlung erfolgt per E-Mail. Zum Spam-Schutz nutzen wir einen Honeypot.
+          Wenn Sie uns über das Kontaktformular schreiben, verarbeiten wir die von Ihnen eingegebenen Daten: Name, E-Mail-Adresse, Betreff und Nachricht. Bei einer Sponsoring-Anfrage kommen Unternehmen und Budget hinzu. Die Übermittlung erfolgt per E-Mail an unser Postfach. Zum Spam-Schutz nutzen wir einen Honeypot.
         </p>
         <p>
-          <strong>Zweck:</strong> Bearbeitung deiner Anfrage.<br />
+          <strong>Zweck:</strong> Bearbeitung Ihrer Anfrage.<br />
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertraglich/vertraglich) oder Art. 6 Abs. 1 lit. f DSGVO (allgemeine Anfragen).<br />
           <strong>Speicherdauer:</strong> 6 Monate (danach Löschung, sofern keine gesetzlichen Pflichten entgegenstehen).
         </p>
@@ -112,51 +105,25 @@ export default function DatenschutzPage() {
       <hr />
 
       <section>
-        <h2>7. Newsletter (CleverReach)</h2>
+        <h2>7. Mitgliedsantrag</h2>
         <p>
-          Für den Newsletter nutzen wir CleverReach. Die Anmeldung erfolgt per Double-Opt-In. Dabei werden u.a. E-Mail-Adresse sowie Anmelde-/Bestätigungszeitpunkte verarbeitet, um die Anmeldung nachweisen zu können. Außerdem werden Öffnungen und Klicks getrackt (Erfolgsmessung).
+          Wenn Sie über das Formular die Mitgliedschaft beantragen, verarbeiten wir: Vorname, Nachname, Anschrift, E-Mail-Adresse und Mitgliedsart. Wenn Sie sie angeben, kommen Telefonnummer, gewünschter Jahresbeitrag und Ihre Nachricht an den Vorstand hinzu. Der Antrag geht per E-Mail an den Vorstand. Zusätzlich werden Eingangszeit, IP-Adresse und Browserkennung übermittelt. Sie erhalten eine Eingangsbestätigung per E-Mail.
         </p>
         <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Du kannst den Newsletter jederzeit über den Abmeldelink in jeder Ausgabe abbestellen. Eine Segmentierung findet nicht statt.
-        </p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>8. Ticketing/Buchung über „rausgegangen“</h2>
-        <p>
-          Für Ticketkäufe/Buchungen nutzen wir aktuell den Dienstleister rausgegangen. Dabei werden die für die Buchung erforderlichen Daten (z.B. Kontaktdaten, Ticketdaten, ggf. Zahlungsabwicklung über deren Systeme) verarbeitet.
+          <strong>Zweck:</strong> Bearbeitung des Aufnahmeantrags und Verwaltung der Mitgliedschaft.<br />
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Anbahnung und Durchführung der Mitgliedschaft). Für IP-Adresse und Browserkennung: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch des Formulars).<br />
+          <strong>Speicherdauer:</strong> für die Dauer der Mitgliedschaft. Wird ein Antrag nicht angenommen oder endet die Mitgliedschaft, löschen wir die Daten, sofern keine gesetzlichen Pflichten entgegenstehen.
         </p>
         <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).<br />
-          <strong>Speicherdauer:</strong> Buchungs- und Rechnungsdaten 10 Jahre (gesetzliche Aufbewahrung).
-        </p>
-        <p>
-          Wenn ihr später einen eigenen Shop ergänzt, wird die Datenschutzerklärung entsprechend erweitert.
+          Näheres zum Umgang mit Mitgliedsdaten regelt § 15 der{' '}
+          <a href={site.satzung.download} target="_blank" rel="noopener noreferrer">Satzung</a>.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>9. Zahlungsabwicklung</h2>
-        <p><strong>Online-Zahlungen (je nach Buchungsweg):</strong></p>
-        <ul>
-          <li>PayPal</li>
-          <li>Stripe (ohne Apple Pay/Google Pay)</li>
-        </ul>
-        <p>
-          Bei einer Zahlung werden die für die Zahlungsabwicklung erforderlichen Daten an den jeweiligen Zahlungsdienstleister übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
-        </p>
-        <p><strong>Vor-Ort-Zahlungen:</strong></p>
-        <p>EC-Karte über Zettle. Auch hier werden Zahlungsdaten zur Abwicklung verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>10. Google Workspace (Rechnungen/Organisation)</h2>
+        <h2>8. Google Workspace (Rechnungen/Organisation)</h2>
         <p>
           Rechnungen und organisatorische Dokumente werden im Google Workspace gespeichert; für Fotos/Videos wird Google Drive genutzt (siehe auch Abschnitt Fotos/Videos). Dabei kann es zu Drittlandübermittlungen (USA) kommen.
         </p>
@@ -168,91 +135,48 @@ export default function DatenschutzPage() {
       <hr />
 
       <section>
-        <h2>11. Webanalyse: Google Analytics</h2>
+        <h2>9. Links zum Pepe Dome und zu Social Media</h2>
         <p>
-          Wir nutzen Google Analytics zur statistischen Auswertung der Website-Nutzung (z.B. Seitenaufrufe, Verweildauer, Interaktionen). Dabei werden u.a. Cookies/IDs eingesetzt, die eine Wiedererkennung ermöglichen können.
-        </p>
-        <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung über Cookie-Banner) und § 25 Abs. 1 TDDDG. Daten können in die USA übertragen werden. Details dazu siehe „Drittlandübermittlung“.
+          Im Footer verlinken wir auf die Website des Pepe Dome und auf dessen Social-Media-Profile. Es handelt sich um reine Links (keine automatisch ladenden Feeds/Plugins). Beim Laden unserer Website werden dadurch nicht automatisch Daten an die Plattformen übertragen – erst beim Anklicken des Links.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>12. Marketing: Meta Pixel (Facebook/Instagram)</h2>
-        <p>
-          Wir verwenden das Meta Pixel, um die Wirksamkeit von Werbemaßnahmen zu messen und Zielgruppen zu bilden (z.B. Conversion-Tracking, Remarketing). Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung über Cookie-Banner) und § 25 Abs. 1 TDDDG. Dabei kann eine Datenübermittlung in die USA stattfinden.
-        </p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>13. Eingebettete Inhalte: YouTube und Google Maps</h2>
-        <p>
-          Auf unserer Website sind Inhalte von Drittanbietern eingebettet: <strong>YouTube (Videos):</strong> Beim Laden eingebetteter Videos können Daten (z.B. IP-Adresse, Nutzungsdaten) an YouTube/Google übertragen werden. <strong>Google Maps:</strong> Bei Nutzung der Karte können Daten an Google übertragen werden.
-        </p>
-        <p>
-          Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), sofern die Einbettung über das Consent-Tool gesteuert wird. Wenn die Einbettung ohne Einwilligung direkt lädt, kann es bereits beim Seitenaufruf zu Datenübertragungen kommen.
-        </p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>14. Social Media Links</h2>
-        <p>
-          Im Footer verlinken wir auf unsere Social-Media-Profile. Es handelt sich um reine Links (keine automatisch ladenden Feeds/Plugins). Beim Laden unserer Website werden dadurch nicht automatisch Daten an die Plattformen übertragen – erst beim Anklicken des Links.
-        </p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>15. Foto- und Videoaufnahmen bei Veranstaltungen/Workshops</h2>
+        <h2>10. Foto- und Videoaufnahmen bei Veranstaltungen/Workshops</h2>
         <p>
           Bei Veranstaltungen/Workshops werden Fotos/Videos nur erstellt, wenn wir vorher um Einverständnis bitten. Personen, die nicht aufgenommen werden möchten, werden nicht abgelichtet. Für eine Veröffentlichung (Website/Social Media) fragen wir zusätzlich gesondert.
         </p>
         <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). <strong>Speicherung:</strong> Google Drive. <strong>Zugriff:</strong> Team sowie der jeweilige Fotograf; Fotografen erhalten Zugriff nur auf den jeweiligen Ordner.
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). <strong>Speicherung:</strong> Google Drive. <strong>Zugriff:</strong> Team sowie die jeweiligen Fotograf:innen; sie erhalten Zugriff nur auf den jeweiligen Ordner.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>16. Admin-Bereich (Artikel/Newsletter)</h2>
+        <h2>11. Drittlandübermittlung (insb. USA)</h2>
         <p>
-          Es gibt einen internen Admin-Bereich zur Pflege von Artikeln und Newsletter-Inhalten. Dabei werden Zugangsdaten und Nutzungsdaten im Rahmen der Administration verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (sicherer Betrieb/Administration) sowie ggf. Art. 6 Abs. 1 lit. b DSGVO (vertragliche/organisatorische Erfordernisse).
+          Einige eingesetzte Dienstleister können Daten in Drittländer (insbesondere USA) übermitteln oder dort verarbeiten (z.B. Vercel, Google Workspace/Drive). Soweit erforderlich, erfolgen Übermittlungen auf Grundlage geeigneter Garantien (z.B. EU-Standardvertragsklauseln) und ggf. zusätzlicher Schutzmaßnahmen, sofern der Anbieter diese bereitstellt.
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>17. Drittlandübermittlung (insb. USA)</h2>
-        <p>
-          Einige eingesetzte Dienstleister können Daten in Drittländer (insbesondere USA) übermitteln oder dort verarbeiten (z.B. Vercel, Google/YouTube/Maps, Google Analytics, Meta, Google Workspace/Drive). Soweit erforderlich, erfolgen Übermittlungen auf Grundlage geeigneter Garantien (z.B. EU-Standardvertragsklauseln) und ggf. zusätzlicher Schutzmaßnahmen, sofern der Anbieter diese bereitstellt.
-        </p>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>18. Speicherdauer</h2>
+        <h2>12. Speicherdauer</h2>
         <ul>
-          <li>Kontaktanfragen: 6 Monate</li>
-          <li>Buchungs- und Rechnungsdaten: 10 Jahre (gesetzliche Aufbewahrung)</li>
-          <li>Newsletterdaten: bis zum Widerruf der Einwilligung / Abmeldung (Nachweisdaten können länger gespeichert werden, soweit erforderlich)</li>
+          <li>Kontakt- und Sponsoring-Anfragen: 6 Monate</li>
+          <li>Mitgliedsdaten: für die Dauer der Mitgliedschaft, danach nur, soweit gesetzliche Aufbewahrungspflichten bestehen</li>
         </ul>
       </section>
 
       <hr />
 
       <section>
-        <h2>19. Deine Rechte</h2>
-        <p>Du hast nach DSGVO insbesondere folgende Rechte:</p>
+        <h2>13. Ihre Rechte</h2>
+        <p>Sie haben nach DSGVO insbesondere folgende Rechte:</p>
         <ul>
           <li>Auskunft (Art. 15 DSGVO)</li>
           <li>Berichtigung (Art. 16 DSGVO)</li>
@@ -263,23 +187,23 @@ export default function DatenschutzPage() {
           <li>Widerruf von Einwilligungen jederzeit (Art. 7 Abs. 3 DSGVO)</li>
         </ul>
         <p>
-          Außerdem hast du das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren (Art. 77 DSGVO).
+          Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren (Art. 77 DSGVO).
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>20. Datensicherheit</h2>
+        <h2>14. Datensicherheit</h2>
         <p>
-          Wir treffen angemessene technische und organisatorische Maßnahmen, um deine Daten zu schützen (z.B. Zugriffsbeschränkungen, Rollen/Rechte).
+          Wir treffen angemessene technische und organisatorische Maßnahmen, um Ihre Daten zu schützen (z.B. Zugriffsbeschränkungen, Rollen/Rechte).
         </p>
       </section>
 
       <hr />
 
       <section>
-        <h2>21. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>15. Änderungen dieser Datenschutzerklärung</h2>
         <p>
           Wir passen diese Datenschutzerklärung an, wenn sich die Website, eingesetzte Dienste oder rechtliche Anforderungen ändern.
         </p>

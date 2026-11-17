@@ -10,10 +10,14 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/content/site";
 
-const SPONSORING = { label: "Sponsoring", href: "/unterstuetzen/sponsoring" };
+const BUTTON = site.navigationButton;
 
-function istAktiv(pathname: string, href: string) {
+function passt(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function istAktiv(pathname: string, item: { href: string; auch: readonly string[] }) {
+  return passt(pathname, item.href) || item.auch.some((href) => passt(pathname, href));
 }
 
 export function Header() {
@@ -53,7 +57,7 @@ export function Header() {
 
         <nav aria-label="Hauptnavigation" className="hidden items-center gap-7 xl:flex">
           {site.navigation.map((item) => {
-            const aktiv = istAktiv(pathname, item.href);
+            const aktiv = istAktiv(pathname, item);
             return (
               <Link
                 key={item.href}
@@ -71,7 +75,7 @@ export function Header() {
         </nav>
 
         <Button asChild className="hidden xl:inline-flex">
-          <Link href={SPONSORING.href}>{SPONSORING.label}</Link>
+          <Link href={BUTTON.href}>{BUTTON.label}</Link>
         </Button>
 
         <button
@@ -94,7 +98,7 @@ export function Header() {
         >
           <ul className="wrap py-3">
             {site.navigation.map((item) => {
-              const aktiv = istAktiv(pathname, item.href);
+              const aktiv = istAktiv(pathname, item);
               return (
                 <li key={item.href}>
                   <Link
@@ -113,8 +117,8 @@ export function Header() {
             })}
             <li className="py-5">
               <Button asChild size="lg" className="w-full">
-                <Link href={SPONSORING.href} onClick={() => setOffen(false)}>
-                  {SPONSORING.label}
+                <Link href={BUTTON.href} onClick={() => setOffen(false)}>
+                  {BUTTON.label}
                 </Link>
               </Button>
             </li>

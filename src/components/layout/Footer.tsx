@@ -31,7 +31,7 @@ export function Footer() {
           <nav aria-label="Fußnavigation">
             <h2 className="mb-4 text-[1.0625rem] font-semibold">Navigation</h2>
             <ul className="space-y-1.5 text-night-muted">
-              {site.navigation.map((item) => (
+              {site.footer.navigation.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="transition-colors hover:text-white">
                     {item.label}
@@ -44,8 +44,9 @@ export function Footer() {
           <div>
             <h2 className="mb-4 text-[1.0625rem] font-semibold">Kontakt</h2>
             <address className="not-italic text-night-muted">
-              <p>Pepe Dome/Geodom</p>
-              <p>Ostpark München</p>
+              {site.footer.adresse.map((zeile) => (
+                <p key={zeile}>{zeile}</p>
+              ))}
               <p className="mt-4">
                 <a
                   href="mailto:info@xn--circusakademiemnchen-3ec.de"
@@ -55,6 +56,20 @@ export function Footer() {
                 </a>
               </p>
             </address>
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1 text-night-muted">
+              {[site.extern.pepeDome, ...site.extern.social].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-4 transition-colors hover:text-white hover:underline"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -65,14 +80,15 @@ export function Footer() {
           {/* Die Förderlogos stehen auf Weiß, so wie die Geldgeber sie vorgeben. */}
           <div className="max-w-2xl rounded-media bg-white px-4 py-3 sm:px-6 sm:py-4">
             <Image
-              src="/images/logos/foerderlogos.jpg"
-              alt="Förderlogos: Städtebauförderung von Bund, Ländern und Gemeinden, Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen, Bayerisches Staatsministerium für Wohnen, Bau und Verkehr, Landeshauptstadt München. Dieses Projekt wird durch Städtebauförderung in einem Bund-Länder-Programm mit Mitteln des Bundes und des Freistaats Bayern gefördert sowie von der Landeshauptstadt München kofinanziert."
-              width={1600}
-              height={221}
+              src="/images/logos/foerderleiste.png"
+              alt="Städtebauförderung von Bund, Ländern und Gemeinden, Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen, Bayerisches Staatsministerium für Wohnen, Bau und Verkehr, Landeshauptstadt München Kulturreferat. Dieses Projekt wird durch Städtebauförderung in einem Bund-Länder-Programm mit Mitteln des Bundes und des Freistaats Bayern gefördert sowie von der Landeshauptstadt München kofinanziert."
+              width={1400}
+              height={193}
               sizes="(min-width: 768px) 624px, 90vw"
               className="h-auto w-full"
             />
           </div>
+          <p className="mt-4 max-w-2xl text-sm text-night-muted">{site.footer.foerderhinweis}</p>
         </div>
 
         <div className="mt-12 border-t border-night-line pt-6 text-sm text-night-muted">

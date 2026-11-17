@@ -37,21 +37,21 @@ export function KontaktForm() {
     const newErrors = { ...KEINE_FEHLER };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Bitte gib deinen Namen ein.";
+      newErrors.name = "Bitte geben Sie Ihren Namen ein.";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Bitte gib deine E-Mail-Adresse ein.";
+      newErrors.email = "Bitte geben Sie Ihre E-Mail-Adresse ein.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Bitte gib eine gültige E-Mail-Adresse ein.";
+      newErrors.email = "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Bitte schreib uns eine Nachricht.";
+      newErrors.message = "Bitte schreiben Sie uns eine Nachricht.";
     }
 
     if (!formData.privacy) {
-      newErrors.privacy = "Bitte bestätige die Datenschutzhinweise.";
+      newErrors.privacy = "Bitte bestätigen Sie die Datenschutzhinweise.";
     }
 
     setErrors(newErrors);
@@ -95,7 +95,7 @@ export function KontaktForm() {
       setSubmitError(
         error instanceof Error
           ? error.message
-          : "Fehler beim Senden der Nachricht. Bitte versuche es später erneut."
+          : "Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut."
       );
     } finally {
       setIsSubmitting(false);

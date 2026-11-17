@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Seitenkopf } from '@/components/layout/Seitenkopf';
 import { Section } from '@/components/ui/Section';
+import { ArrowUpRight } from 'lucide-react';
 import { Bild } from '@/components/ui/Bild';
+import { Button } from '@/components/ui/Button';
 import { site } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -12,10 +14,13 @@ export const metadata: Metadata = {
 };
 
 // Feste Auswahl statt Zufall: sechs Hochformate, die den Zuschnitt 4:5 gut vertragen.
-const GALERIE = ['Aerial Silk', 'Clownerie', 'Chinese Pole', 'Tellerdrehen', 'Drag', 'Feuerwehr Akrobatik'];
+const GALERIE = ['Aerial Silk', 'Clownerie', 'Canes', 'Contemporary Dance', 'Drag', 'Feuerwehr Akrobatik'];
+
+// Querformate brauchen im Hochformat-Rahmen einen Ausschnitt, der die Person zeigt.
+const FOKUS: Record<string, string> = { 'Contemporary Dance': '68% 50%' };
 
 export default function UeberUnsPage() {
-  const { wofuerWirStehen, details, name } = site.verein;
+  const { wofuerWirStehen, details, name, rolle, rechtsform, register, ansprechpersonen } = site.verein;
   const bilder = GALERIE.flatMap((titel) => site.disziplinen.filter((d) => d.name === titel));
 
   return (
@@ -33,6 +38,7 @@ export default function UeberUnsPage() {
                 height={bild.height}
                 alt={bild.alt}
                 credit={bild.credit}
+                fokus={FOKUS[bild.name]}
                 sizes="(min-width: 768px) 33vw, 50vw"
                 rahmenClassName="aspect-4/5 rounded-media"
               />
@@ -49,9 +55,16 @@ export default function UeberUnsPage() {
               {wofuerWirStehen.workplace.headline}
             </h2>
             <div className="space-y-4 text-lg text-ink-soft">
+              <p className="font-semibold text-ink">{rolle}</p>
               <p>{wofuerWirStehen.workplace.text1}</p>
               <p>{wofuerWirStehen.workplace.text2}</p>
             </div>
+            <Button asChild variant="outline" className="mt-8">
+              <a href={site.extern.pepeDome.href} target="_blank" rel="noopener noreferrer">
+                Zum Pepe Dome
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            </Button>
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-100 overflow-hidden">
             <Image
@@ -68,7 +81,7 @@ export default function UeberUnsPage() {
 
       <Section>
         <h2 className="mb-8 text-3xl font-bold md:text-[2.75rem]">Über den Verein</h2>
-        <dl className="grid gap-6 border-y border-line py-8 sm:grid-cols-3">
+        <dl className="grid gap-x-6 gap-y-8 border-y border-line py-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <dt className="mb-1 text-sm text-ink-muted">Name</dt>
             <dd className="font-medium">{name}</dd>
@@ -80,6 +93,18 @@ export default function UeberUnsPage() {
           <div>
             <dt className="mb-1 text-sm text-ink-muted">Geschäftsjahr</dt>
             <dd className="font-medium">{details.geschaeftsjahr}</dd>
+          </div>
+          <div>
+            <dt className="mb-1 text-sm text-ink-muted">Rechtsform</dt>
+            <dd className="font-medium">{rechtsform}</dd>
+          </div>
+          <div>
+            <dt className="mb-1 text-sm text-ink-muted">Vereinsregister</dt>
+            <dd className="font-medium">{register}</dd>
+          </div>
+          <div>
+            <dt className="mb-1 text-sm text-ink-muted">Ansprechpersonen</dt>
+            <dd className="font-medium">{ansprechpersonen.join(', ')}</dd>
           </div>
         </dl>
 

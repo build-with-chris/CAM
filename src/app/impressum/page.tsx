@@ -35,7 +35,7 @@ export default function ImpressumPage() {
         <h2>Kontakt</h2>
         <p>
           Telefon: +49 179 699 0707<br />
-          E-Mail: <a href="mailto:info@pepearts.de">info@pepearts.de</a>
+          E-Mail: <a href="mailto:info@xn--circusakademiemnchen-3ec.de">info@circusakademiemünchen.de</a>
         </p>
         <p>
           Kontaktformular: Nachrichten über das Kontaktformular werden an die genannte E-Mail-Adresse weitergeleitet.
