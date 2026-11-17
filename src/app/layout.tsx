@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/CAMLogonegativ.svg",
     shortcut: "/CAMLogonegativ.svg",
-    apple: "/CAMLogonegativ.svg",
+    apple: "/apple-touch-icon.png",
   },
 };
 

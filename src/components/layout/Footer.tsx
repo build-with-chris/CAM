@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer className="bg-night text-white">
       <div className="wrap pb-10 pt-16 md:pt-18">
-        <div className="grid gap-x-16 gap-y-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-x-10 gap-y-10 md:grid-cols-[1.3fr_0.8fr_1.1fr] lg:gap-x-16">
           <div>
             <div className="mb-4 flex items-center gap-3">
               <Image

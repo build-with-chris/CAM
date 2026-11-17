@@ -194,7 +194,7 @@ export const site = {
     intro: "Schreib uns – wir melden uns zeitnah zurück.",
     fields: {
       name: "Name",
-      email: "Email",
+      email: "E-Mail",
       nachricht: "Nachricht",
       datenschutz: "Ich habe die Datenschutzhinweise gelesen.",
     },
