@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { Seitenkopf } from '@/components/layout/Seitenkopf';
 import { Section } from '@/components/ui/Section';
 import { ArrowUpRight } from 'lucide-react';
 import { Bild } from '@/components/ui/Bild';
 import { Button } from '@/components/ui/Button';
 import { site } from '@/content/site';
+import { domeBilder } from '@/content/domeBilder';
 
 export const metadata: Metadata = {
   title: 'Über uns | Circus Akademie München e.V.',
@@ -49,7 +49,7 @@ export default function UeberUnsPage() {
       </Section>
 
       <Section background="gray">
-        <div className="grid items-center gap-x-20 gap-y-10 lg:grid-cols-[minmax(0,1fr)_25rem]">
+        <div className="grid items-center gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,1fr)_32rem]">
           <div>
             <h2 className="mb-7 text-3xl font-bold md:text-[2.75rem]">
               {wofuerWirStehen.workplace.headline}
@@ -59,24 +59,45 @@ export default function UeberUnsPage() {
               <p>{wofuerWirStehen.workplace.text1}</p>
               <p>{wofuerWirStehen.workplace.text2}</p>
             </div>
-            <Button asChild variant="outline" className="mt-8">
+            <Button asChild variant="outline" className="mt-8 bg-white">
               <a href={site.extern.pepeDome.href} target="_blank" rel="noopener noreferrer">
                 Zum Pepe Dome
                 <ArrowUpRight aria-hidden="true" />
               </a>
             </Button>
           </div>
-          <div className="relative mx-auto aspect-square w-full max-w-100 overflow-hidden">
-            <Image
-              src="/images/the-dome.webp"
-              alt="Der Pepe Dome von oben: eine blau-weiße Kuppel auf einer runden, grauen Plattform"
-              width={1697}
-              height={2400}
-              sizes="(min-width: 1024px) 600px, 150vw"
-              className="absolute -left-1/4 top-[-48.6%] h-auto w-[150%] max-w-none"
-            />
-          </div>
+          <Bild
+            {...domeBilder.kuppelHerbst}
+            sizes="(min-width: 1024px) 512px, 100vw"
+            rahmenClassName="aspect-3/2 w-full rounded-card"
+          />
         </div>
+
+        <dl className="mt-14 grid gap-x-8 gap-y-6 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          {site.dome.fakten.map((fakt) => (
+            <div key={fakt.label}>
+              <dt className="mb-1 text-sm text-ink-muted">{fakt.label}</dt>
+              <dd className="font-medium">{fakt.wert}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <Section>
+        <h2 className="mb-6 text-3xl font-bold md:text-[2.75rem]">{site.dome.entstehung.ueberschrift}</h2>
+        <p className="max-w-3xl text-lg text-ink-soft">{site.dome.entstehung.text}</p>
+        <ul className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          {site.dome.entstehung.bilder.map((bild) => (
+            <li key={bild.src}>
+              <Bild
+                {...bild}
+                sizes="(min-width: 768px) 25vw, 50vw"
+                rahmenClassName="aspect-4/5 rounded-media"
+              />
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3 text-sm text-ink-muted">{site.dome.entstehung.bildunterschrift}</p>
       </Section>
 
       <Section>

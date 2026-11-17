@@ -1,3 +1,5 @@
+import { domeBilder } from "./domeBilder";
+
 /** Satzung als statische Datei unter public/CAM_satzung.pdf (kein Redirect — sonst Schleife auf derselben Domain). */
 const satzungPdfPath = "/CAM_satzung.pdf";
 
@@ -10,6 +12,30 @@ export const site = {
       { label: "Facebook", href: "https://www.facebook.com/pepedome" },
       { label: "YouTube", href: "https://www.youtube.com/@pepedome" },
     ],
+  },
+  // Fakten zum Ort. Quelle: docs/dome/FAKTEN.md (Stand pepe-dome.de, 17.11.2026).
+  // Nur von dort übernehmen. Gemeinnützigkeit, Platzzahl und Ortsname: erst Abschnitt 11 lesen.
+  dome: {
+    fakten: [
+      { label: "Ort", wert: "Theatron im Ostpark, München-Neuperlach" },
+      { label: "Eröffnung", wert: "1. August 2025" },
+      { label: "Bauform", wert: "Geodätische Kuppel, 22 Meter Durchmesser, 8,5 Meter hoch" },
+      { label: "Plätze", wert: "170 Sitzplätze" },
+      { label: "Zugang", wert: "Barrierearm, Begleitperson empfohlen" },
+      { label: "Anreise", wert: "U5 bis Quiddestraße, Parken am Michaelibad" },
+    ],
+    entstehung: {
+      ueberschrift: "Wie der Dome entstand",
+      // Wortlaut von pepe-dome.de, Über uns
+      text: "2006 begann die Suche nach einem Raum für zeitgenössischen Zirkus. Über mehrere temporäre Standorte (MUCCA, CircusHub, Sugar Mountain) entwickelte sich das Projekt bis zur offiziellen Eröffnung am 1. August 2025 im Ostpark München.",
+      bildunterschrift: "Aufbau der Kuppel im Theatron im Ostpark",
+      bilder: [
+        domeBilder.aufbauTragwerkKran,
+        domeBilder.aufbauGeruestWolken,
+        domeBilder.aufbauKuppelhaut,
+        domeBilder.aufbauHolzknoten,
+      ],
+    },
   },
   verein: {
     name: "Circus Akademie München e.V.",
@@ -89,13 +115,13 @@ export const site = {
         title: "Open Stage",
         label: "Experimentieren",
         description: "Ein Raum zum Experimentieren: interdisziplinär, niedrigschwellig, publikumsnah.",
-        image: { src: "/images/chinese-pole-konzertsaal.webp", width: 1024, height: 710, alt: "Ein Artist hängt kopfüber an einer Stange in einem violett beleuchteten Konzertsaal, links stehen ein Flügel und ein Kontrabass" },
+        image: { ...domeBilder.jonglageKeulen, fokus: "50% 30%" },
       },
       {
         title: "Show",
         label: "Aufführung",
         description: "Aufführungen und Präsentationen: Zeitgenössischer Zirkus auf der Bühne, für Publikum sichtbar gemacht.",
-        image: { src: "/images/pepe-ensemble.webp", width: 728, height: 728, alt: "Plakatmotiv mit sechs Artistinnen und Artisten in Aktion und dem Schriftzug PEPE", fokus: "50% 15%" },
+        image: domeBilder.schlussapplaus,
       },
       {
         title: "Workshops",

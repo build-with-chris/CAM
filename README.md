@@ -42,6 +42,8 @@ public/images/          Fotos und Logos
 
 Alle Texte stehen in `src/content/site.ts`. Die Seiten lesen von dort, in den Komponenten steht kein Fließtext.
 
+Fakten und Fotos zum Pepe Dome kommen aus dem Übergabepaket vom 17.11.2026: `docs/dome/FAKTEN.md` (mit Quellen und offenen Widersprüchen), `docs/dome/BILDER.md` und `src/content/domeBilder.ts`. Regeln für die Arbeit damit stehen in `CLAUDE.md`.
+
 ## Bilder
 
 - Bilder liegen unter `public/images/`. Dateinamen ohne Leerzeichen und Umlaute.

@@ -11,12 +11,16 @@ type BildProps = Omit<ImageProps, 'alt' | 'width' | 'height'> & {
   credit?: string;
   /** Bildausschnitt, zum Beispiel "50% 80%". */
   fokus?: string;
+  /** Felder aus dem Bildmanifest (domeBilder.ts). Sie werden nicht an das img-Element weitergegeben. */
+  thema?: string;
+  anlass?: string;
   /** Klassen für den Rahmen. Er bestimmt Größe und Seitenverhältnis, das Bild füllt ihn. */
   rahmenClassName?: string;
 };
 
 /** Inhaltsbild über next/image. Der Rahmen gibt die Form vor, das Bild wird passend beschnitten. */
-export function Bild({ alt, credit, fokus, rahmenClassName, className, style, ...props }: BildProps) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function Bild({ alt, credit, fokus, rahmenClassName, className, style, thema, anlass, ...props }: BildProps) {
   return (
     <figure className={cn('relative overflow-hidden', rahmenClassName)}>
       <Image

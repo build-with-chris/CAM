@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { Bild } from '@/components/ui/Bild';
+import { domeBilder } from '@/content/domeBilder';
 import { site } from '@/content/site';
 
 export function Storytelling() {
@@ -22,17 +23,11 @@ export function Storytelling() {
           </div>
         </div>
 
-        {/* Die Datei hat rundum viel leeren Rand. Der Rahmen zeigt nur die Plattform mit der Kuppel. */}
-        <div className="relative mx-auto aspect-square w-full max-w-110 overflow-hidden">
-          <Image
-            src="/images/the-dome.webp"
-            alt="Der Pepe Dome von oben: eine blau-weiße Kuppel auf einer runden, grauen Plattform"
-            width={1697}
-            height={2400}
-            sizes="(min-width: 1024px) 660px, 150vw"
-            className="absolute -left-1/4 top-[-48.6%] h-auto w-[150%] max-w-none"
-          />
-        </div>
+        <Bild
+          {...domeBilder.kuppelNacht}
+          sizes="(min-width: 1024px) 440px, 100vw"
+          rahmenClassName="aspect-4/3 w-full rounded-card"
+        />
       </div>
     </section>
   );
