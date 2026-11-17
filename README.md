@@ -1,114 +1,89 @@
-# Circus Akademie München e.V. Website
+# Website des Circus Akademie München e.V.
 
-Eine moderne, barrierefreie Website für die Circus Akademie München e.V., entwickelt mit Next.js, React und Tailwind CSS.
+Die Vereinsseite unter circusakademiemünchen.de. Sie zeigt, wer hinter dem Pepe Dome steht: für Förderer, Sponsoren und Menschen, die Mitglied werden wollen.
 
-## Features
+## Technik
 
-- **Modern & Responsiv**: Vollständig responsive Design, optimiert für alle Geräte
-- **Barrierearm**: Semantisches HTML, gute Kontraste, Focus States
-- **Performance**: Next.js App Router für schnelle Ladezeiten
-- **Komponenten-basiert**: Wiederverwendbare UI-Komponenten
+- Next.js 16 (App Router), React 19, TypeScript 6
+- Tailwind CSS 4, die Design-Tokens stehen in `src/app/globals.css`
+- Nodemailer für die drei Formulare
+- Hosting bei Vercel
 
-## Technologie-Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **UI**: React 18
-- **Styling**: Tailwind CSS
-- **Sprache**: TypeScript
-
-## Installation
+## Befehle
 
 ```bash
-# Dependencies installieren
-npm install
-
-# Entwicklungsserver starten
-npm run dev
-
-# Produktions-Build erstellen
-npm run build
-
-# Produktionsserver starten
-npm start
+npm install        # Abhängigkeiten installieren
+npm run dev        # Entwicklungsserver auf http://localhost:3000
+npm run lint       # ESLint
+npm run typecheck  # TypeScript ohne Ausgabe
+npm run build      # Produktions-Build
 ```
 
-Die Website ist dann unter [http://localhost:3000](http://localhost:3000) erreichbar.
+Vor jedem Push laufen Lint, Typecheck und Build durch, und die geänderte Seite wird einmal im Browser angesehen.
 
-## Projektstruktur
+## Aufbau
 
 ```
 src/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root Layout
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Globale Styles
-├── components/
-│   ├── layout/            # Layout-Komponenten
-│   │   ├── Header.tsx     # Navigation
-│   │   └── Footer.tsx     # Footer
-│   ├── sections/          # Sektionen der Homepage
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Programs.tsx
-│   │   ├── Location.tsx
-│   │   ├── JoinUs.tsx
-│   │   ├── News.tsx
-│   │   └── Contact.tsx
-│   └── ui/                # Wiederverwendbare UI-Komponenten
-│       ├── Button.tsx
-│       ├── Card.tsx
-│       ├── Section.tsx
-│       └── Container.tsx
+  app/                  Seiten und API-Routen
+    layout.tsx          Kopf, Fuß und Skip-Link stehen nur hier
+    api/contact         Kontakt- und Sponsoring-Anfragen
+    api/membership      Mitgliedsantrag mit Eingangsbestätigung
+  components/
+    layout/             Header, Footer, Seitenkopf, Lesetext
+    sections/           Abschnitte der Startseite
+    ui/                 Button, Card, Section, Bild, Formularfelder
+  content/site.ts       alle Texte und Bildangaben
+  lib/mail.ts           gemeinsamer Mailversand und HTML-Escaping
+public/images/          Fotos und Logos
 ```
 
-## Inhalte
+## Inhalte ändern
 
-Die Website beinhaltet folgende Sektionen:
+Alle Texte stehen in `src/content/site.ts`. Die Seiten lesen von dort, in den Komponenten steht kein Fließtext.
 
-1. **Hero**: Willkommensbereich mit Hauptbild
-2. **Über uns**: Vorstellung des Vereins
-3. **Programme**: Open Stage, Training, Workshops, Produktionen
-4. **Ort**: Information über den Pepe Dome im Ostpark
-5. **Mitmachen**: Verschiedene Möglichkeiten zur Teilnahme
-6. **Aktuelles**: News und Termine
-7. **Kontakt**: Kontaktformular und Informationen
+## Bilder
 
-## Anpassungen
+- Bilder liegen unter `public/images/`. Dateinamen ohne Leerzeichen und Umlaute.
+- Längste Kante höchstens 2400 px, keine Datei über 500 KB. Kamera-Originale gehören nicht ins Repo.
+- Jedes Bild bekommt Breite, Höhe und einen Alt-Text, der beschreibt, was zu sehen ist. Bei den Disziplinen steht das in `site.ts`.
+- Eingebunden wird über `src/components/ui/Bild.tsx`. Das Feld `credit` nimmt den Namen der Fotografin oder des Fotografen auf, sobald er vorliegt.
 
-### Farben
+## Design
 
-Die Farbpalette kann in `tailwind.config.ts` angepasst werden:
+- DOME Blue `#016dca` ist die einzige kräftige Farbe, heller `#0180e8`, dunkler `#015ab0`.
+- Schriften wie beim Pepe Dome: Outfit für Überschriften, Inter für Fließtext.
+- Bausteine: `Seitenkopf` für den Kopf einer Unterseite, `Section` für Abschnitte, `Lesetext` für Impressum, AGB und Datenschutz.
 
-- `primary`: Hauptfarbe (Blautöne)
-- `accent`: Akzentfarbe (Rosa-/Rottöne)
+## Formulare und Mail
 
-### Bilder
+Kontakt, Sponsoring und Mitgliedsantrag gehen per SMTP an `info@circusakademiemünchen.de`. Das Sponsoring-Formular nutzt die Kontakt-Route mit dem Betreff „Sponsoring“.
 
-Aktuell werden Platzhalterbilder von `picsum.photos` verwendet. Ersetze diese durch echte Bilder:
+Die Zugangsdaten kommen aus Umgebungsvariablen. Lokal stehen sie in `.env.local`, auf Vercel in den Projekteinstellungen.
 
-1. Füge Bilder in `/public/images/` ein
-2. Aktualisiere die `src`-Attribute in den Komponenten
+```env
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=konto@example.com
+SMTP_PASS=...
+SMTP_FROM=noreply@xn--circusakademiemnchen-3ec.de
+```
 
-### Texte
+- Port 465 schaltet TLS von Anfang an ein, jeder andere Port nutzt STARTTLS.
+- `SMTP_FROM` ist optional. Fehlt es, steht das SMTP-Konto als Absender.
+- Spam-Schutz ist bisher nur ein Honeypot-Feld. Eine Ratenbegrenzung gibt es noch nicht.
+- Zugangsdaten nie in eine getrackte Datei schreiben. `.env.local` steht in der `.gitignore`.
 
-Alle Texte sind direkt in den Komponenten in `src/components/sections/` editierbar.
+Zum Testen ohne echten Mailserver reicht ein lokaler Mail-Catcher, auf den `SMTP_HOST` und `SMTP_PORT` zeigen.
 
-## Barrierefreiheit
+## shadcn-Registry
 
-- Semantisches HTML (nav, section, article, etc.)
-- ARIA-Labels für interaktive Elemente
-- Focus States für Tastaturnavigation
-- Ausreichende Farbkontraste (WCAG AA)
-- Alternative Texte für Bilder
-- Responsive Typography
+`components.json` liest den Schlüssel für die Registry von shadcnblocks aus der Variable `SHADCN_BLOCKS_API_KEY` in `.env.local`.
 
-## Browser-Unterstützung
+## Deployment
 
-- Chrome (neueste 2 Versionen)
-- Firefox (neueste 2 Versionen)
-- Safari (neueste 2 Versionen)
-- Edge (neueste 2 Versionen)
+- `main` ist Produktion auf der echten Domain.
+- Jeder andere Branch bekommt bei Vercel eine Vorschau.
+- Alte Adressen wie `/ort` oder `/aktuelles` leiten weiter, die Liste steht in `next.config.mjs`.
 
-## Lizenz
-
-© 2024 Circus Akademie München e.V. Alle Rechte vorbehalten.
+© Circus Akademie München e.V. Alle Rechte vorbehalten.
