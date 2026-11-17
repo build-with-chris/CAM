@@ -10,7 +10,7 @@ export function Storytelling() {
 
   return (
     <section id="storytelling" className="py-16 md:py-26">
-      <div className="wrap grid items-center gap-x-20 gap-y-10 lg:grid-cols-[minmax(0,1fr)_27.5rem]">
+      <div className="wrap grid items-center gap-x-20 gap-y-10 lg:grid-cols-[minmax(0,1fr)_32rem]">
         <div>
           <h2 className="mb-7 text-3xl font-bold md:text-5xl">
             {site.home.storytelling.ueberschrift}
@@ -24,8 +24,8 @@ export function Storytelling() {
         </div>
 
         <Bild
-          {...domeBilder.kuppelNacht}
-          sizes="(min-width: 1024px) 440px, 100vw"
+          {...domeBilder.sitzkreisKuppel}
+          sizes="(min-width: 1024px) 512px, 100vw"
           rahmenClassName="aspect-4/3 w-full rounded-card"
         />
       </div>

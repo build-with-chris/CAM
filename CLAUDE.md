@@ -13,4 +13,5 @@
   Vor Texten zu Ort, Platzzahl oder Gemeinnützigkeit Abschnitt 11 lesen.
 - Fotos vom Dome stehen in `src/content/domeBilder.ts`. Auswahl und Einsatz: `docs/dome/BILDER.md`.
 - Keine Fotos mit erkennbarem Publikum, mit Kindern oder mit Wasserzeichen.
+  Ausnahme: `sitzkreis-kuppel.webp`, von Chris freigegeben.
 - Kurse, Termine und Preise nicht nachbauen, sondern auf pepe-dome.de verlinken.

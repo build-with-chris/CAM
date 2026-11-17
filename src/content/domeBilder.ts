@@ -91,7 +91,8 @@ export const domeBilder = {
     src: "/images/dome/sitzkreis-kuppel.webp",
     width: 2276,
     height: 1280,
-    alt: "Rund zwanzig Menschen sitzen im Kreis auf dem Boden der Kuppel, vorn steht ein kleiner Tisch mit Kerzen",
+    alt: "Rund zwanzig Menschen sitzen im Kreis auf dem Boden und auf Hockern unter der Kuppel, vorn steht ein kleiner Tisch mit Kerzen",
+    // Erkennbare Personen, von Chris am 17.11.2026 für die Vereinsseite freigegeben.
     thema: "publikum",
     anlass: "Freeman Festival",
     credit: undefined,
