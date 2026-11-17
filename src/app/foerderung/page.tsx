@@ -9,7 +9,7 @@ import { site } from '@/content/site';
 export const metadata: Metadata = {
   title: 'Förderung | Circus Akademie München e.V.',
   description:
-    'Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München. Kulturverein mit festem Veranstaltungsort im Geodome – aktuell Umbau & Upgrade.',
+    'Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München. Kulturverein mit festem Veranstaltungsort im Pepe Dome – aktuell Umbau & Upgrade.',
 };
 
 const EINSATZ_ICONS: LucideIcon[] = [Bath, Shield, MonitorPlay, Coffee];

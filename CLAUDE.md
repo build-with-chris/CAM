@@ -8,6 +8,7 @@
 
 ## Inhalte zum Pepe Dome
 
+- Der Ort heißt überall „Pepe Dome“, nicht „Geodome“. Instagram ist `instagram.com/pepe.dome`.
 - Fakten zum Dome stehen in `docs/dome/FAKTEN.md`. Nur von dort übernehmen, nichts ergänzen.
   Vor Texten zu Ort, Platzzahl oder Gemeinnützigkeit Abschnitt 11 lesen.
 - Fotos vom Dome stehen in `src/content/domeBilder.ts`. Auswahl und Einsatz: `docs/dome/BILDER.md`.

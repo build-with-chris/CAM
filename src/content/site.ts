@@ -52,7 +52,7 @@ export const site = {
       text2: "Unser Ziel ist eine verlässliche Struktur, in der Training, Wissenstransfer und öffentliche Formate dauerhaft möglich werden. Wir arbeiten gemeinschaftlich, sorgfältig und offen für Kooperationen – damit künstlerische Entwicklung und kulturelle Teilhabe in München wachsen können.",
       workplace: {
         headline: "Unser Ort",
-        text1: "Im Geodome München schaffen wir Raum für zeitgenössischen Zirkus. Hier finden Training, Proben, Workshops und Aufführungen statt – ein fester Ort für eine lebendige Kunstform.",
+        text1: "Im Pepe Dome schaffen wir Raum für zeitgenössischen Zirkus. Hier finden Training, Proben, Workshops und Aufführungen statt – ein fester Ort für eine lebendige Kunstform.",
         text2: "Wir arbeiten daran, dass dieser Ort dauerhaft bestehen bleibt und zu einem sichtbaren Teil der Münchner Kulturlandschaft wird.",
       },
     },
@@ -132,10 +132,10 @@ export const site = {
     ],
     storytelling: {
       ueberschrift: "Unter der Kuppel passiert was.",
-      text: "Im Geodome wird aus 'Ich trau mich nicht' ein 'Schau mal!'. Zeitgenössischer Zirkus verbindet Körper, Musik, Theater und Mut – und bringt Menschen zusammen, die sich sonst nie begegnet wären. Wir schaffen Raum für Training, Experimente und Aufführungen. Damit dieser Ort bleibt, brauchen wir Unterstützung.",
+      text: "Im Pepe Dome wird aus 'Ich trau mich nicht' ein 'Schau mal!'. Zeitgenössischer Zirkus verbindet Körper, Musik, Theater und Mut – und bringt Menschen zusammen, die sich sonst nie begegnet wären. Wir schaffen Raum für Training, Experimente und Aufführungen. Damit dieser Ort bleibt, brauchen wir Unterstützung.",
     },
     finanzziel: {
-      ueberschrift: "Umbau & Upgrade am Geodome",
+      ueberschrift: "Umbau & Upgrade am Pepe Dome",
       gesamt: "ca. 105.000 €",
       gruppen: [
         {
@@ -282,7 +282,7 @@ export const site = {
   sponsoring: {
     hero: {
       headline: "Sponsoring, das wirkt – und sichtbar ist.",
-      lead: "Unterstützen Sie einen festen Kulturort für zeitgenössischen Zirkus im Geodome München. Gemeinsam ermöglichen wir Programm, Infrastruktur und faire Organisation.",
+      lead: "Unterstützen Sie einen festen Kulturort für zeitgenössischen Zirkus im Pepe Dome in München. Gemeinsam ermöglichen wir Programm, Infrastruktur und faire Organisation.",
       cta1: {
         text: "Sponsoring anfragen",
         href: "#kontakt",
@@ -293,7 +293,7 @@ export const site = {
       },
     },
     warum: [
-      "Lokale Sichtbarkeit in München – am festen Veranstaltungsort Geodome",
+      "Lokale Sichtbarkeit in München – am festen Veranstaltungsort Pepe Dome",
       "Kulturförderung mit gesellschaftlichem Mehrwert: Menschen verbinden, neue Formate ermöglichen",
       "Glaubwürdig & transparent: Umbau & Upgrade (ca. 105.000 €)",
     ],
@@ -314,7 +314,7 @@ export const site = {
         beschreibung: "Perfekt für Unternehmen, die mehr Sichtbarkeit und Engagement suchen.",
         inhalt: [
           "Alles aus Bronze",
-          "Logo vor Ort im Geodome (je nach Format)",
+          "Logo vor Ort im Pepe Dome (je nach Format)",
           "Erwähnung bei Veranstaltungen (Moderation/Programmheft, wenn vorhanden)",
           "6 Freikarten pro Veranstaltung (nach Verfügbarkeit)",
         ],
@@ -340,7 +340,7 @@ export const site = {
   foerderung: {
     hero: {
       headline: "Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München.",
-      lead: "Wir sind ein Kulturverein mit festem Veranstaltungsort im Geodome. Unser Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen – derzeit mit Fokus auf Umbau und Upgrade vor Ort.",
+      lead: "Wir sind ein Kulturverein mit festem Veranstaltungsort im Pepe Dome. Unser Ziel: Kunst ermöglichen, Menschen verbinden, neue Kulturformate sichtbar machen – derzeit mit Fokus auf Umbau und Upgrade vor Ort.",
       cta: {
         text: "Gespräch vereinbaren",
         href: "#kontakt",
@@ -351,7 +351,7 @@ export const site = {
       "Nachwuchs & Talentförderung: Trainings-, Proben- und Auftrittsmöglichkeiten",
       "Stadtgesellschaft & Begegnung: Formate, die Menschen zusammenbringen",
       "Kulturelle Innovation: neue Kunstformate jenseits klassischer Bühnen",
-      "Standortfaktor München: ein sichtbarer, fester Kulturort im Geodome",
+      "Standortfaktor München: ein sichtbarer, fester Kulturort im Pepe Dome",
     ],
     finanzplan: {
       ueberschrift: "Umbau & Upgrade: ca. 105.000 €",
