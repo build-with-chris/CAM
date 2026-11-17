@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Feature224 } from '@/components/feature224';
-import { Feature16 } from '@/components/feature16';
+import { Einstieg } from '@/components/sections/Einstieg';
+import { Formate } from '@/components/sections/Formate';
+import { Wege } from '@/components/sections/Wege';
 import { Storytelling } from '@/components/sections/Storytelling';
-import { Finanzziel } from '@/components/sections/Finanzziel';
 import { AbschlussCta } from '@/components/sections/AbschlussCta';
 
 export const metadata: Metadata = {
@@ -14,19 +12,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <a href="#main-content" className="skip-link">
-        Zum Hauptinhalt springen
-      </a>
-      <Header />
-      <div id="main-content">
-        <Feature224 />
-        <Feature16 />
-        <Storytelling />
-        <Finanzziel />
-        <AbschlussCta />
-      </div>
-      <Footer />
-    </main>
+    <>
+      <Einstieg />
+      <Formate />
+      <Wege />
+      <Storytelling />
+      <AbschlussCta />
+    </>
   );
 }

@@ -1,96 +1,131 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * Designsystem der Vereinsseite.
+ * DOME Blue ist die einzige kräftige Farbe, alles andere sind Neutraltöne.
+ * Schriften wie beim Pepe Dome: Outfit für Überschriften, Inter für Fließtext.
+ */
+@theme {
+  /* DOME Blue */
+  --color-dome: #016dca;
+  --color-dome-light: #0180e8;
+  --color-dome-dark: #015ab0;
+  --color-dome-tint: #e8f2fc;
+
+  /* Neutraltöne */
+  --color-ink: #0f172a;
+  --color-ink-soft: #334155;
+  --color-ink-muted: #475569;
+  --color-line: #e2e8f0;
+  --color-mist: #f4f7fb;
+  --color-night: #0b1220;
+  --color-night-line: #263248;
+  --color-night-muted: #b6c2d6;
+  --color-stage: #060709;
+
+  /* Dieselben Werte unter den Namen, die die ui-Bausteine erwarten */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #016dca;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f4f7fb;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f4f7fb;
+  --color-muted-foreground: #475569;
+  --color-accent: #e8f2fc;
+  --color-accent-foreground: #015ab0;
+  --color-destructive: #b91c1c;
+  --color-border: #e2e8f0;
+  --color-input: #cbd5e1;
+  --color-ring: #016dca;
+
+  /* Schriften */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radien */
+  --radius-control: 0.75rem;
+  --radius-card: 1rem;
+  --radius-media: 0.75rem;
+}
+
+/* Inhaltsbreite: 1200 px Inhalt, seitlich mindestens 20 px Luft. */
+@utility wrap {
+  width: 100%;
+  max-width: 79rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* Für Bausteine, die noch `container` nutzen: zentriert und mit Seitenrand. */
+@utility container {
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
 
 @layer base {
+  /* Tailwind 4 nimmt für Rahmen sonst die Textfarbe. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-line);
+  }
+
   html {
     scroll-behavior: smooth;
-    background-color: #ffffff;
-    color: #0f172a;
-    @apply antialiased;
+    /* Sprungziele landen unter dem festen Kopf, nicht dahinter. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #f8fafc;
-    color: #0f172a;
-    @apply font-sans text-base leading-relaxed;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    /* Lange deutsche Wörter dürfen umbrechen, statt die Seite zu verbreitern. */
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Headlines mit font-display */
-  h1 {
-    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
-  }
-
-  h2 {
-    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
-  }
-
-  h3 {
-    @apply font-display text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
-  }
-
+  h1,
+  h2,
+  h3,
   h4 {
-    @apply font-display text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight;
+    font-family: var(--font-display);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
-  h5, h6 {
-    @apply font-display font-semibold tracking-tight;
-  }
-
-  /* Links */
-  a {
-    color: #F59E0B;
-    @apply transition-colors;
-  }
-
-  a:hover {
-    @apply underline underline-offset-2;
-  }
-
-  /* Tabellen und Zahlen mit font-mono */
-  code,
-  pre,
-  .mono {
-    @apply font-mono;
-  }
-
-  table {
-    @apply font-mono;
-  }
-
-  /* Tabellarische Ziffern für Zahlen/Tabellen */
-  .tabular-nums,
-  table,
-  code,
-  pre {
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* Improve focus visibility for accessibility */
-  *:focus-visible {
-    @apply outline-none ring-2;
-    --tw-ring-color: #F59E0B;
-    --tw-ring-offset-color: #ffffff;
-    --tw-ring-offset-width: 2px;
-  }
-
-  /* Skip-to-content Link */
-  .skip-link {
-    @apply absolute -top-full left-0 z-[100] px-6 py-3 font-medium;
-    @apply focus:top-0 transition-all;
-    background-color: #F59E0B;
-    color: #0f172a;
-  }
-
-  /* Smooth scrolling for anchor links */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
+  /* Am Handy trennen Überschriften und Lesetexte nach deutschen Silben. */
+  @media (max-width: 40rem) {
+    h1,
+    h2,
+    h3,
+    .lesetext {
+      hyphens: auto;
     }
   }
 
-  /* Respect user preference for reduced motion */
+  :focus-visible {
+    outline: 2px solid var(--color-dome);
+    outline-offset: 2px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
@@ -99,177 +134,90 @@
       transition-duration: 0.01ms !important;
     }
   }
-  :root {
-    /* Hell-Theme: Weiß mit Grautönen für flüssigen Seitenfluss */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 38 92% 50%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    /* Zusätzliche Flächen für Wechsel (z. B. Sektionen) */
-    --section-alt: 210 40% 98%;
-    --section-muted: 210 40% 96%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
 }
 
 @layer components {
-  /* Container für shadcn blocks */
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  /* Skip-Link: unsichtbar, bis er per Tastatur den Fokus bekommt. */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -10rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-control);
+    background-color: var(--color-dome);
+    color: #ffffff;
+    font-weight: 600;
   }
 
-  @media (min-width: 640px) {
-    .container {
-      max-width: 640px;
-    }
+  .skip-link:focus {
+    top: 1rem;
   }
 
-  @media (min-width: 768px) {
-    .container {
-      max-width: 768px;
-    }
+  /* Lesetext für Impressum, AGB, Datenschutz und Blogbeiträge. */
+  .lesetext {
+    color: var(--color-ink-soft);
+    line-height: 1.7;
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 1024px;
-    }
+  .lesetext > * + * {
+    margin-top: 1rem;
   }
 
-  @media (min-width: 1280px) {
-    .container {
-      max-width: 1280px;
-    }
+  .lesetext h2 {
+    margin-top: 2.75rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-ink);
   }
 
-  @media (min-width: 1536px) {
-    .container {
-      max-width: 1536px;
-    }
+  .lesetext h3 {
+    margin-top: 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-ink);
   }
 
-  /* Surface Card Basis */
-  .surface-card {
-    background-color: rgba(17, 24, 39, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    @apply rounded-2xl shadow-lg;
+  .lesetext section > * + *,
+  .lesetext div > * + * {
+    margin-top: 0.75rem;
   }
 
-  /* Button Basis-Klassen */
-  .btn-primary {
-    background-color: #F59E0B;
-    color: #0F172A;
-    @apply font-medium px-6 py-3 rounded-lg;
-    @apply hover:opacity-90 transition-all duration-200;
+  .lesetext ul,
+  .lesetext ol {
+    padding-left: 1.5rem;
   }
 
-  .btn-primary:focus-visible {
-    @apply outline-none ring-2;
-    --tw-ring-color: #F59E0B;
-    --tw-ring-offset-color: #0F172A;
-    --tw-ring-offset-width: 2px;
+  .lesetext ul {
+    list-style: disc;
   }
 
-  .btn-accent {
-    background-color: #F43F5E;
-    color: #F8FAFC;
-    @apply font-medium px-6 py-3 rounded-lg;
-    @apply hover:opacity-90 transition-all duration-200;
+  .lesetext ol {
+    list-style: decimal;
   }
 
-  .btn-accent:focus-visible {
-    @apply outline-none ring-2;
-    --tw-ring-color: #F43F5E;
-    --tw-ring-offset-color: #0F172A;
-    --tw-ring-offset-width: 2px;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .lesetext li + li {
+    margin-top: 0.5rem;
   }
 
-  /* Tabular numbers utility */
-  .tabular-nums {
-    font-variant-numeric: tabular-nums;
+  .lesetext a {
+    color: var(--color-dome);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  @keyframes modal-enter {
-    from {
-      opacity: 0;
-      transform: scale(0.97);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  .lesetext a:hover {
+    color: var(--color-dome-dark);
   }
 
-  .animate-modal-enter {
-    animation: modal-enter 150ms ease-out;
+  .lesetext hr {
+    margin-block: 2.5rem;
+    border: 0;
+    border-top: 1px solid var(--color-line);
   }
-}
 
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    background-color: #f8fafc;
-    color: #0f172a;
+  .lesetext strong {
+    font-weight: 600;
+    color: var(--color-ink);
   }
 }

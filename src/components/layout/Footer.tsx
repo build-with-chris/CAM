@@ -1,57 +1,56 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { site } from '@/content/site';
 
-export const Footer: React.FC = () => {
+const RECHTLICHES = [
+  { label: 'Kontakt', href: '/kontakt' },
+  { label: 'Impressum', href: '/impressum' },
+  { label: 'AGB', href: '/agb' },
+  { label: 'Datenschutz', href: '/datenschutz' },
+];
+
+export function Footer() {
   return (
-    <footer className="bg-primary-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {/* About */}
+    <footer className="bg-night text-white">
+      <div className="wrap pb-10 pt-16 md:pt-18">
+        <div className="grid gap-x-16 gap-y-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="relative h-12 w-12 flex-shrink-0">
-                <Image
-                  src="/images/logos/cam-logo-negativ.png"
-                  alt="Circus Akademie München Logo"
-                  fill
-                  className="object-contain"
-                  sizes="48px"
-                />
-              </div>
-              <h3 className="text-xl font-bold">{site.verein.name}</h3>
+            <div className="mb-4 flex items-center gap-3">
+              <Image
+                src="/images/logos/cam-logo.png"
+                alt="Logo der Circus Akademie München"
+                width={273}
+                height={273}
+                className="size-11 invert"
+              />
+              <p className="font-display text-xl font-semibold">{site.verein.name}</p>
             </div>
-            <p className="text-primary-100 leading-relaxed">
-              {site.verein.kurzbeschreibung}
-            </p>
+            <p className="max-w-sm text-night-muted">{site.verein.kurzbeschreibung}</p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Navigation</h3>
-            <ul className="space-y-2">
+          <nav aria-label="Fußnavigation">
+            <h2 className="mb-4 text-[1.0625rem] font-semibold">Navigation</h2>
+            <ul className="space-y-1.5 text-night-muted">
               {site.navigation.map((item) => (
-                <li key={item.label}>
-                  <Link 
-                    href={item.href} 
-                    className="text-primary-100 hover:text-white transition-colors focus:outline-none focus:underline"
-                  >
+                <li key={item.href}>
+                  <Link href={item.href} className="transition-colors hover:text-white">
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Kontakt</h3>
-            <address className="text-primary-100 not-italic space-y-2">
+            <h2 className="mb-4 text-[1.0625rem] font-semibold">Kontakt</h2>
+            <address className="not-italic text-night-muted">
               <p>Pepe Dome/Geodom</p>
               <p>Ostpark München</p>
               <p className="mt-4">
-                <a href="mailto:info@xn--circusakademiemnchen-3ec.de" className="hover:text-white transition-colors focus:outline-none focus:underline">
+                <a
+                  href="mailto:info@xn--circusakademiemnchen-3ec.de"
+                  className="break-all text-white underline-offset-4 hover:underline"
+                >
                   info@circusakademiemünchen.de
                 </a>
               </p>
@@ -59,31 +58,41 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-primary-700">
-          <div className="mb-6 text-center">
-            <p className="text-primary-100 text-sm max-w-2xl mx-auto">
-              {site.footer.trustLine}
-            </p>
+        <div className="mt-14">
+          <p className="mb-3.5 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-night-muted">
+            Unterstützt von
+          </p>
+          {/* Die Förderlogos stehen auf Weiß, so wie die Geldgeber sie vorgeben. */}
+          <div className="max-w-2xl rounded-media bg-white px-4 py-3 sm:px-6 sm:py-4">
+            <Image
+              src="/images/logos/foerderlogos.jpg"
+              alt="Förderlogos: Städtebauförderung von Bund, Ländern und Gemeinden, Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen, Bayerisches Staatsministerium für Wohnen, Bau und Verkehr, Landeshauptstadt München. Dieses Projekt wird durch Städtebauförderung in einem Bund-Länder-Programm mit Mitteln des Bundes und des Freistaats Bayern gefördert sowie von der Landeshauptstadt München kofinanziert."
+              width={1600}
+              height={221}
+              sizes="(min-width: 768px) 624px, 90vw"
+              className="h-auto w-full"
+            />
           </div>
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-200 text-sm">
-            <p>&copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.</p>
-            <div className="flex flex-wrap gap-6">
-              <Link href="/kontakt" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                Kontakt
-              </Link>
-              <Link href="/impressum" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                Impressum
-              </Link>
-              <Link href="/agb" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                AGB
-              </Link>
-              <Link href="/datenschutz" className="hover:text-white transition-colors focus:outline-none focus:underline">
-                Datenschutz
-              </Link>
-            </div>
+        </div>
+
+        <div className="mt-12 border-t border-night-line pt-6 text-sm text-night-muted">
+          <p className="mb-3">{site.footer.trustLine}</p>
+          <div className="flex flex-col justify-between gap-3 sm:flex-row">
+            <p>
+              &copy; {new Date().getFullYear()} {site.verein.name} Alle Rechte vorbehalten.
+            </p>
+            <ul className="flex flex-wrap gap-x-6 gap-y-1">
+              {RECHTLICHES.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="transition-colors hover:text-white">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </footer>
   );
-};
+}

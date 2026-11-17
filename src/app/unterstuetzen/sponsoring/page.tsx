@@ -1,343 +1,91 @@
-'use client';
-
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Section, SectionHeader } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Pricing3Sponsoring } from '@/components/pricing3Sponsoring';
-import { site } from '@/content/site';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
+import { Check } from 'lucide-react';
+import { Seitenkopf } from '@/components/layout/Seitenkopf';
+import { Section, SectionHeader } from '@/components/ui/Section';
+import { Button } from '@/components/ui/Button';
+import { SponsoringForm } from '@/components/SponsoringForm';
+import { cn } from '@/lib/utils';
+import { site } from '@/content/site';
+
+export const metadata: Metadata = {
+  title: 'Sponsoring | Circus Akademie München e.V.',
+  description: 'Werden Sie Sponsor für zeitgenössischen Zirkus in München. Sichtbarkeit, CSR-Engagement und Networking mit der Kulturszene.',
+};
 
 export default function SponsoringPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    unternehmen: '',
-    email: '',
-    budget: '',
-    nachricht: '',
-    website: '', // Honeypot-Feld (sollte leer bleiben)
-  });
-  const [errors, setErrors] = useState({
-    name: '',
-    unternehmen: '',
-    email: '',
-    nachricht: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validateForm = (): boolean => {
-    const newErrors = {
-      name: '',
-      unternehmen: '',
-      email: '',
-      nachricht: '',
-    };
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Bitte gib deinen Namen ein.';
-    }
-
-    if (!formData.unternehmen.trim()) {
-      newErrors.unternehmen = 'Bitte gib dein Unternehmen ein.';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Bitte gib deine E-Mail-Adresse ein.';
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Bitte gib eine gültige E-Mail-Adresse ein.';
-    }
-
-    if (!formData.nachricht.trim()) {
-      newErrors.nachricht = 'Bitte schreib uns eine Nachricht.';
-    }
-
-    setErrors(newErrors);
-    return !Object.values(newErrors).some(error => error !== '');
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitError('');
-
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // Unternehmen und Budget stehen in der Nachricht, damit die Route /api/contact unverändert bleibt.
-      const message = [
-        `Unternehmen: ${formData.unternehmen.trim()}`,
-        `Budget: ${formData.budget || 'keine Angabe'}`,
-        '',
-        formData.nachricht.trim(),
-      ].join('\n');
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: 'Sponsoring',
-          message,
-          website: formData.website, // Honeypot
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Fehler beim Senden der Anfrage.');
-      }
-
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        unternehmen: '',
-        email: '',
-        budget: '',
-        nachricht: '',
-        website: '',
-      });
-    } catch (error) {
-      setSubmitError(
-        error instanceof Error
-          ? error.message
-          : 'Fehler beim Senden der Anfrage. Bitte versuche es später erneut.'
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: '' });
-  };
+  const { hero, warum, pakete, paketeHinweis, kontakt } = site.sponsoring;
 
   return (
-    <main className="min-h-screen">
-      <a href="#main-content" className="skip-link">
-        Zum Hauptinhalt springen
-      </a>
-      <Header />
-      <div id="main-content">
-        {/* Hero */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-white pt-24 pb-20">
-          <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal text-primary-900 leading-tight tracking-tight mb-6">
-              {site.sponsoring.hero.headline}
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-              {site.sponsoring.hero.lead}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={site.sponsoring.hero.cta1.href}>
-                <Button size="lg" variant="primary">
-                  {site.sponsoring.hero.cta1.text}
+    <>
+      <Seitenkopf titel={hero.headline} einleitung={hero.lead}>
+        <Button asChild size="lg">
+          <Link href={hero.cta1.href}>{hero.cta1.text}</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link href={hero.cta2.href}>{hero.cta2.text}</Link>
+        </Button>
+      </Seitenkopf>
+
+      <Section id="warum">
+        <SectionHeader title="Warum Sponsoring?" />
+        <ul className="grid gap-6 md:grid-cols-3">
+          {warum.map((punkt) => (
+            <li key={punkt} className="flex gap-4 border-t-2 border-dome pt-5">
+              <Check aria-hidden="true" className="mt-1 size-5 shrink-0 text-dome" />
+              <span className="text-lg text-ink-soft">{punkt}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="pakete" background="gray">
+        <SectionHeader title="Sponsoring-Pakete" subtitle={paketeHinweis} />
+        <ul className="grid gap-6 lg:grid-cols-3">
+          {pakete.map((paket, index) => {
+            const hervorgehoben = index === 1;
+            return (
+              <li
+                key={paket.name}
+                className={cn(
+                  'flex flex-col rounded-card border bg-white p-7 sm:p-8',
+                  hervorgehoben ? 'border-2 border-dome' : 'border-line'
+                )}
+              >
+                <h3 className="text-lg font-semibold">{paket.name}</h3>
+                <p className="mt-2 font-display text-[2rem] font-bold leading-tight text-dome">
+                  {paket.betrag}
+                </p>
+                <p className="mt-3 text-sm text-ink-muted">{paket.beschreibung}</p>
+                <ul className="my-7 space-y-3 border-t border-line pt-6 text-ink-soft">
+                  {paket.inhalt.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Check aria-hidden="true" className="mt-1 size-4 shrink-0 text-dome" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  asChild
+                  className="mt-auto w-full"
+                  variant={hervorgehoben ? 'primary' : 'outline'}
+                >
+                  <Link href="#kontakt">Paket anfragen</Link>
                 </Button>
-              </Link>
-              <Link href={site.sponsoring.hero.cta2.href}>
-                <Button size="lg" variant="outline">
-                  {site.sponsoring.hero.cta2.text}
-                </Button>
-              </Link>
-            </div>
+              </li>
+            );
+          })}
+        </ul>
+      </Section>
+
+      <Section id="kontakt">
+        <div className="mx-auto max-w-2xl">
+          <SectionHeader title="Sponsoring anfragen" subtitle={kontakt.text} />
+          <div className="relative rounded-card border border-line bg-white p-6 sm:p-8">
+            <SponsoringForm />
           </div>
-        </section>
-
-        {/* Warum Sponsoring? */}
-        <Section id="warum" background="gray">
-          <SectionHeader
-            title="Warum Sponsoring?"
-          />
-          <div className="max-w-3xl mx-auto">
-            <ul className="space-y-4">
-              {site.sponsoring.warum.map((punkt, index) => (
-                <li key={index} className="flex items-start space-x-4 p-4 bg-white rounded-lg">
-                  <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span className="text-gray-700 leading-relaxed">{punkt}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
-
-        {/* Sponsoring-Pakete */}
-        <section id="pakete" className="bg-white">
-          <Pricing3Sponsoring />
-        </section>
-
-        {/* Kontaktformular */}
-        <Section id="kontakt" background="white">
-          <SectionHeader
-            title="Sponsoring anfragen"
-            subtitle={site.sponsoring.kontakt.text}
-          />
-          <div className="max-w-2xl mx-auto">
-            <Card>
-              {submitted ? (
-                <div className="text-center py-12">
-                  <svg className="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <h3 className="text-2xl font-bold text-primary-900 mb-2">Danke!</h3>
-                  <p className="text-gray-700">{site.sponsoring.kontakt.success}</p>
-                </div>
-              ) : (
-                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-                  {/* Honeypot-Feld: für Menschen unsichtbar, Bots füllen es aus */}
-                  <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-                    <label htmlFor="website">Website (nicht ausfüllen)</label>
-                    <input
-                      type="text"
-                      id="website"
-                      name="website"
-                      value={formData.website}
-                      onChange={handleChange}
-                      tabIndex={-1}
-                      autoComplete="off"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded transition-colors focus:outline-none focus:ring-2 ${
-                        errors.name ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary-700 focus:border-primary-700'
-                      }`}
-                      required
-                    />
-                    {errors.name && (
-                      <p className="mt-2 text-sm text-red-600" role="alert">
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="unternehmen" className="block text-sm font-medium text-gray-700 mb-2">
-                      Unternehmen *
-                    </label>
-                    <input
-                      type="text"
-                      id="unternehmen"
-                      name="unternehmen"
-                      value={formData.unternehmen}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded transition-colors focus:outline-none focus:ring-2 ${
-                        errors.unternehmen ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary-700 focus:border-primary-700'
-                      }`}
-                      required
-                    />
-                    {errors.unternehmen && (
-                      <p className="mt-2 text-sm text-red-600" role="alert">
-                        {errors.unternehmen}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      E-Mail *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded transition-colors focus:outline-none focus:ring-2 ${
-                        errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary-700 focus:border-primary-700'
-                      }`}
-                      required
-                    />
-                    {errors.email && (
-                      <p className="mt-2 text-sm text-red-600" role="alert">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                      Budget
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-primary-700 transition-colors"
-                    >
-                      <option value="">Bitte wählen</option>
-                      <option value="< 2.500 €">{"< 2.500 €"}</option>
-                      <option value="2.500–7.500 €">2.500–7.500 €</option>
-                      <option value="7.500–15.000 €">7.500–15.000 €</option>
-                      <option value="> 15.000 €">{"> 15.000 €"}</option>
-                      <option value="individuell">individuell</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="nachricht" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nachricht *
-                    </label>
-                    <textarea
-                      id="nachricht"
-                      name="nachricht"
-                      rows={5}
-                      value={formData.nachricht}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded transition-colors resize-none focus:outline-none focus:ring-2 ${
-                        errors.nachricht ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary-700 focus:border-primary-700'
-                      }`}
-                      required
-                    />
-                    {errors.nachricht && (
-                      <p className="mt-2 text-sm text-red-600" role="alert">
-                        {errors.nachricht}
-                      </p>
-                    )}
-                  </div>
-
-                  {submitError && (
-                    <p className="text-sm text-red-600" role="alert">
-                      {submitError}
-                    </p>
-                  )}
-
-                  <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
-                  </Button>
-                </form>
-              )}
-            </Card>
-          </div>
-        </Section>
-      </div>
-      <Footer />
-    </main>
+        </div>
+      </Section>
+    </>
   );
 }

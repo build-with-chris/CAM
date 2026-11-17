@@ -1,8 +1,8 @@
-import { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { site } from "@/content/site";
+import type { Metadata } from "next";
+import { Seitenkopf } from "@/components/layout/Seitenkopf";
+import { Section } from "@/components/ui/Section";
 import { MembershipForm } from "@/components/MembershipForm";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Mitglied werden | Circus Akademie München e.V.",
@@ -12,32 +12,13 @@ export const metadata: Metadata = {
 
 export default function MitgliederWerdenPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Header />
-      {/* Intro: heller Abschnitt */}
-      <section className="bg-white border-b border-slate-200/80 pt-28 md:pt-32 pb-12 md:pb-16">
-        <div className="container">
-          <div className="mx-auto max-w-2xl">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl text-slate-900">
-              Mitglied werden
-            </h1>
-            <p className="mt-4 text-lg text-slate-600">
-              {site.mitglieder.intro}
-            </p>
-          </div>
+    <>
+      <Seitenkopf titel="Mitglied werden" einleitung={site.mitglieder.intro} />
+      <Section>
+        <div className="relative mx-auto max-w-2xl rounded-card border border-line bg-white p-6 sm:p-8">
+          <MembershipForm />
         </div>
-      </section>
-      {/* Formular: weicher Grauton für Fluss */}
-      <section className="bg-slate-50 py-12 md:py-16 lg:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-2xl">
-            <div className="rounded-2xl bg-white border border-slate-200/80 shadow-sm p-6 md:p-8">
-              <MembershipForm />
-            </div>
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </main>
+      </Section>
+    </>
   );
 }

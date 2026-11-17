@@ -59,9 +59,6 @@ const initialFormData: FormData = {
 
 type Errors = Partial<Record<keyof FormData, string>>;
 
-const inputClass =
-  "h-12 rounded-xl border border-input bg-muted/50 text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-amber-500 shadow-none";
-
 export function MembershipForm() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<Errors>({});
@@ -160,9 +157,9 @@ export function MembershipForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-8 text-center">
-        <h2 className="text-2xl font-semibold tracking-tight mb-4 text-slate-900">Antrag eingegangen</h2>
-        <p className="text-slate-600">
+      <div className="py-8 text-center" role="status">
+        <h2 className="mb-4 text-2xl font-bold">Antrag eingegangen</h2>
+        <p className="text-ink-soft">
           {site.mitglieder.success}
         </p>
       </div>
@@ -170,7 +167,7 @@ export function MembershipForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 text-foreground" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Honeypot */}
       <div
         className="absolute -left-[9999px] opacity-0 pointer-events-none"
@@ -190,7 +187,7 @@ export function MembershipForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="vorname" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="vorname" className="mb-2 block text-sm font-medium">
             Vorname *
           </label>
           <Input
@@ -198,7 +195,6 @@ export function MembershipForm() {
             name="vorname"
             value={formData.vorname}
             onChange={handleChange}
-            className={cn(inputClass, errors.vorname && "border-destructive")}
             aria-invalid={!!errors.vorname}
           />
           {errors.vorname && (
@@ -206,7 +202,7 @@ export function MembershipForm() {
           )}
         </div>
         <div>
-          <label htmlFor="nachname" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="nachname" className="mb-2 block text-sm font-medium">
             Nachname *
           </label>
           <Input
@@ -214,7 +210,6 @@ export function MembershipForm() {
             name="nachname"
             value={formData.nachname}
             onChange={handleChange}
-            className={cn(inputClass, errors.nachname && "border-destructive")}
             aria-invalid={!!errors.nachname}
           />
           {errors.nachname && (
@@ -224,7 +219,7 @@ export function MembershipForm() {
       </div>
 
       <div>
-        <label htmlFor="strasse" className="mb-1 block text-sm font-medium text-slate-700">
+        <label htmlFor="strasse" className="mb-2 block text-sm font-medium">
           Straße & Hausnummer *
         </label>
         <Input
@@ -232,7 +227,6 @@ export function MembershipForm() {
           name="strasse"
           value={formData.strasse}
           onChange={handleChange}
-          className={cn(inputClass, errors.strasse && "border-destructive")}
           aria-invalid={!!errors.strasse}
         />
         {errors.strasse && (
@@ -242,7 +236,7 @@ export function MembershipForm() {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
-          <label htmlFor="plz" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="plz" className="mb-2 block text-sm font-medium">
             PLZ *
           </label>
           <Input
@@ -250,7 +244,6 @@ export function MembershipForm() {
             name="plz"
             value={formData.plz}
             onChange={handleChange}
-            className={cn(inputClass, errors.plz && "border-destructive")}
             aria-invalid={!!errors.plz}
           />
           {errors.plz && (
@@ -258,7 +251,7 @@ export function MembershipForm() {
           )}
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="ort" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="ort" className="mb-2 block text-sm font-medium">
             Ort *
           </label>
           <Input
@@ -266,7 +259,6 @@ export function MembershipForm() {
             name="ort"
             value={formData.ort}
             onChange={handleChange}
-            className={cn(inputClass, errors.ort && "border-destructive")}
             aria-invalid={!!errors.ort}
           />
           {errors.ort && (
@@ -277,7 +269,7 @@ export function MembershipForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="mb-2 block text-sm font-medium">
             E-Mail *
           </label>
           <Input
@@ -286,7 +278,6 @@ export function MembershipForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={cn(inputClass, errors.email && "border-destructive")}
             aria-invalid={!!errors.email}
           />
           {errors.email && (
@@ -294,7 +285,7 @@ export function MembershipForm() {
           )}
         </div>
         <div>
-          <label htmlFor="telefon" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="telefon" className="mb-2 block text-sm font-medium">
             Telefon (optional)
           </label>
           <Input
@@ -303,23 +294,22 @@ export function MembershipForm() {
             name="telefon"
             value={formData.telefon}
             onChange={handleChange}
-            className={inputClass}
           />
         </div>
       </div>
 
       <div>
-        <span className="mb-2 block text-sm font-medium text-slate-700">Mitgliedsart *</span>
+        <span className="mb-2 block text-sm font-medium">Mitgliedsart *</span>
         <div className="space-y-3">
           {MITGLIEDART_OPTIONS.map((opt) => (
             <label
               key={opt.value}
               className={cn(
-                "flex cursor-pointer gap-3 rounded-lg border p-4 transition-colors text-slate-800",
+                "flex cursor-pointer gap-3 rounded-control border p-4 transition-colors",
                 formData.mitgliedsart === opt.value
-                  ? "border-amber-500 bg-amber-50"
-                  : "border-slate-200 bg-slate-50/80 hover:bg-slate-100",
-                errors.mitgliedsart && "border-red-500"
+                  ? "border-dome bg-dome-tint"
+                  : "border-input bg-white hover:bg-mist",
+                errors.mitgliedsart && "border-destructive"
               )}
             >
               <input
@@ -328,12 +318,11 @@ export function MembershipForm() {
                 value={opt.value}
                 checked={formData.mitgliedsart === opt.value}
                 onChange={handleChange}
-                className="mt-1 h-4 w-4"
-                aria-invalid={!!errors.mitgliedsart}
+                className="mt-1 h-4 w-4 accent-dome"
               />
               <div>
                 <span className="font-medium">{opt.label}</span>
-                <p className="mt-0.5 text-sm text-slate-600">
+                <p className="mt-0.5 text-sm text-ink-muted">
                   {opt.description}
                 </p>
               </div>
@@ -346,7 +335,7 @@ export function MembershipForm() {
       </div>
 
       <div>
-        <label htmlFor="nachricht" className="mb-1 block text-sm font-medium text-slate-700">
+        <label htmlFor="nachricht" className="mb-2 block text-sm font-medium">
           Nachricht an den Vorstand (optional)
         </label>
         <Textarea
@@ -356,13 +345,9 @@ export function MembershipForm() {
           onChange={handleChange}
           maxLength={NACHRICHT_MAX}
           rows={4}
-          className={cn(
-            "resize-y rounded-xl border border-input bg-muted/50 text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-amber-500",
-            errors.nachricht && "border-red-500"
-          )}
           aria-invalid={!!errors.nachricht}
         />
-        <p className="mt-1 text-xs text-muted-foreground">
+        <p className="mt-1 text-xs text-ink-muted">
           {formData.nachricht.length} / {NACHRICHT_MAX} Zeichen
         </p>
         {errors.nachricht && (
@@ -370,7 +355,7 @@ export function MembershipForm() {
         )}
       </div>
 
-      <div className="space-y-4 border-t border-slate-200 pt-6">
+      <div className="space-y-4 border-t border-line pt-6">
         <div className="flex items-start gap-3">
           <input
             type="checkbox"
@@ -378,10 +363,10 @@ export function MembershipForm() {
             name="checkboxAntrag"
             checked={formData.checkboxAntrag}
             onChange={handleChange}
-            className="mt-1 h-4 w-4 accent-amber-500"
+            className="mt-1 h-4 w-4 accent-dome"
             aria-invalid={!!errors.checkboxAntrag}
           />
-          <label htmlFor="checkboxAntrag" className="text-sm text-slate-700">
+          <label htmlFor="checkboxAntrag" className="text-sm text-ink-soft">
             Ich beantrage hiermit die Mitgliedschaft im Verein. *
           </label>
         </div>
@@ -396,12 +381,12 @@ export function MembershipForm() {
             name="checkboxDatenschutz"
             checked={formData.checkboxDatenschutz}
             onChange={handleChange}
-            className="mt-1 h-4 w-4 accent-amber-500"
+            className="mt-1 h-4 w-4 accent-dome"
             aria-invalid={!!errors.checkboxDatenschutz}
           />
-          <label htmlFor="checkboxDatenschutz" className="text-sm text-slate-700">
+          <label htmlFor="checkboxDatenschutz" className="text-sm text-ink-soft">
             Ich habe die{" "}
-            <Link href="/datenschutz" className="text-amber-600 underline hover:no-underline">
+            <Link href="/datenschutz" className="text-dome underline hover:no-underline">
               Datenschutzhinweise
             </Link>{" "}
             gelesen und bin einverstanden. *
@@ -418,15 +403,15 @@ export function MembershipForm() {
             name="checkboxSatzung"
             checked={formData.checkboxSatzung}
             onChange={handleChange}
-            className="mt-1 h-4 w-4 accent-amber-500"
+            className="mt-1 h-4 w-4 accent-dome"
           />
-          <label htmlFor="checkboxSatzung" className="text-sm text-slate-700">
+          <label htmlFor="checkboxSatzung" className="text-sm text-ink-soft">
             Ich erkenne die{" "}
             <a
               href={site.satzung.download}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-600 underline hover:no-underline"
+              className="text-dome underline hover:no-underline"
             >
               Satzung
             </a>{" "}
@@ -436,14 +421,15 @@ export function MembershipForm() {
       </div>
 
       {submitError && (
-        <p className="rounded-lg bg-destructive/10 border border-destructive/30 p-3 text-sm text-destructive">
+        <p className="rounded-control border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive" role="alert">
           {submitError}
         </p>
       )}
 
       <Button
         type="submit"
-        className="h-12 w-full rounded-xl uppercase sm:w-auto sm:min-w-[200px] bg-amber-500 text-slate-900 hover:bg-amber-400"
+        size="lg"
+        className="w-full sm:w-auto sm:min-w-50"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Wird gesendet…" : "Antrag absenden"}

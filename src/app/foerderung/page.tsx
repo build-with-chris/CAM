@@ -1,172 +1,109 @@
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Section, SectionHeader } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Feature16Foerderung } from '@/components/feature16Foerderung';
-import { site } from '@/content/site';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Bath, Check, Coffee, FileDown, MonitorPlay, Shield, type LucideIcon } from 'lucide-react';
+import { Seitenkopf } from '@/components/layout/Seitenkopf';
+import { Section, SectionHeader } from '@/components/ui/Section';
+import { Button } from '@/components/ui/Button';
+import { site } from '@/content/site';
+
+export const metadata: Metadata = {
+  title: 'Förderung | Circus Akademie München e.V.',
+  description:
+    'Zeitgenössischer Zirkus als Kultur- und Begegnungsraum für München. Kulturverein mit festem Veranstaltungsort im Geodome – aktuell Umbau & Upgrade.',
+};
+
+const EINSATZ_ICONS: LucideIcon[] = [Bath, Shield, MonitorPlay, Coffee];
 
 export default function FoerderungPage() {
+  const { hero, mehrwert, finanzplan, einsatz, unterlagen, kontakt } = site.foerderung;
+
   return (
-    <main className="min-h-screen">
-      <a href="#main-content" className="skip-link">
-        Zum Hauptinhalt springen
-      </a>
-      <Header />
-      <div id="main-content">
-        {/* Hero */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-base-bg pt-24 pb-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-4xl text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-base-text leading-tight tracking-tight mb-6">
-              {site.foerderung.hero.headline}
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-base-muted leading-relaxed max-w-3xl mx-auto mb-8">
-              {site.foerderung.hero.lead}
-            </p>
-            <Link href={site.foerderung.hero.cta.href}>
-              <Button size="lg" variant="primary">
-                {site.foerderung.hero.cta.text}
-              </Button>
-            </Link>
-          </div>
-        </section>
+    <>
+      <Seitenkopf titel={hero.headline} einleitung={hero.lead}>
+        <Button asChild size="lg">
+          <Link href={hero.cta.href}>{hero.cta.text}</Link>
+        </Button>
+      </Seitenkopf>
 
-        {/* Öffentlicher Mehrwert */}
-        <Section id="mehrwert" background="gray">
-          <SectionHeader
-            title="Öffentlicher Mehrwert"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {site.foerderung.mehrwert.map((punkt, index) => (
-              <Card key={index} hover className="bg-base-surface border-white/10">
-                <div className="flex items-start space-x-3">
-                  <svg className="w-6 h-6 text-brand-primary flex-shrink-0 mt-0.5" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <p className="text-base-text leading-relaxed">{punkt}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Section>
+      <Section id="mehrwert">
+        <SectionHeader title="Öffentlicher Mehrwert" />
+        <ul className="grid gap-x-12 gap-y-5 md:grid-cols-2">
+          {mehrwert.map((punkt) => (
+            <li key={punkt} className="flex gap-4 border-t border-line pt-5">
+              <Check aria-hidden="true" className="mt-1 size-5 shrink-0 text-dome" />
+              <span className="text-lg text-ink-soft">{punkt}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-        {/* Finanzplan Umbau */}
-        <Section id="finanzplan" background="white">
-          <SectionHeader
-            title={site.foerderung.finanzplan.ueberschrift}
-          />
-          <div className="max-w-5xl mx-auto">
-            <div className="space-y-6">
-              {site.foerderung.finanzplan.rubriken.map((rubrik: any, idx: number) => (
-                <div
-                  key={idx}
-                  className="bg-base-surface rounded-lg p-6 border border-white/10"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
-                    <h3 className="text-xl font-semibold text-base-text">
-                      {rubrik.titel}
-                    </h3>
-                    <p className="text-sm text-base-muted font-medium">
-                      {rubrik.summe}
-                    </p>
+      <Section id="finanzplan" background="gray">
+        <SectionHeader title={finanzplan.ueberschrift} />
+        <div className="grid gap-6 lg:grid-cols-2">
+          {finanzplan.rubriken.map((rubrik) => (
+            <div key={rubrik.titel} className="rounded-card border border-line bg-white p-7 sm:p-8">
+              <p className="font-display text-[2.125rem] font-bold leading-tight text-dome">
+                {rubrik.summe}
+              </p>
+              <h3 className="mb-5 mt-1.5 text-xl font-semibold">{rubrik.titel}</h3>
+              <dl>
+                {rubrik.items.map((item) => (
+                  <div key={item.kategorie} className="border-t border-line py-4 last:pb-0">
+                    <dt className="font-semibold">{item.kategorie}</dt>
+                    <dd className="mt-1 text-[0.9375rem] text-ink-muted">{item.beschreibung}</dd>
                   </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {rubrik.items.map((item: any, itemIdx: number) => (
-                      <Card
-                        key={itemIdx}
-                        className="text-left py-4 gap-4"
-                      >
-                        <h4 className="text-lg font-medium text-base-text">
-                          {item.kategorie}
-                        </h4>
-                        {item.beschreibung ? (
-                          <p className="text-sm text-base-muted leading-relaxed">
-                            {item.beschreibung}
-                          </p>
-                        ) : null}
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </dl>
             </div>
-            <p className="text-center text-base-muted italic max-w-2xl mx-auto">
-              {site.foerderung.finanzplan.zusatztext}
-            </p>
-          </div>
-        </Section>
+          ))}
+        </div>
+        <p className="mt-8 max-w-2xl text-ink-muted">{finanzplan.zusatztext}</p>
+      </Section>
 
-        {/* Wofür Förderung eingesetzt wird */}
-        <section id="einsatz" className="bg-base-bg">
-          <Feature16Foerderung />
-        </section>
+      <Section id="einsatz">
+        <SectionHeader title="Wofür Förderung konkret eingesetzt wird" />
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {einsatz.map((item, index) => {
+            const Icon = EINSATZ_ICONS[index] ?? Check;
+            return (
+              <li key={item.kategorie} className="rounded-card border border-line p-6">
+                <span className="flex size-12 items-center justify-center rounded-full bg-dome-tint text-dome">
+                  <Icon aria-hidden="true" className="size-6" />
+                </span>
+                <h3 className="mb-2 mt-6 text-xl font-semibold">{item.kategorie}</h3>
+                <p className="text-ink-muted">{item.beschreibung}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </Section>
 
-        {/* Unterlagen */}
-        <Section id="unterlagen" background="white">
-          <SectionHeader
-            title="Unterlagen"
-          />
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {site.foerderung.unterlagen.map((unterlage, index) => {
-                const linkClass = "flex items-center justify-between";
-                const inner = (
-                  <>
-                    <div className="flex items-center space-x-4">
-                      <svg className="w-8 h-8 text-brand-primary flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                      </svg>
-                      <span className="text-base-text font-medium">{unterlage.titel}</span>
-                    </div>
-                    <svg className="w-5 h-5 text-base-muted" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                      <path d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </>
-                );
-                const isPdf = unterlage.link.endsWith(".pdf");
-                return (
-                  <Card key={index} hover className="cursor-pointer bg-base-surface border-white/10">
-                    {isPdf ? (
-                      <a
-                        href={unterlage.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {inner}
-                      </a>
-                    ) : (
-                      <Link href={unterlage.link} className={linkClass}>
-                        {inner}
-                      </Link>
-                    )}
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </Section>
+      <Section id="unterlagen" background="gray">
+        <SectionHeader title="Unterlagen" />
+        <ul className="grid max-w-3xl gap-4">
+          {unterlagen.map((unterlage) => (
+            <li key={unterlage.link}>
+              <a
+                href={unterlage.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-card border border-line bg-white p-5 font-medium transition-colors hover:border-dome"
+              >
+                <FileDown aria-hidden="true" className="size-7 shrink-0 text-dome" />
+                {unterlage.titel}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-        {/* Kontakt */}
-        <Section id="kontakt" background="gray">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-normal text-base-text mb-4">
-              Kontakt
-            </h2>
-            <p className="text-base-muted leading-relaxed mb-6">
-              {site.foerderung.kontakt.text}
-            </p>
-            <Link href="/kontakt">
-              <Button variant="primary" size="lg">
-                Zum Kontaktformular
-              </Button>
-            </Link>
-          </div>
-        </Section>
-      </div>
-      <Footer />
-    </main>
+      <Section id="kontakt" background="primary">
+        <h2 className="mb-5 text-3xl font-bold md:text-5xl">Kontakt</h2>
+        <p className="mb-8 max-w-2xl text-lg text-white/90">{kontakt.text}</p>
+        <Button asChild size="lg" variant="white">
+          <Link href="/kontakt">Zum Kontaktformular</Link>
+        </Button>
+      </Section>
+    </>
   );
 }

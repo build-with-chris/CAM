@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope, IBM_Plex_Mono } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/siteUrl";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
-const spaceGrotesk = Space_Grotesk({
+// Schriften wie beim Pepe Dome: Outfit für Überschriften, Inter für Fließtext.
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -65,12 +61,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="de" 
-      className={`scroll-smooth ${spaceGrotesk.variable} ${manrope.variable} ${ibmPlexMono.variable}`}
-    >
-      <body>
-        {children}
+    // data-scroll-behavior: Next 16 setzt weiches Scrollen beim Seitenwechsel sonst nicht mehr aus.
+    <html lang="de" data-scroll-behavior="smooth" className={`${outfit.variable} ${inter.variable}`}>
+      <body className="flex min-h-screen flex-col">
+        <a href="#main-content" className="skip-link">
+          Zum Hauptinhalt springen
+        </a>
+        <Header />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

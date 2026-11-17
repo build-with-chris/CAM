@@ -1,32 +1,29 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  /** white: Standard. gray: abgesetzte Fläche. primary: vollflächig DOME Blue mit weißer Schrift. */
   background?: 'white' | 'gray' | 'primary';
 }
 
+const bgStyles = {
+  white: 'bg-background',
+  gray: 'bg-mist',
+  primary: 'bg-dome text-white',
+};
+
 export const Section: React.FC<SectionProps> = ({
   children,
-  className = '',
+  className,
   id,
-  background = 'white'
+  background = 'white',
 }) => {
-  const bgStyles = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    primary: 'bg-primary-50',
-  };
-
   return (
-    <section
-      id={id}
-      className={`py-20 md:py-32 lg:py-40 ${bgStyles[background]} ${className}`}
-    >
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
-        {children}
-      </div>
+    <section id={id} className={cn('py-16 md:py-24', bgStyles[background], className)}>
+      <div className="wrap">{children}</div>
     </section>
   );
 };
@@ -36,6 +33,8 @@ interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   centered?: boolean;
+  /** h1 für den Seitentitel, sonst h2. */
+  as?: 'h1' | 'h2';
   className?: string;
 }
 
@@ -43,23 +42,27 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   kicker,
   title,
   subtitle,
-  centered = true,
-  className = ''
+  centered = false,
+  as: Heading = 'h2',
+  className,
 }) => {
-  const alignmentStyles = centered ? 'text-center' : '';
-
   return (
-    <div className={`mb-16 md:mb-20 lg:mb-24 ${alignmentStyles} ${className}`}>
+    <div className={cn('mb-10 md:mb-12', centered && 'text-center', className)}>
       {kicker && (
-        <p className="text-sm uppercase tracking-wider text-gray-500 font-medium mb-3">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-dome">
           {kicker}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal text-primary-900 mb-6 tracking-tight">
+      <Heading
+        className={cn(
+          'font-bold',
+          Heading === 'h1' ? 'text-4xl md:text-5xl' : 'text-3xl md:text-[2.75rem]'
+        )}
+      >
         {title}
-      </h2>
+      </Heading>
       {subtitle && (
-        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        <p className={cn('mt-4 max-w-2xl text-lg text-ink-muted', centered && 'mx-auto')}>
           {subtitle}
         </p>
       )}

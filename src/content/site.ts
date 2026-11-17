@@ -31,6 +31,11 @@ export const site = {
     },
   },
   home: {
+    einstieg: {
+      headline: "Zirkus neu erleben – Kunst, die Menschen verbindet.",
+    },
+    formateUeberschrift: "Unsere Formate",
+    zielgruppenUeberschrift: "So finanzieren wir uns",
     zielgruppen: [
       {
         title: "Unterstützen",
@@ -59,7 +64,7 @@ export const site = {
         title: "Produktion",
         label: "Projekte",
         description: "Ressourcen, Austausch und Sichtbarkeit für performative Projekte.",
-        image: { src: "/images/critical-spaces.webp", width: 1680, height: 1680, alt: "Drei Tänzerinnen und Tänzer halten sich in einer dunklen Halle gegenseitig im Gleichgewicht, darüber der Schriftzug Critical Spaces" },
+        image: { src: "/images/critical-spaces.webp", width: 1680, height: 1680, alt: "Drei Tänzerinnen und Tänzer halten sich in einer dunklen Halle gegenseitig im Gleichgewicht, darüber der Schriftzug Critical Spaces", fokus: "50% 80%" },
       },
       {
         title: "Open Stage",
@@ -71,13 +76,13 @@ export const site = {
         title: "Show",
         label: "Aufführung",
         description: "Aufführungen und Präsentationen: Zeitgenössischer Zirkus auf der Bühne, für Publikum sichtbar gemacht.",
-        image: { src: "/images/pepe-ensemble.webp", width: 728, height: 728, alt: "Plakatmotiv mit sechs Artistinnen und Artisten in Aktion und dem Schriftzug PEPE" },
+        image: { src: "/images/pepe-ensemble.webp", width: 728, height: 728, alt: "Plakatmotiv mit sechs Artistinnen und Artisten in Aktion und dem Schriftzug PEPE", fokus: "50% 15%" },
       },
       {
         title: "Workshops",
         label: "Weiterbildung",
         description: "Weiterbildung mit Gästen und lokalen Expert*innen – von Technik bis Kreation.",
-        image: { src: "/images/disziplinen/tellerdrehen.webp", width: 1600, height: 2400, alt: "Ein Clown in rot gemustertem Hemd hockt vor einem Kind und hilft ihm, einen Teller auf einem Stab zu drehen" },
+        image: { src: "/images/disziplinen/tellerdrehen.webp", width: 1600, height: 2400, alt: "Ein Clown in rot gemustertem Hemd hockt vor einem Kind und hilft ihm, einen Teller auf einem Stab zu drehen", fokus: "50% 63%" },
       },
     ],
     storytelling: {
@@ -142,6 +147,45 @@ export const site = {
       },
     },
   },
+  unterstuetzen: {
+    headline: "So können Sie helfen",
+    intro: "Ihre Unterstützung ermöglicht zeitgenössischen Zirkus in München. Wir schaffen Räume für künstlerische Entwicklung und bereichern die Münchner Kulturlandschaft.",
+    vorteileUeberschrift: "Vorteile:",
+    wege: [
+      {
+        title: "Unterstützer:innen",
+        text: "Unterstütze uns als Privatperson – z.B. durch Mitgliedschaft oder ideelle Unterstützung. Gemeinsam stärken wir zeitgenössischen Zirkus in München.",
+        vorteile: [
+          "Direkte Förderung der Münchner Kulturlandschaft",
+          "Unterstützung lokaler Künstler*innen",
+          "Mitgliedschaft oder ideelle Unterstützung",
+        ],
+        cta: { text: "Mitglied werden", href: "/mitglieder-werden" },
+      },
+      {
+        title: "Unternehmen",
+        text: "Als Sponsor unterstützen Sie zeitgenössischen Zirkus und erhalten gleichzeitig wertvolle Sichtbarkeit für Ihr Unternehmen oder Ihre Organisation.",
+        vorteile: [
+          "Sichtbarkeit bei Veranstaltungen und auf unserer Website",
+          "Assoziation mit innovativer, kultureller Arbeit",
+          "Zielgruppenansprache: Kulturinteressierte, Künstler*innen, Familien",
+          "CSR-Engagement mit nachhaltiger Wirkung",
+        ],
+        cta: { text: "Mehr erfahren", href: "/unterstuetzen/sponsoring" },
+      },
+      {
+        title: "Politik & Kommune",
+        text: "Förderung von Kultur und kultureller Teilhabe. Wir arbeiten an nachhaltigen Strukturen für zeitgenössischen Zirkus in München.",
+        vorteile: [
+          "Kulturelle Teilhabe fördern",
+          "Nachhaltige Strukturen",
+          "Kulturelle und soziale Wirkung",
+          "Beitrag zur Münchner Kulturlandschaft",
+        ],
+        cta: { text: "Mehr erfahren", href: "/foerderung" },
+      },
+    ],
+  },
   mitglieder: {
     intro: "Mitgliedschaft erfolgt per schriftlichem Antrag und Annahme durch den Vorstand.",
     success: "Dein Antrag ist eingegangen. Der Vorstand meldet sich per E-Mail.",
@@ -155,6 +199,12 @@ export const site = {
       datenschutz: "Ich habe die Datenschutzhinweise gelesen.",
     },
     success: "Danke! Deine Nachricht ist bei uns gelandet.",
+    merkmale: [
+      "Engagierter Kulturverein",
+      "Zeitnahe Antwort",
+      "Transparente Kommunikation",
+      "Persönlicher Kontakt",
+    ],
   },
   satzung: {
     download: satzungPdfPath,
@@ -193,6 +243,7 @@ export const site = {
       {
         name: "Bronze",
         betrag: "ab 2.500 €/Jahr",
+        beschreibung: "Ideal für Unternehmen, die zeitgenössischen Zirkus unterstützen möchten.",
         inhalt: [
           "Logo auf Website (Unterstützer-Bereich)",
           "Erwähnung in ausgewählten Social Posts",
@@ -202,6 +253,7 @@ export const site = {
       {
         name: "Silber",
         betrag: "ab 7.500 €/Jahr",
+        beschreibung: "Perfekt für Unternehmen, die mehr Sichtbarkeit und Engagement suchen.",
         inhalt: [
           "Alles aus Bronze",
           "Logo vor Ort im Geodome (je nach Format)",
@@ -212,6 +264,7 @@ export const site = {
       {
         name: "Gold",
         betrag: "ab 15.000 €/Jahr",
+        beschreibung: "Best für große Organisationen mit umfassendem Engagement.",
         inhalt: [
           "Alles aus Silber",
           "Co-Branding eines Formats (z.B. Workshop-Tag / Show-Abend)",
